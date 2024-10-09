@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ContactsPage extends StatelessWidget {
-  const ContactsPage({super.key});
+class SolutionsPage extends StatelessWidget {
+  const SolutionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contacts'),
+        title: const Text('Solutions'),
       ),
       body: const Center(
-        child: Text('Voici la page de contact.'),
+        child: Text('Voici la page des solutions.'),
       ),
     );
   }
