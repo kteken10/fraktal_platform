@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,27 +12,55 @@ class HomePage extends StatelessWidget {
           children: [
             // Logo à l'extrémité gauche
             Padding(
-              padding: const EdgeInsets.only(right: 8.0), // Espacement à droite du logo
+              padding: const EdgeInsets.only(right: 8.0),
               child: Image.asset(
-                'assets/logofraktal.jpg', 
-                height: 40, // Ajustez la hauteur selon vos besoins
+                'assets/logofraktal.jpg',
+                height: 40,
               ),
             ),
-            // Espace supplémentaire entre le logo et le rectangle
-            // const SizedBox(width: 256.0), // Espacement de 16 pixels
-
-            // Rectangle de fond blanc
+            // Rectangle de fond blanc avec icônes des réseaux sociaux
             Container(
-              padding: const EdgeInsets.all(8.0), // Espacement à l'intérieur du rectangle
+              padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: Colors.white, // Couleur de fond blanche
-                borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              child: const Text(
-                'Titre', // Remplacez par le texte souhaité
-                style: TextStyle(color: Colors.black), // Couleur du texte
+              child: Row(
+                mainAxisSize: MainAxisSize.min, // Ajuste la largeur du Row
+                children: [
+                  const Text(
+                    'Titre', // Remplacez par le texte souhaité
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const SizedBox(width: 8.0), // Espacement entre le texte et les icônes
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.instagram),
+                    onPressed: () {
+                      // Action pour Instagram
+                    },
+                  ),
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.youtube),
+                    onPressed: () {
+                      // Action pour YouTube
+                    },
+                  ),
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.linkedin),
+                    onPressed: () {
+                      // Action pour LinkedIn
+                    },
+                  ),
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.facebook),
+                    onPressed: () {
+                      // Action pour Facebook
+                    },
+                  ),
+                ],
               ),
             ),
+            const SizedBox(width: 16.0),
           ],
         ),
         actions: const [
@@ -39,14 +68,14 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/avatar.png'), // Remplacez par le chemin de votre image
-              radius: 20, // Ajustez la taille selon vos besoins
+              backgroundImage: AssetImage('assets/avatar.png'),
+              radius: 20,
             ),
           ),
         ],
       ),
       body: Container(
-        color: Theme.of(context).colorScheme.onSurface, // Utilisation de la couleur de surface du thème
+        color: Theme.of(context).colorScheme.onSurface,
         child: const Center(
           child: Text('Bienvenue sur la page d\'accueil'),
         ),
