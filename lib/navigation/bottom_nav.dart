@@ -35,7 +35,7 @@ class _BottomNavState extends State<BottomNav> {
           height: 80,
           width: 60,
         ),
-        title: 'Home',
+        title: 'Acceuil',
         activeColorPrimary: AppColors.primaryColor,
        inactiveColorPrimary: AppColors.ternaryColor
       ),
@@ -56,7 +56,7 @@ class _BottomNavState extends State<BottomNav> {
           height: 80,
           width: 60,
         ),
-        title: 'Presentation',
+        title: 'Présentation',
         activeColorPrimary: AppColors.primaryColor,
        inactiveColorPrimary: AppColors.ternaryColor
       ),

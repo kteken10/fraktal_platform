@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
+import '../../ui/animation/arrow_animated.dart';
 import '../../ui/avatar_icon.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,15 +17,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            // Logo à l'extrémité gauche
             Padding(
               padding: const EdgeInsets.only(right: .0),
               child: Image.asset(
-                'assets/logofraktal.jpg',
+                'logofraktal.png',
                 height: 40,
               ),
             ),
-            // Utiliser un Spacer pour centrer le bloc des icônes
             const Spacer(),
             if (!isSmallScreen) ...[
               Container(
@@ -42,19 +41,19 @@ class HomePage extends StatelessWidget {
                       color: Colors.pink,
                       onPressed: () {},
                     ),
-                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    const SizedBox(width: 16.0),
                     buildSocialIcon(
                       icon: FontAwesomeIcons.youtube,
                       color: Colors.red,
                       onPressed: () {},
                     ),
-                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    const SizedBox(width: 16.0),
                     buildSocialIcon(
                       icon: FontAwesomeIcons.linkedin,
                       color: Colors.blue,
                       onPressed: () {},
                     ),
-                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    const SizedBox(width: 16.0),
                     buildSocialIcon(
                       icon: FontAwesomeIcons.facebook,
                       color: Colors.blueAccent,
@@ -75,7 +74,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color.fromARGB(255, 221, 16, 16), // Couleur de fond
+                color: const Color.fromARGB(255, 221, 16, 16),
               ),
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/userlogo.png'),
@@ -85,48 +84,46 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Ligne occupante toute la largeur avec hauteur définie
-          SizedBox(
-            width: double.infinity,
-            height: 700,
-            child: Center(
-              child: Image.asset(
-                'home_carousel_1.jpg',
-                width: double.infinity,
-                height: double.infinity,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          ),
-          // Trois icônes de flèche vers le bas
-         Padding(
-  padding: const EdgeInsets.only(top: 0.0, bottom: 8.0),
-  child: Column(
-    children: [
+      body: Scrollbar(
       
-      Image.asset(
-        'arrow_down.png',
-        height: 20, 
-        width: 40,
-      ),
-      Image.asset(
-        'arrow_down.png',
-        height: 30, 
-        width: 60,
-      ),
-     
-      Image.asset(
-        'arrow_down.png',
-        height: 35, 
-        width: 80,
-      ),
-    ],
-  ),
-),
+        thumbVisibility: true, 
+        trackVisibility: true,
+        thickness: 20,
+      
+        interactive: true,
+        child: SingleChildScrollView(
           
-        ],
+        
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                height: 700,
+                child: Center(
+                  child: Image.asset(
+                    'home_carousel_1.jpg',
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              const ArrowAnimation(),
+              // Ajout d'un rectangle blanc
+              Container(
+                width: double.infinity,
+                height: 100, // Ajustez la hauteur selon vos besoins
+                color: Colors.white,
+                child: const Center(
+                  child: Text(
+                    'Nos Service',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
