@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\DevWork\FRAKTAL\fraktal_platform\build\windows\x64\CMakeFiles\15e46b6b0a09d71211e7588461fdd2b7\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B3340A18-8FD3-3306-8A47-A2A09207CCE1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

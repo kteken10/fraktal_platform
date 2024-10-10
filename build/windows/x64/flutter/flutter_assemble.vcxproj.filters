@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\DevWork\FRAKTAL\fraktal_platform\build\windows\x64\CMakeFiles\464069c8666d932b0eb545fe299ebd66\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\DevWork\FRAKTAL\fraktal_platform\build\windows\x64\CMakeFiles\f4318d920a7612b82687a85e50ba2a03\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\DevWork\FRAKTAL\fraktal_platform\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\DevWork\FRAKTAL\fraktal_platform\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B3340A18-8FD3-3306-8A47-A2A09207CCE1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
