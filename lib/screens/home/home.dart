@@ -100,30 +100,32 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          // Icone placée à l'extérieur
-          Padding(
-            padding: const EdgeInsets.only(top: 0.0, bottom: 20.0), 
-            child: Center(
-              child: Image.asset(
-                'arrow_down.png',
-                height: 40, 
-                width: 40,
-                fit: BoxFit.cover,
-              ),
-            ),
-            
-          ),
-          Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.onSurface,
-              child: const Center(
-                child: Text(
-                  'Bienvenue sur la page d\'accueil',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-          ),
+          // Trois icônes de flèche vers le bas
+         Padding(
+  padding: const EdgeInsets.only(top: 0.0, bottom: 16.0),
+  child: Column(
+    children: [
+      
+      Image.asset(
+        'arrow_down.png',
+        height: 20, 
+        width: 40,
+      ),
+      Image.asset(
+        'arrow_down.png',
+        height: 30, 
+        width: 60,
+      ),
+     
+      Image.asset(
+        'arrow_down.png',
+        height: 35, 
+        width: 80,
+      ),
+    ],
+  ),
+),
+          
         ],
       ),
     );
