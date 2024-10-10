@@ -103,27 +103,27 @@ class HomePage extends StatelessWidget {
           // Trois icônes de flèche vers le bas
          Padding(
   padding: const EdgeInsets.only(top: 0.0, bottom: 16.0),
-  child: Column(
-    children: [
+  // child: Column(
+  //   children: [
       
-      Image.asset(
-        'arrow_down.png',
-        height: 20, 
-        width: 40,
-      ),
-      Image.asset(
-        'arrow_down.png',
-        height: 30, 
-        width: 60,
-      ),
+  //     Image.asset(
+  //       'arrow_down.png',
+  //       height: 20, 
+  //       width: 40,
+  //     ),
+  //     Image.asset(
+  //       'arrow_down.png',
+  //       height: 30, 
+  //       width: 60,
+  //     ),
      
-      Image.asset(
-        'arrow_down.png',
-        height: 35, 
-        width: 80,
-      ),
-    ],
-  ),
+  //     Image.asset(
+  //       'arrow_down.png',
+  //       height: 35, 
+  //       width: 80,
+  //     ),
+  //   ],
+  // ),
 ),
           
         ],

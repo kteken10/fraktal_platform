@@ -28,7 +28,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: colorScheme,
       ),
-      home: const BottomNav(),
+      home: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.only(bottom: 10.0), // Ajustez l'espacement au besoin
+          child: const BottomNav(),
+        ),
+      ),
     );
   }
 }
