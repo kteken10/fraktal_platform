@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color.fromARGB(255, 221, 16, 16),
+                // color: const Color.fromARGB(255, 221, 16, 16),
               ),
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/userlogo.png'),
