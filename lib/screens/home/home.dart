@@ -1,84 +1,117 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../constants/colors.dart';
+import '../../ui/avatar_icon.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Récupérer la taille de l'écran
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Vérifier si l'application est sur Android ou sur un petit écran
+    final isSmallScreen = screenWidth <= 340;
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
             // Logo à l'extrémité gauche
             Padding(
-              padding: const EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.only(right: .0),
               child: Image.asset(
                 'assets/logofraktal.jpg',
                 height: 40,
               ),
             ),
-            // Rectangle de fond blanc avec icônes des réseaux sociaux
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8.0),
+            // Utiliser un Spacer pour centrer le bloc des icônes
+            const Spacer(),
+            if (!isSmallScreen) ...[
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.backColor,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(width: 8.0),
+                    buildSocialIcon(
+                      icon: FontAwesomeIcons.instagram,
+                      color: Colors.pink,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    buildSocialIcon(
+                      icon: FontAwesomeIcons.youtube,
+                      color: Colors.red,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    buildSocialIcon(
+                      icon: FontAwesomeIcons.linkedin,
+                      color: Colors.blue,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 16.0), // Espace entre les icônes
+                    buildSocialIcon(
+                      icon: FontAwesomeIcons.facebook,
+                      color: Colors.blueAccent,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min, // Ajuste la largeur du Row
-                children: [
-                  const Text(
-                    'Titre', // Remplacez par le texte souhaité
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const SizedBox(width: 8.0), // Espacement entre le texte et les icônes
-                  IconButton(
-                    icon: const FaIcon(FontAwesomeIcons.instagram),
-                    onPressed: () {
-                      // Action pour Instagram
-                    },
-                  ),
-                  IconButton(
-                    icon: const FaIcon(FontAwesomeIcons.youtube),
-                    onPressed: () {
-                      // Action pour YouTube
-                    },
-                  ),
-                  IconButton(
-                    icon: const FaIcon(FontAwesomeIcons.linkedin),
-                    onPressed: () {
-                      // Action pour LinkedIn
-                    },
-                  ),
-                  IconButton(
-                    icon: const FaIcon(FontAwesomeIcons.facebook),
-                    onPressed: () {
-                      // Action pour Facebook
-                    },
-                  ),
-                ],
-              ),
-            ),
+            ],
+            const Spacer(),
             const SizedBox(width: 16.0),
           ],
         ),
-        actions: const [
-          // Avatar utilisateur à l'extrémité droite
+        actions: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/avatar.png'),
-              radius: 20,
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Container(
+              padding: const EdgeInsets.all(2.0), // Espacement autour de l'avatar
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: const Color.fromARGB(255, 221, 16, 16), // Couleur de fond
+              ),
+              child: const CircleAvatar(
+                backgroundImage: AssetImage('assets/userlogo.png'),
+                radius: 20,
+              ),
             ),
           ),
         ],
       ),
-      body: Container(
-        color: Theme.of(context).colorScheme.onSurface,
-        child: const Center(
-          child: Text('Bienvenue sur la page d\'accueil'),
-        ),
+      body: Column(
+        children: [
+          // Ligne occupante toute la largeur avec hauteur définie
+          SizedBox(
+  width: double.infinity,
+  height: 700,
+  child: Center(
+    child: Image.asset(
+      'home_carousel_1.jpg',
+      width: double.infinity,
+      height: double.infinity,
+      fit: BoxFit.fitWidth, 
+    ),
+  ),
+),
+          Expanded(
+            child: Container(
+              color: Theme.of(context).colorScheme.onSurface,
+              child: const Center(
+                child: Text('Bienvenue sur la page d\'accueil',
+                style: TextStyle(color: Colors.black),),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
