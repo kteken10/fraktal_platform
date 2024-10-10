@@ -102,15 +102,16 @@ class HomePage extends StatelessWidget {
           ),
           // Icone placée à l'extérieur
           Padding(
-            padding: const EdgeInsets.only(top: 0.0, bottom: 20.0), // Ajustez le bottom selon le besoin
+            padding: const EdgeInsets.only(top: 0.0, bottom: 20.0), 
             child: Center(
               child: Image.asset(
                 'arrow_down.png',
-                height: 40, // Ajustez la taille de votre icône
+                height: 40, 
                 width: 40,
                 fit: BoxFit.cover,
               ),
             ),
+            
           ),
           Expanded(
             child: Container(
