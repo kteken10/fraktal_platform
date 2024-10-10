@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fraktal_platform/constants/colors.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../screens/blog/blog.dart';
 import '../screens/contacts/contacts.dart';
@@ -35,31 +36,31 @@ class _BottomNavState extends State<BottomNav> {
           width: 60,
         ),
         title: 'Home',
-        activeColorPrimary: const Color.fromARGB(255, 23, 92, 210),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.business),
         title: 'Solutions',
-        activeColorPrimary: const Color.fromARGB(255, 23, 92, 210),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.info),
         title: 'Presentation',
-        activeColorPrimary: const Color.fromARGB(255, 23, 92, 210),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.article),
         title: 'Blog',
-        activeColorPrimary: const Color.fromARGB(255, 23, 92, 210),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.contact_mail),
         title: 'Contacts',
-        activeColorPrimary: const Color.fromARGB(255, 23, 92, 210),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
     ];

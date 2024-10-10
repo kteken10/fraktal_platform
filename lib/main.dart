@@ -30,7 +30,10 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(bottom: 10.0), // Ajustez l'espacement au besoin
+        
+          padding: EdgeInsets.only(bottom: 10.0),
+           
+          // Ajustez l'espacement au besoin
           child: const BottomNav(),
         ),
       ),
