@@ -89,11 +89,8 @@ class HomePage extends StatelessWidget {
         thumbVisibility: true, 
         trackVisibility: true,
         thickness: 20,
-      
         interactive: true,
         child: SingleChildScrollView(
-          
-        
           child: Column(
             children: [
               SizedBox(
