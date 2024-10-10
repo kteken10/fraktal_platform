@@ -37,31 +37,48 @@ class _BottomNavState extends State<BottomNav> {
         ),
         title: 'Home',
         activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: Colors.grey,
+       inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.business),
+        icon: Image.asset(
+          'solution1.png',
+          height: 80,
+          width: 60,
+        )
+        ,
         title: 'Solutions',
         activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: Colors.grey,
+      inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.info),
+        icon: Image.asset(
+          'presentation1.png',
+          height: 80,
+          width: 60,
+        ),
         title: 'Presentation',
         activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: Colors.grey,
+       inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.article),
+        icon: Image.asset(
+          'blog1.png',
+          height: 80,
+          width: 60,
+        ),
         title: 'Blog',
         activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: Colors.grey,
+     inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.contact_mail),
+        icon: Image.asset(
+          'contact1.png',
+          height: 80,
+          width: 60,
+        ),
         title: 'Contacts',
         activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: Colors.grey,
+        inactiveColorPrimary: AppColors.ternaryColor
       ),
     ];
   }

@@ -70,6 +70,10 @@ flutter:
     - assets/home_carousel_1.jpg
     - assets/arrow_down.png
     - assets/acceuil.svg
+    - assets/solution1.png
+    - assets/presentation1.png
+    - assets/blog1.png
+    - assets/contact1.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
