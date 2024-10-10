@@ -10,8 +10,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Récupérer la taille de l'écran
     final screenWidth = MediaQuery.of(context).size.width;
-
-    // Vérifier si l'application est sur Android ou sur un petit écran
     final isSmallScreen = screenWidth <= 340;
 
     return Scaffold(
@@ -74,7 +72,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Container(
-              padding: const EdgeInsets.all(2.0), // Espacement autour de l'avatar
+              padding: const EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: const Color.fromARGB(255, 221, 16, 16), // Couleur de fond
@@ -91,23 +89,37 @@ class HomePage extends StatelessWidget {
         children: [
           // Ligne occupante toute la largeur avec hauteur définie
           SizedBox(
-  width: double.infinity,
-  height: 700,
-  child: Center(
-    child: Image.asset(
-      'home_carousel_1.jpg',
-      width: double.infinity,
-      height: double.infinity,
-      fit: BoxFit.fitWidth, 
-    ),
-  ),
-),
+            width: double.infinity,
+            height: 700,
+            child: Center(
+              child: Image.asset(
+                'home_carousel_1.jpg',
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          ),
+          // Icone placée à l'extérieur
+          Padding(
+            padding: const EdgeInsets.only(top: 0.0, bottom: 20.0), // Ajustez le bottom selon le besoin
+            child: Center(
+              child: Image.asset(
+                'arrow_down.png',
+                height: 40, // Ajustez la taille de votre icône
+                width: 40,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
               color: Theme.of(context).colorScheme.onSurface,
               child: const Center(
-                child: Text('Bienvenue sur la page d\'accueil',
-                style: TextStyle(color: Colors.black),),
+                child: Text(
+                  'Bienvenue sur la page d\'accueil',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
           ),

@@ -68,6 +68,7 @@ flutter:
     - assets/logofraktal.jpg
     - assets/userlogo.png
     - assets/home_carousel_1.jpg
+    - assets/arrow_down.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
