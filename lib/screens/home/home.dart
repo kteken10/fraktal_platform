@@ -89,7 +89,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body:  Column(
+      body:
+      ListView( 
+        children: [
+      Column(
             children: [
               const CarouselWidget(),
               Center(
@@ -120,7 +123,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ],
-          ),
+          )
+          ]
+      ),
       
     
     );
