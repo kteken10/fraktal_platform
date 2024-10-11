@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'constants/colors.dart';
 import 'navigation/bottom_nav.dart';
-import 'screens/home/home.dart';
 import 'ui/event/custom_scroll.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
