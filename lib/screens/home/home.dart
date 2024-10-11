@@ -95,11 +95,11 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              const CarouselWidget(),
+              const CarouselWidget(imagePaths: ['home_carousel_1.jpg','home_carousel_2.jpg'],),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
-              const SizedBox(height: 40),
+              
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 32.0),
                 child: Row(

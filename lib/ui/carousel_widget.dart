@@ -1,23 +1,145 @@
 import 'package:flutter/material.dart';
 
-class CarouselWidget extends StatelessWidget {
-  const CarouselWidget({super.key});
+class CarouselWidget extends StatefulWidget {
+  final double width;
+  final double height;
+  final List<String> imagePaths;
 
+  const CarouselWidget({
+    super.key,
+    this.width = double.infinity,
+    this.height = 640,
+    required this.imagePaths,
+  });
 
+  @override
+  // ignore: library_private_types_in_public_api
+  _CarouselWidgetState createState() => _CarouselWidgetState();
+}
+
+class _CarouselWidgetState extends State<CarouselWidget> {
+  late PageController _pageController;
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _currentPage);
+    Future.delayed(Duration(seconds: 5), _autoScroll);
+  }
+
+  void _autoScroll() {
+    if (_currentPage < widget.imagePaths.length - 1) {
+      _currentPage++;
+      _pageController.animateToPage(
+        _currentPage,
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOutExpo,
+      );
+    } else {
+      // Lorsque la dernière page est atteinte, sauter immédiatement à la première
+      Future.delayed(Duration(milliseconds: 800), () {
+        _currentPage = 0; // Réinitialiser la page courante
+        _pageController.jumpToPage(_currentPage); // Aller à la première page sans animation
+      });
+    }
+
+    Future.delayed(Duration(seconds: 5), _autoScroll);
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 640,
-      child: Center(
-        child: Image.asset(
-          'home_carousel_1.jpg', 
-          width: double.infinity,
-          height: double.infinity,
-          fit: BoxFit.fitWidth,
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: widget.imagePaths.length,
+            itemBuilder: (context, index) {
+              return Center(
+                child: Image.asset(
+                  widget.imagePaths[index],
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              );
+            },
+            onPageChanged: _onPageChanged,
+          ),
         ),
-      ),
+        Positioned(
+          bottom: 20,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(widget.imagePaths.length, (index) {
+              return AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                width: _currentPage == index ? 12 : 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: _currentPage == index ? Colors.white : Colors.grey,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              );
+            }),
+          ),
+        ),
+        Positioned(
+          left: 16,
+          top: (widget.height / 2) - 20,
+          child: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              if (_currentPage == 0) {
+                _currentPage = widget.imagePaths.length - 1;
+              } else {
+                _currentPage--;
+              }
+              _pageController.animateToPage(
+                _currentPage,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        ),
+        Positioned(
+          right: 16,
+          top: (widget.height / 2) - 20,
+          child: IconButton(
+            icon: Icon(Icons.arrow_forward, color: Colors.white),
+            onPressed: () {
+              if (_currentPage == widget.imagePaths.length - 1) {
+                _currentPage = 0;
+              } else {
+                _currentPage++;
+              }
+              _pageController.animateToPage(
+                _currentPage,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
