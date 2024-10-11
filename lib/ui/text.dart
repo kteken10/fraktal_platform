@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import '../constants/typography.dart';
+enum TextType {
+  textXs,
+  textSm,
+  textBase,
+  textLg,
+  textXl,
+  text2Xl,
+  text3Xl,
+  text4Xl,
+  text5Xl,
+  text6Xl,
+  text7Xl,
+  text8Xl,
+  text9Xl,
+}
 
 class TextWidget extends Text {
-  final String? typeText; 
+  final TextType? typeText; 
+
   const TextWidget(
     super.data, 
     {
@@ -27,47 +43,49 @@ class TextWidget extends Text {
   Widget build(BuildContext context) {
     // Détermine le style en fonction du type de texte
     TextStyle baseStyle;
+
     switch (typeText) {
-      case 'text-xs':
+      case TextType.textXs:
         baseStyle = AppTypography.textXs(context);
         break;
-      case 'text-sm':
+      case TextType.textSm:
         baseStyle = AppTypography.textSm(context);
         break;
-      case 'text-lg':
+      case TextType.textLg:
         baseStyle = AppTypography.textLg(context);
         break;
-      case 'text-xl':
+      case TextType.textXl:
         baseStyle = AppTypography.textXl(context);
         break;
-      case 'text-2xl':
+      case TextType.text2Xl:
         baseStyle = AppTypography.text2Xl(context);
         break;
-      case 'text-3xl':
+      case TextType.text3Xl:
         baseStyle = AppTypography.text3Xl(context);
         break;
-      case 'text-4xl':
+      case TextType.text4Xl:
         baseStyle = AppTypography.text4Xl(context);
         break;
-      case 'text-5xl':
+      case TextType.text5Xl:
         baseStyle = AppTypography.text5Xl(context);
         break;
-      case 'text-6xl':
+      case TextType.text6Xl:
         baseStyle = AppTypography.text6Xl(context);
         break;
-      case 'text-7xl':
+      case TextType.text7Xl:
         baseStyle = AppTypography.text7Xl(context);
         break;
-      case 'text-8xl':
+      case TextType.text8Xl:
         baseStyle = AppTypography.text8Xl(context);
         break;
-      case 'text-9xl':
+      case TextType.text9Xl:
         baseStyle = AppTypography.text9Xl(context);
         break;
       default:
         baseStyle = AppTypography.textBase(context);
         break;
     }
+
     TextStyle effectiveStyle = baseStyle.merge(style);
 
     return Text(

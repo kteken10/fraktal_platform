@@ -97,7 +97,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                 width: textWidth,
                 padding: const EdgeInsets.all(8.0),
                 child: TextWidget(
-                  typeText: 'text-5xl',
+                  typeText:TextType.text6Xl,
                   style:
                       TextStyle(color: const Color.fromARGB(255, 210, 71, 71)),
                   widget.texts[_currentPage],
