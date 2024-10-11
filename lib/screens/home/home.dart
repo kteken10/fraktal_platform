@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
-import '../../ui/animation/arrow_animated.dart';
 import '../../ui/avatar_icon.dart';
 
 class HomePage extends StatelessWidget {
@@ -83,41 +82,40 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: 
-       
-      
-         ListView(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              height: 640,
-              child: Center(
-                child: Image.asset(
-                  'home_carousel_1.jpg',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-            ),
-            const ArrowAnimation(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32.0), 
-              child: Container(
+      body: ListView(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: 600,
+            child: Center(
+              child: Image.asset(
+                'home_carousel_1.jpg',
                 width: double.infinity,
-                height: 1000,
-                color: const Color.fromARGB(255, 174, 38, 38),
-                child: const Center(
-                  child: Text(
-                    'Nos Services',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
+                height: double.infinity,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          ),
+          // Flèche animée juste après le carrousel
+          Center(
+            child: Image.asset('arrow_down.gif'),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32.0), 
+            child: Container(
+              width: double.infinity,
+              height: 1000,
+              color: const Color.fromARGB(255, 174, 38, 38),
+              child: const Center(
+                child: Text(
+                  'Nos Services',
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
             ),
-          ],
-        ),
-    
+          ),
+        ],
+      ),
     );
   }
 }
