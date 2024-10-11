@@ -14,7 +14,7 @@ Widget buildSocialIcon({
       color: Colors.white, // Couleur de fond
     ),
     child: CircleAvatar(
-      radius: 20,
+      radius: 15,
       backgroundColor: Colors.white,
       child: IconButton(
         icon: FaIcon(
@@ -22,7 +22,7 @@ Widget buildSocialIcon({
           color: color,
         ),
         onPressed: onPressed,
-        iconSize: 20, // Ajustez la taille de l'icône si nécessaire
+        iconSize: 15, // Ajustez la taille de l'icône si nécessaire
       ),
     ),
   );
