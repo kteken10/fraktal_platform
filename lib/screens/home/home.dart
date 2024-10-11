@@ -3,15 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_widget.dart';
+import '../../ui/rectangle.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
   @override
   // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
@@ -25,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isSmallScreen = screenWidth <= 340;
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -120,64 +118,53 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              // Nouveau Container divisé en deux colonnes
+              
               SizedBox(
-                height: 1200,
-               
+                height: 800,
                 child: Row(
                   children: [
-                    // Première colonne (3/4 de la largeur)
+                   
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: Row(
                         children: [
-                          // Colonne 1 de la première colonne
+                         
                           Expanded(
-                            child: Container(
-                              color: Colors.white, // Couleur de fond blanche
-                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
-                              child: const Center(
-                                child: Text(
-                                  'Container 1',
-                                  style: TextStyle(color: Colors.black, fontSize: 24),
-                                ),
-                              ),
+                            child: Column(
+                              children: [
+                                Rectangle(label: 'Rectangle 1A'),
+                                Rectangle(label: 'Rectangle 1B'),
+                              ],
                             ),
                           ),
-                          // Colonne 2 de la première colonne
+                          
                           Expanded(
-                            child: Container(
-                              color: Colors.white, // Couleur de fond blanche
-                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
-                              child: const Center(
-                                child: Text(
-                                  'Container 2',
-                                  style: TextStyle(color: Colors.black, fontSize: 24),
-                                ),
-                              ),
+                            child: Column(
+                              children: [
+                                Rectangle(label: 'Rectangle 2A'),
+                                Rectangle(label: 'Rectangle 2B'),
+                              
+                                
+                              ],
                             ),
                           ),
-                          // Colonne 3 de la première colonne
+                          
                           Expanded(
-                            child: Container(
-                              color: Colors.white, // Couleur de fond blanche
-                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
-                              child: const Center(
-                                child: Text(
-                                  'Container 3',
-                                  style: TextStyle(color: Colors.black, fontSize: 24),
-                                ),
-                              ),
+                            child: Column(
+                              children: [
+                                Rectangle(label: 'Rectangle 3A'),
+                                Rectangle(label: 'Rectangle 3B'),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                    // Deuxième colonne (1/4 de la largeur)
+               
                     Expanded(
                       flex: 1,
                       child: Container(
-                        color: Colors.green, // Couleur de fond pour la deuxième colonne
+                        color: Colors.green,
                         child: const Center(
                           child: Text(
                             'Colonne 2',
