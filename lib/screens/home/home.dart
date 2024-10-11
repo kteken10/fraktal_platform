@@ -95,7 +95,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              const CarouselWidget(imagePaths: ['home_carousel_1.jpg','home_carousel_2.jpg'],),
+              // const CarouselWidget(imagePaths: ['home_carousel_1.jpg','home_carousel_2.jpg']),
+              CarouselWidget(
+  imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
+  texts: ['Au Service du Capital Humain', 'Au Service du Capital Humain'],
+),
+
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
