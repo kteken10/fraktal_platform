@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../screens/blog/blog.dart';
@@ -30,52 +31,32 @@ class _BottomNavState extends State<BottomNav> {
   List<PersistentBottomNavBarItem> _navBarsItems(BuildContext context) {
     return [
       PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'acceuil1.png',
-          height: 80,
-          width: 60,
-        ),
-        title: 'Acceuil',
+        icon: Icon(FontAwesomeIcons.house),
+        title: 'Accueil',
         activeColorPrimary: AppColors.primaryColor,
-       inactiveColorPrimary: AppColors.ternaryColor
+        inactiveColorPrimary: AppColors.ternaryColor
       ),
+
       PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'solution1.png',
-          height: 80,
-          width: 60,
-        )
-        ,
+          icon: Icon(FontAwesomeIcons.puzzlePiece),
         title: 'Solutions',
         activeColorPrimary: AppColors.primaryColor,
       inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'presentation1.png',
-          height: 80,
-          width: 60,
-        ),
+         icon: Icon(FontAwesomeIcons.clipboardList),
         title: 'Présentation',
         activeColorPrimary: AppColors.primaryColor,
        inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'blog1.png',
-          height: 80,
-          width: 60,
-        ),
+       icon: Icon(FontAwesomeIcons.blog),
         title: 'Blog',
         activeColorPrimary: AppColors.primaryColor,
      inactiveColorPrimary: AppColors.ternaryColor
       ),
       PersistentBottomNavBarItem(
-        icon: Image.asset(
-          'contact1.png',
-          height: 80,
-          width: 60,
-        ),
+        icon: Icon(FontAwesomeIcons.addressBook),
         title: 'Contacts',
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.ternaryColor
