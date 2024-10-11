@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fraktal_platform/constants/colors.dart';
 
 class CarouselWidget extends StatefulWidget {
   final double width;
@@ -107,16 +108,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           left: 16,
           top: (widget.height / 2) - 20,
           child: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+            icon: Icon(Icons.arrow_back_ios, color:AppColors.primaryColor),
             onPressed: () {
               if (_currentPage == 0) {
-                // Aller à la dernière page
+               
                 _currentPage = widget.imagePaths.length - 1;
               } else {
-                // Aller à la page précédente
+               
                 _currentPage--;
               }
-              _pageController.jumpToPage(_currentPage); // Changement instantané
+              _pageController.jumpToPage(_currentPage); 
             },
           ),
         ),
@@ -124,16 +125,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           right: 16,
           top: (widget.height / 2) - 20,
           child: IconButton(
-            icon: Icon(Icons.arrow_forward_ios_sharp, color: Colors.white),
+            icon: Icon(Icons.arrow_forward_ios_sharp, color: AppColors.primaryColor),
             onPressed: () {
               if (_currentPage == widget.imagePaths.length - 1) {
-                // Aller à la première page
+               
                 _currentPage = 0;
               } else {
-                // Aller à la page suivante
+              
                 _currentPage++;
               }
-              _pageController.jumpToPage(_currentPage); // Changement instantané
+              _pageController.jumpToPage(_currentPage); 
             },
           ),
         ),

@@ -60,13 +60,13 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(width: 16.0),
                     buildSocialIcon(
                       icon: FontAwesomeIcons.linkedin,
-                      color: Colors.blue,
+                      color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
                     buildSocialIcon(
                       icon: FontAwesomeIcons.facebook,
-                      color: Colors.blueAccent,
+                      color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
                   ],
