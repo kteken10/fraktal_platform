@@ -33,14 +33,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
       _currentPage++;
       _pageController.animateToPage(
         _currentPage,
+
         duration: const Duration(milliseconds: 800),
-        curve: Curves.easeInOutExpo,
+        curve: Curves.easeIn,
       );
     } else {
-      // Lorsque la dernière page est atteinte, sauter immédiatement à la première
       Future.delayed(Duration(milliseconds: 800), () {
-        _currentPage = 0; // Réinitialiser la page courante
-        _pageController.jumpToPage(_currentPage); // Aller à la première page sans animation
+        _currentPage = 0; // Réinitialiser à la première page
+        
+        _pageController.jumpToPage(_currentPage
+        );
       });
     }
 
@@ -105,18 +107,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           left: 16,
           top: (widget.height / 2) - 20,
           child: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
+            icon: Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () {
               if (_currentPage == 0) {
+                // Aller à la dernière page
                 _currentPage = widget.imagePaths.length - 1;
               } else {
+                // Aller à la page précédente
                 _currentPage--;
               }
-              _pageController.animateToPage(
-                _currentPage,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
+              _pageController.jumpToPage(_currentPage); // Changement instantané
             },
           ),
         ),
@@ -124,18 +124,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           right: 16,
           top: (widget.height / 2) - 20,
           child: IconButton(
-            icon: Icon(Icons.arrow_forward, color: Colors.white),
+            icon: Icon(Icons.arrow_forward_ios_sharp, color: Colors.white),
             onPressed: () {
               if (_currentPage == widget.imagePaths.length - 1) {
+                // Aller à la première page
                 _currentPage = 0;
               } else {
+                // Aller à la page suivante
                 _currentPage++;
               }
-              _pageController.animateToPage(
-                _currentPage,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
+              _pageController.jumpToPage(_currentPage); // Changement instantané
             },
           ),
         ),
