@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
-import '../../ui/carousel_widget.dart'; // Importez le widget ici
+import '../../ui/carousel_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -89,27 +91,28 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body:
-      ListView( 
+      body: ListView(
         children: [
-      Column(
+          Column(
             children: [
               const CarouselWidget(),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
+              const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 100,
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Nos Services',
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Nos Services',
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               Container(
@@ -123,11 +126,23 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ],
-          )
-          ]
+          ),
+        ],
       ),
-      
-    
     );
   }
 }
+
+
+// child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.start,
+//                     children: const [
+//                       Padding(
+//                         padding: EdgeInsets.all(16.0),
+//                         child: Text(
+//                           'Nos Services',
+//                           style: TextStyle(fontSize: 20, color: Colors.black),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
