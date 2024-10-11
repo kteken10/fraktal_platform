@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
+import '../../ui/carousel_widget.dart'; // Importez le widget ici
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  @override
+  // ignore: library_private_types_in_public_api
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Récupérer la taille de l'écran
     final screenWidth = MediaQuery.of(context).size.width;
     final isSmallScreen = screenWidth <= 340;
 
@@ -17,11 +29,8 @@ class HomePage extends StatelessWidget {
         title: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: .0),
-              child: Image.asset(
-                'logofraktal.png',
-                height: 40,
-              ),
+              padding: const EdgeInsets.only(right: 0.0),
+              child: Image.asset('logofraktal.png', height: 40),
             ),
             const Spacer(),
             if (!isSmallScreen) ...[
@@ -71,9 +80,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Container(
               padding: const EdgeInsets.all(2.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
+              decoration: BoxDecoration(shape: BoxShape.circle),
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/userlogo.png'),
                 radius: 20,
@@ -82,40 +89,40 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: 600,
-            child: Center(
-              child: Image.asset(
-                'home_carousel_1.jpg',
-                width: double.infinity,
-                height: double.infinity,
-                fit: BoxFit.fitWidth,
+      body:  Column(
+            children: [
+              const CarouselWidget(),
+              Center(
+                child: Image.asset('arrow_down.gif'),
               ),
-            ),
-          ),
-          // Flèche animée juste après le carrousel
-          Center(
-            child: Image.asset('arrow_down.gif'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32.0), 
-            child: Container(
-              width: double.infinity,
-              height: 1000,
-              color: const Color.fromARGB(255, 174, 38, 38),
-              child: const Center(
-                child: Text(
-                  'Nos Services',
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  color: Colors.white,
+                  child: const Center(
+                    child: Text(
+                      'Nos Services',
+                      style: TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Container(
+                height: 1200,
+                color: Colors.red,
+                child: const Center(
+                  child: Text(
+                    'Contenu supplémentaire pour le défilement',
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+      
+    
     );
   }
 }
