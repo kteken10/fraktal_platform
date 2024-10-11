@@ -99,7 +99,10 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                 child: TextWidget(
                   typeText:TextType.text6Xl,
                   style:
-                      TextStyle(color: const Color.fromARGB(255, 210, 71, 71)),
+                      TextStyle(
+                        color: AppColors.primaryColor
+                        )
+                        ,
                   widget.texts[_currentPage],
                 ),
               ),

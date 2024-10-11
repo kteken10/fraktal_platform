@@ -95,16 +95,16 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              // const CarouselWidget(imagePaths: ['home_carousel_1.jpg','home_carousel_2.jpg']),
               CarouselWidget(
-  imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
-  texts: ['Au Service du Capital Humain', 'Au Service du Capital Humain'],
-),
-
+                imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
+                texts: [
+                  'Au Service du Capital Humain',
+                  'Au Service du Capital Humain'
+                ],
+              ),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
-              
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 32.0),
                 child: Row(
@@ -120,14 +120,73 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Container(
+              // Nouveau Container divisé en deux colonnes
+              SizedBox(
                 height: 1200,
-                color: Colors.red,
-                child: const Center(
-                  child: Text(
-                    'Contenu supplémentaire pour le défilement',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
+               
+                child: Row(
+                  children: [
+                    // Première colonne (3/4 de la largeur)
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: [
+                          // Colonne 1 de la première colonne
+                          Expanded(
+                            child: Container(
+                              color: Colors.white, // Couleur de fond blanche
+                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
+                              child: const Center(
+                                child: Text(
+                                  'Container 1',
+                                  style: TextStyle(color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Colonne 2 de la première colonne
+                          Expanded(
+                            child: Container(
+                              color: Colors.white, // Couleur de fond blanche
+                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
+                              child: const Center(
+                                child: Text(
+                                  'Container 2',
+                                  style: TextStyle(color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Colonne 3 de la première colonne
+                          Expanded(
+                            child: Container(
+                              color: Colors.white, // Couleur de fond blanche
+                              margin: const EdgeInsets.all(8.0), // Marges pour espacer
+                              child: const Center(
+                                child: Text(
+                                  'Container 3',
+                                  style: TextStyle(color: Colors.black, fontSize: 24),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Deuxième colonne (1/4 de la largeur)
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        color: Colors.green, // Couleur de fond pour la deuxième colonne
+                        child: const Center(
+                          child: Text(
+                            'Colonne 2',
+                            style: TextStyle(color: Colors.white, fontSize: 24),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -137,17 +196,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-// child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.start,
-//                     children: const [
-//                       Padding(
-//                         padding: EdgeInsets.all(16.0),
-//                         child: Text(
-//                           'Nos Services',
-//                           style: TextStyle(fontSize: 20, color: Colors.black),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
