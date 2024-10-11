@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'constants/colors.dart';
 import 'navigation/bottom_nav.dart';
+import 'screens/home/home.dart';
+import 'ui/event/custom_scroll.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     const ColorScheme colorScheme = ColorScheme(
@@ -25,18 +27,18 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       title: 'FrakTal PlatForm Demo',
+      scrollBehavior: MyCustomScrollBehavior(), 
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: colorScheme,
       ),
       home: Scaffold(
         body: Padding(
-        
           padding: EdgeInsets.only(bottom: 10.0),
-           
-          // Ajustez l'espacement au besoin
           child: const BottomNav(),
         ),
       ),
+      
     );
   }
 }

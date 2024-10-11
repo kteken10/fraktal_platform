@@ -74,7 +74,6 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                // color: const Color.fromARGB(255, 221, 16, 16),
               ),
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/userlogo.png'),
@@ -84,44 +83,41 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Scrollbar(
+      body: 
+       
       
-        thumbVisibility: true, 
-        trackVisibility: true,
-        thickness: 20,
-        interactive: true,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                width: double.infinity,
-                height: 700,
-                child: Center(
-                  child: Image.asset(
-                    'home_carousel_1.jpg',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.fitWidth,
-                  ),
+         ListView(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 640,
+              child: Center(
+                child: Image.asset(
+                  'home_carousel_1.jpg',
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
-              const ArrowAnimation(),
-              // Ajout d'un rectangle blanc
-              Container(
+            ),
+            const ArrowAnimation(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32.0), 
+              child: Container(
                 width: double.infinity,
-                height: 100, // Ajustez la hauteur selon vos besoins
-                color: Colors.white,
+                height: 1000,
+                color: const Color.fromARGB(255, 174, 38, 38),
                 child: const Center(
                   child: Text(
-                    'Nos Service',
+                    'Nos Services',
                     style: TextStyle(fontSize: 20, color: Colors.black),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ),
+    
     );
   }
 }
