@@ -53,19 +53,19 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(width: 16.0),
                     buildSocialIcon(
-                      icon: FontAwesomeIcons.youtube,
+                      icon: FontAwesomeIcons.play,
                       color: Colors.red,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
                     buildSocialIcon(
-                      icon: FontAwesomeIcons.linkedin,
+                      icon: FontAwesomeIcons.linkedinIn,
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
                     buildSocialIcon(
-                      icon: FontAwesomeIcons.facebook,
+                      icon: FontAwesomeIcons.facebookF,
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
