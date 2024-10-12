@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_widget.dart';
+import '../../ui/footer.dart';
 import '../../ui/rectangle.dart';
 
 class HomePage extends StatefulWidget {
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 800,
+                height: 600,
                 child: Row(
                   children: [
                     Expanded(
@@ -143,9 +144,12 @@ class _HomePageState extends State<HomePage> {
                                     onTap: () => print(""),
                                     leftRectangleColor:
                                         AppColors.secondaryColor),
+                                      
                               ],
-                            ),
+                            ), 
+
                           ),
+                          
                           Expanded(
                             child: Column(
                               children: [
@@ -163,6 +167,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
+                         
                           Expanded(
                             child: Column(
                               children: [
@@ -182,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
+                  
                     Expanded(
                       flex: 1,
                       child: Container(
@@ -191,16 +197,28 @@ class _HomePageState extends State<HomePage> {
                             'Colonne 2',
                             style: TextStyle(color: Colors.white, fontSize: 24),
                           ),
+                          
                         ),
+                        
                       ),
+                    
                     ),
+                     
                   ],
+               
                 ),
+                 
               ),
+              
             ],
+           
           ),
+             Footer(),
         ],
+         
+       
       ),
+   
     );
   }
 }
