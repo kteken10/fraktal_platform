@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
+
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
@@ -44,25 +45,27 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(width: 8.0),
-                    buildSocialIcon(
+                    SocialIcon (
                       icon: FontAwesomeIcons.instagram,
                       color: Colors.pink,
-                      onPressed: () {},
+                      onPressed: () {
+    // Action à effectuer lors du clic
+  },
                     ),
                     const SizedBox(width: 16.0),
-                    buildSocialIcon(
+                    SocialIcon (
                       icon: FontAwesomeIcons.play,
                       color: Colors.red,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
-                    buildSocialIcon(
+                    SocialIcon (
                       icon: FontAwesomeIcons.linkedinIn,
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
-                    buildSocialIcon(
+                    SocialIcon (
                       icon: FontAwesomeIcons.facebookF,
                       color: AppColors.primaryColor,
                       onPressed: () {},
@@ -118,49 +121,67 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              
               SizedBox(
                 height: 800,
                 child: Row(
                   children: [
-                   
                     Expanded(
                       flex: 4,
                       child: Row(
                         children: [
-                         
                           Expanded(
                             child: Column(
                               children: [
-                                Rectangle(label: 'Rectangle 1A'),
-                                Rectangle(label: 'Rectangle 1B'),
+                                Rectangle(
+                                  label: 'Formation',
+                                  imagePath: 'formationlogo.png',
+                                  onTap: () => print(""),
+                                ),
+                                Rectangle(
+                                    label: 'Facility Mangement',
+                                    imagePath: 'facilitymanagementlogo.png',
+                                    onTap: () => print(""),
+                                    leftRectangleColor:
+                                        AppColors.secondaryColor),
                               ],
                             ),
                           ),
-                          
                           Expanded(
                             child: Column(
                               children: [
-                                Rectangle(label: 'Rectangle 2A'),
-                                Rectangle(label: 'Rectangle 2B'),
-                              
-                                
+                                Rectangle(
+                                  label: 'Job Board',
+                                  imagePath: 'jobboardlogo.png',
+                                  onTap: () => print(""),
+                                ),
+                                Rectangle(
+                                    label: 'MarKetingRH',
+                                    imagePath: 'marketinglogo.png',
+                                    onTap: () => print(""),
+                                    leftRectangleColor:
+                                        AppColors.secondaryColor),
                               ],
                             ),
                           ),
-                          
                           Expanded(
                             child: Column(
                               children: [
-                                Rectangle(label: 'Rectangle 3A'),
-                                Rectangle(label: 'Rectangle 3B'),
+                                Rectangle(
+                                  label: 'Management Client',
+                                  imagePath: 'managementclientlogo.png',
+                                  onTap: () => print(""),
+                                ),
+                                Rectangle(
+                                  label: 'OutSourcing',
+                                  imagePath: 'outsourcinglogo.png',
+                                  onTap: () => print(""),
+                                ),
                               ],
                             ),
                           ),
                         ],
                       ),
                     ),
-               
                     Expanded(
                       flex: 1,
                       child: Container(
