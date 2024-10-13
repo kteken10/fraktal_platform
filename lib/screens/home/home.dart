@@ -8,6 +8,7 @@ import '../../ui/rectangle.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  
   @override
   // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isSmallScreen = screenWidth <= 340;
+    
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -46,27 +48,27 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(width: 8.0),
-                    SocialIcon (
+                    SocialIcon(
                       icon: FontAwesomeIcons.instagram,
                       color: Colors.pink,
                       onPressed: () {
-    // Action à effectuer lors du clic
-  },
+                        // Action à effectuer lors du clic
+                      },
                     ),
                     const SizedBox(width: 16.0),
-                    SocialIcon (
+                    SocialIcon(
                       icon: FontAwesomeIcons.play,
                       color: Colors.red,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
-                    SocialIcon (
+                    SocialIcon(
                       icon: FontAwesomeIcons.linkedinIn,
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
-                    SocialIcon (
+                    SocialIcon(
                       icon: FontAwesomeIcons.facebookF,
                       color: AppColors.primaryColor,
                       onPressed: () {},
@@ -139,17 +141,14 @@ class _HomePageState extends State<HomePage> {
                                   onTap: () => print(""),
                                 ),
                                 Rectangle(
-                                    label: 'Facility Mangement',
-                                    imagePath: 'facilitymanagementlogo.png',
-                                    onTap: () => print(""),
-                                    leftRectangleColor:
-                                        AppColors.secondaryColor),
-                                      
+                                  label: 'Facility Mangement',
+                                  imagePath: 'facilitymanagementlogo.png',
+                                  onTap: () => print(""),
+                                  leftRectangleColor: AppColors.secondaryColor,
+                                ),
                               ],
-                            ), 
-
+                            ),
                           ),
-                          
                           Expanded(
                             child: Column(
                               children: [
@@ -159,15 +158,14 @@ class _HomePageState extends State<HomePage> {
                                   onTap: () => print(""),
                                 ),
                                 Rectangle(
-                                    label: 'MarKetingRH',
-                                    imagePath: 'marketinglogo.png',
-                                    onTap: () => print(""),
-                                    leftRectangleColor:
-                                        AppColors.secondaryColor),
+                                  label: 'MarKetingRH',
+                                  imagePath: 'marketinglogo.png',
+                                  onTap: () => print(""),
+                                  leftRectangleColor: AppColors.secondaryColor,
+                                ),
                               ],
                             ),
                           ),
-                         
                           Expanded(
                             child: Column(
                               children: [
@@ -187,7 +185,6 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                  
                     Expanded(
                       flex: 1,
                       child: Container(
@@ -197,28 +194,19 @@ class _HomePageState extends State<HomePage> {
                             'Colonne 2',
                             style: TextStyle(color: Colors.white, fontSize: 24),
                           ),
-                          
                         ),
-                        
                       ),
-                    
                     ),
-                     
                   ],
-               
                 ),
-                 
               ),
-              
+               // Ajout du Footer ici
             ],
-           
+            
           ),
-             Footer(),
+          const Footer(),
         ],
-         
-       
       ),
-   
     );
   }
 }

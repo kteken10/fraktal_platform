@@ -28,6 +28,7 @@ class PlatformInfo {
     return getScreenSize(context).width;
   }
 
+
   static double getScreenHeight(BuildContext context) {
     return getScreenSize(context).height;
   }
