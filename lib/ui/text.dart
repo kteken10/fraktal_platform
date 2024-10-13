@@ -41,7 +41,7 @@ class TextWidget extends Text {
 
   @override
   Widget build(BuildContext context) {
-    // Détermine le style en fonction du type de texte
+   
     TextStyle baseStyle;
 
     switch (typeText) {
