@@ -123,6 +123,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 450,
+                width: double.infinity,
                 child: Row(
                   children: [
                     Expanded(
@@ -182,20 +183,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    // Expanded(
-                    //   flex: 1,
-                    
-                    //   child: Container(
-                       
-                    //     color: Colors.green,
-                    //     child: const Center(
-                    //       child: Text(
-                    //         'Colonne 2',
-                    //         style: TextStyle(color: Colors.white, fontSize: 24),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+                   
                   ],
                 ),
               ),
