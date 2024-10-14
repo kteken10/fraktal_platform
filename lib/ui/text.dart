@@ -15,10 +15,8 @@ enum TextType {
   text8Xl,
   text9Xl,
 }
-
 class TextWidget extends Text {
   final TextType? typeText; 
-
   const TextWidget(
     super.data, 
     {
@@ -41,9 +39,8 @@ class TextWidget extends Text {
 
   @override
   Widget build(BuildContext context) {
-   
+  
     TextStyle baseStyle;
-
     switch (typeText) {
       case TextType.textXs:
         baseStyle = AppTypography.textXs(context);
