@@ -4,7 +4,7 @@ import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_widget.dart';
 import '../../ui/footer.dart';
-import '../../ui/rectangle.dart';
+import '../../ui/service_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -121,29 +121,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 700,
-                
-                width: 1400,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: isSmallScreen ? 2 : 3, // Deux colonnes sur mobile, trois sur grand écran
-                    crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 16.0,
-                  ),
-                  itemCount: 6, // Nombre total de rectangles
-                  itemBuilder: (context, index) {
-                    return SizedBox(
-                   
-                      child: Rectangle(
-                        label: getLabel(index),
-                        imagePath: getImagePath(index),
-                        onTap: () => print("Rectangle $index tapped"),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              ServiceCard(),
               const Footer(),
             ],
           ),
