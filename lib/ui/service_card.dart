@@ -10,14 +10,13 @@ class ServiceCard extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 600;
-          final isTablet = constraints.maxWidth <800;
-          final deskTop =  constraints.maxWidth <1400;
+         
           return isMobile
               ? Column(
                   children: [
                     _buildColumn('assets/formationlogo.png', 'Label 1'),
                     _buildColumn('assets/facilitymanagementlogo.png', 'Label 2'),
-                    _buildColumn('assets/jobboardlogo.png', 'Label 3'),
+                    _buildColumn('jobboardlogo.png', 'Label 3'),
                   ],
                 )
               : Row(
@@ -25,7 +24,7 @@ class ServiceCard extends StatelessWidget {
                   children: [
                     _buildColumn('assets/formationlogo.png', 'Label 1'),
                     _buildColumn('assets/facilitymanagementlogo.png', 'Label 2'),
-                    _buildColumn('assets/jobboardlogo.png', 'Label 3'),
+                    _buildColumn('jobboardlogo.png', 'Label 3'),
                   ],
                 );
         },
