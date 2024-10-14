@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import 'footer_card.dart'; // Assurez-vous d'importer le fichier contenant votre widget Rectangle.
+import 'package:fraktal_platform/ui/blog.dart';
+import '../utils/platform.dart';
+import 'footer_card.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final rectangleWidth = screenWidth * 0.8; 
+    final screenWidth = PlatformInfo.getScreenWidth(context);
+    final rectangleWidth = screenWidth * 0.8;
 
-    return Container(
-      height: 300,
-      color: const Color.fromARGB(255, 177, 43, 43), 
-      child: Row(
+    return SizedBox(
+      height: 600,
+      child: Column(
         children: [
-          SizedBox(
-            width: rectangleWidth,
-            child: FooterCard (
-              imagePath: 'AvaterEntrePreneur.jpg', 
-             
-            ),
+          Row(
+            children: [
+              SizedBox(
+                width: 100,
+                child: FooterCard(
+                  imagePath: 'AvaterEntrePreneur.jpg',
+                ),
+              ),
+            
+            ],
           ),
-          Expanded(
-            child: Container(),
-          ),
-         
+          const SizedBox(height: 20), 
+          const Blog(), 
         ],
       ),
     );

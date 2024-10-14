@@ -8,7 +8,6 @@ import '../../ui/rectangle.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-  
   @override
   // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
@@ -16,13 +15,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -125,11 +122,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 600,
+                height: 450,
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 4,
+                    
                       child: Row(
                         children: [
                           Expanded(
@@ -185,26 +182,29 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        color: Colors.green,
-                        child: const Center(
-                          child: Text(
-                            'Colonne 2',
-                            style: TextStyle(color: Colors.white, fontSize: 24),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Expanded(
+                    //   flex: 1,
+                    
+                    //   child: Container(
+                       
+                    //     color: Colors.green,
+                    //     child: const Center(
+                    //       child: Text(
+                    //         'Colonne 2',
+                    //         style: TextStyle(color: Colors.white, fontSize: 24),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
                // Ajout du Footer ici
+                 const Footer(),
             ],
             
           ),
-          const Footer(),
+        
         ],
       ),
     );

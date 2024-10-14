@@ -1,0 +1,69 @@
+
+à faire
+*Conception du Design de la plateforme FrakTal pour le portail des utilisateurs( Particulier , Entreprise ) 
+
+*  Création du Layout Principale 
+
+* Configurer le Thème de la plarforme en ce qui concerne les couleurs
+
+* réaliser un alignement convenable des éléments pour les section de service et solution proposé par la platforme
+(  Formation , Facility Management ,Management Client ,MarKeting RH , Outsourcing, JobBoard)
+
+* UI Section Blog 
+ 
+* Composant de présentation (Carousel ) pour toutes les sections
+
+* Création des cartes ( Blog carte ,  Formation carte )
+
+*Ajouter les composant pour les différents Réseaux de FrakTal
+
+
+///
+
+fait  :
+*Conception de Design de la plateforme FrakTal pour le portail des utilisateurs( Particulier , Entreprise ) 
+
+
+* réaliser un alignement convenable des éléments pour les section
+
+ (Service  Formation , Facility Management ,Management Client , Markéting RH , Outsourcing, JobBoard)
+
+
+* Création du Layout Principale terminer 
+
+* Composant de présentation (Carousel ) pour toutes les sections
+*UI blog( En cour )
+
+
+
+pas fait :
+
+* Création des cartes ( Blog carte ,  Formation carte )
+
+
+ à faire :
+
+*  Création des Composant Réutilisable tels que la carte Blog , la carte de formation , carte des candidats
+
+
+*finaliser la page d'accueil en y ajoutant la section des Blog
+
+*Travailler sur le Module des Formations,   Afficher la liste des formations disponible
+ (Domaine de formations , Tutoriel, Catalogue , Tutoriel)
+
+
+* Mettre sur pied un lien d'accès permettant de visualiser l'évolution de construction de la plateforme en temps réel en parallèle à l'intégration continue (Mercredi)
+
+
+
+*Méthode de Construction
+des méthodes de travail très efficace en ce qui concerne la notions de composant réutilisable et favorise le débogage pour anticiper les erreur
+
+
+*permettre aux autres membres de l'équipe de pouvoir faire des publications dans une Zone réservé aux réseaux sociaux ou encore d'importer du contenu des Réseaux de Fraktal pour les afficher dans une Zone convenable de la page
+
+1 section sur 5
+
+
+
+
