@@ -8,23 +8,25 @@ import '../../ui/rectangle.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  
   @override
-  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+  
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
+  
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isSmallScreen = screenWidth <= 340;
-    
+    final isSmallScreen = screenWidth <= 600; // Ajuste ce seuil selon tes besoins
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -48,9 +50,7 @@ class _HomePageState extends State<HomePage> {
                     SocialIcon(
                       icon: FontAwesomeIcons.instagram,
                       color: Colors.pink,
-                      onPressed: () {
-                        // Action à effectuer lors du clic
-                      },
+                      onPressed: () {},
                     ),
                     const SizedBox(width: 16.0),
                     SocialIcon(
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                 imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
                 texts: [
                   'Au Service du Capital Humain',
-                  'Au Service du Capital Humain'
+                  'Au Service du Capital Humain',
                 ],
               ),
               Center(
@@ -122,79 +122,57 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 450,
-                width: double.infinity,
-                child: Row(
-                  children: [
-                    Expanded(
-                    
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Rectangle(
-                                  label: 'Formation',
-                                  imagePath: 'formationlogo.png',
-                                  onTap: () => print(""),
-                                ),
-                                Rectangle(
-                                  label: 'Facility Mangement',
-                                  imagePath: 'facilitymanagementlogo.png',
-                                  onTap: () => print(""),
-                                  leftRectangleColor: AppColors.secondaryColor,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Rectangle(
-                                  label: 'Job Board',
-                                  imagePath: 'jobboardlogo.png',
-                                  onTap: () => print(""),
-                                ),
-                                Rectangle(
-                                  label: 'MarKetingRH',
-                                  imagePath: 'marketinglogo.png',
-                                  onTap: () => print(""),
-                                  leftRectangleColor: AppColors.secondaryColor,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Rectangle(
-                                  label: 'Management Client',
-                                  imagePath: 'managementclientlogo.png',
-                                  onTap: () => print(""),
-                                ),
-                                Rectangle(
-                                  label: 'OutSourcing',
-                                  imagePath: 'outsourcinglogo.png',
-                                  onTap: () => print(""),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                height: 700,
+                
+                width: 1400,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: isSmallScreen ? 2 : 3, // Deux colonnes sur mobile, trois sur grand écran
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 16.0,
+                  ),
+                  itemCount: 6, // Nombre total de rectangles
+                  itemBuilder: (context, index) {
+                    return SizedBox(
                    
-                  ],
+                      child: Rectangle(
+                        label: getLabel(index),
+                        imagePath: getImagePath(index),
+                        onTap: () => print("Rectangle $index tapped"),
+                      ),
+                    );
+                  },
                 ),
               ),
-               // Ajout du Footer ici
-                 const Footer(),
+              const Footer(),
             ],
-            
           ),
-        
         ],
       ),
     );
+  }
+
+  String getLabel(int index) {
+    const labels = [
+      'Formation',
+      'Facility Management',
+      'Job Board',
+      'MarKetingRH',
+      'Management Client',
+      'OutSourcing',
+    ];
+    return labels[index];
+  }
+
+  String getImagePath(int index) {
+    const imagePaths = [
+      'formationlogo.png',
+      'facilitymanagementlogo.png',
+      'jobboardlogo.png',
+      'marketinglogo.png',
+      'managementclientlogo.png',
+      'outsourcinglogo.png',
+    ];
+    return imagePaths[index];
   }
 }

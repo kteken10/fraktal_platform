@@ -41,8 +41,8 @@ class FooterCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0),
                   child: Image.asset(
                     imagePath,
-                    width: screenWidth > 600 ? 200 : 65,
-                    height: screenWidth > 600 ? 200 : 65,
+                    width: screenWidth > 600 ? 200 : 100,
+                    height: screenWidth > 600 ? 200 : 100,
                     fit: BoxFit.cover,
                   ),
                 ),
