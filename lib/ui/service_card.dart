@@ -14,17 +14,21 @@ class ServiceCard extends StatelessWidget {
           return isMobile
               ? Column(
                   children: [
-                    _buildColumn('assets/formationlogo.png', 'Label 1'),
-                    _buildColumn('assets/facilitymanagementlogo.png', 'Label 2'),
-                    _buildColumn('jobboardlogo.png', 'Label 3'),
+                    _buildColumn('assets/formationlogo.png', 'Formation'),
+                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
+                    _buildColumn('jobboardlogo.png', 'JobBoard'),
+                     _buildColumn('assets/formationlogo.png', 'Formation'),
+                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
+                    _buildColumn('jobboardlogo.png', 'JobBoard'),
                   ],
                 )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildColumn('assets/formationlogo.png', 'Label 1'),
-                    _buildColumn('assets/facilitymanagementlogo.png', 'Label 2'),
-                    _buildColumn('jobboardlogo.png', 'Label 3'),
+                    _buildColumn('assets/formationlogo.png', 'Formation'),
+                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
+                    _buildColumn('jobboardlogo.png', 'JobBoard'),
+                    
                   ],
                 );
         },
@@ -50,7 +54,7 @@ class ServiceCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
