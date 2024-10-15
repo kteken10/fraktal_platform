@@ -71,6 +71,12 @@ class _HomePageState extends State<HomePage> {
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
+                      const SizedBox(width: 16.0),
+                       SocialIcon(
+                      icon: FontAwesomeIcons.twitter,
+                      color: AppColors.primaryColor,
+                      onPressed: () {},
+                    )
                   ],
                 ),
               ),
