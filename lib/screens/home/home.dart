@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_widget.dart';
@@ -110,9 +111,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(16.0),
-                  child: Text(
+                  child: TextWidget(
+                    
+                    typeText: TextType.textXl,
                     'Nos Services et Solutions',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: TextStyle(color:AppColors.primaryColor),
                   ),
                 ),
                 const ServiceCard(),
