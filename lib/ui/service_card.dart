@@ -10,25 +10,29 @@ class ServiceCard extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 600;
-         
+
           return isMobile
               ? Column(
                   children: [
-                    _buildColumn('assets/formationlogo.png', 'Formation'),
-                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
-                    _buildColumn('jobboardlogo.png', 'JobBoard'),
-                     _buildColumn('assets/formationlogo.png', 'Formation'),
-                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
-                    _buildColumn('jobboardlogo.png', 'JobBoard'),
+                    _buildColumn('assets/formationlogo.png', 'Formation', isMobile),
+                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management', isMobile),
+                    _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
+                    _buildColumn('assets/formationlogo.png', 'MarKetingRH', isMobile),
+                    _buildColumn('assets/managementclientlogo.png', 'Management Client', isMobile),
+                    _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
                   ],
                 )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              : Wrap(
+                  spacing: 16.0, // Espacement horizontal
+                  runSpacing: 16.0, // Espacement vertical
+                  alignment: WrapAlignment.center,
                   children: [
-                    _buildColumn('assets/formationlogo.png', 'Formation'),
-                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management'),
-                    _buildColumn('jobboardlogo.png', 'JobBoard'),
-                    
+                    _buildColumn('assets/formationlogo.png', 'Formation', isMobile),
+                    _buildColumn('assets/facilitymanagementlogo.png', 'Facility Management', isMobile),
+                    _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
+                    _buildColumn('assets/formationlogo.png', 'MarKetingRH', isMobile),
+                    _buildColumn('assets/managementclientlogo.png', 'Management Client', isMobile),
+                    _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
                   ],
                 );
         },
@@ -36,11 +40,12 @@ class ServiceCard extends StatelessWidget {
     );
   }
 
-  Widget _buildColumn(String imagePath, String label) {
+  Widget _buildColumn(String imagePath, String label, bool isMobile) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8),
-      width: 500, // Largeur fixe de la carte
-      height: 200, // Hauteur fixe de la carte
+      padding: EdgeInsets.symmetric(vertical: 16),
+      margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+      width: 500, // Ajustez la largeur si nécessaire
+      // height: isMobile ?100 : 200, // Hauteur fixe de la carte
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.0),
@@ -61,7 +66,7 @@ class ServiceCard extends StatelessWidget {
             child: Image.asset(
               imagePath,
               width: 100, // Ajuste si nécessaire
-              height: 100, // Ajuste si nécessaire
+           
               fit: BoxFit.cover,
             ),
           ),
