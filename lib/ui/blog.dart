@@ -44,7 +44,7 @@ class Blog extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-              'assets/your_image.png', 
+              ' your_image.png', 
               width: 100, 
               fit: BoxFit.cover,
             ),
