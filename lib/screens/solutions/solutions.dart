@@ -24,6 +24,7 @@ class SolutionsPage extends StatelessWidget {
             // Champ de recherche avec largeur fixe
             SizedBox(
               width: 300.0, // Définir la largeur fixe
+              height: 100,
               child: SearchInput(controller: searchController),
             ),
             Row(
