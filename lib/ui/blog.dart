@@ -10,21 +10,13 @@ class Blog extends StatelessWidget {
      child: Wrap(
                  spacing: 16.0, // Espacement horizontal
                   runSpacing: 16.0, // Espacement vertical
-                  // alignment: WrapAlignment.center,
                   children: [
                   _buildColumn(),
                   _buildColumn(),
                   _buildColumn(),
                   ],
                 )
-      // child: Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     _buildColumn(),
-      //     _buildColumn(),
-      //     _buildColumn(),
-      //   ],
-      // ),
+     
     );
   }
 
@@ -52,16 +44,16 @@ class Blog extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
-              'assets/your_image.png', // Remplacez par le chemin d'image approprié
-              width: 100, // Ajustez si nécessaire
+              'assets/your_image.png', 
+              width: 100, 
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(height: 8.0), // Espacement entre l'image et le texte
+          const SizedBox(height: 8.0), 
           const Text(
-            'Blog Title', // Remplacez par le texte approprié
+            'Blog Title', 
             style: TextStyle(
-              fontSize: 16, // Taille du texte
+              fontSize: 16, 
               color: Colors.black,
             ),
           ),

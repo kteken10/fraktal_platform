@@ -8,20 +8,20 @@ import '../../ui/service_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-  
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-  
+
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -92,41 +92,36 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Column(
-            children: [
-              CarouselWidget(
-                imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
-                texts: [
-                  'Au Service du Capital Humain',
-                  'Au Service du Capital Humain',
-                ],
-              ),
-              Center(
-                child: Image.asset('arrow_down.gif'),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
-                      'Nos Services',
-                      style: TextStyle(fontSize: 20, color: Colors.black),
-                    ),
+      body: SizedBox(
+      
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                CarouselWidget(
+                  imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
+                  texts: [
+                    'Au Service du Capital Humain',
+                    'Au Service du Capital Humain',
+                  ],
+                ),
+                Center(
+                  child: Image.asset('arrow_down.gif'),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Nos Services et Solutions',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
                   ),
-                ],
-              ),
-              ServiceCard(),
-              Footer(),
-            ],
-          ),
-        ],
+                ),
+                const ServiceCard(),
+                const Footer(),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
-
-
-
 }

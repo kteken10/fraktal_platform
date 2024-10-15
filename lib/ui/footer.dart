@@ -8,20 +8,16 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
-
     return SizedBox(
-      height: 800,
+ 
       child: Column(
+        
         children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: FooterCard(
-              imagePath: 'AvaterEntrePreneur.jpg',
-            ),
+          const SizedBox(height: 20),
+          FooterCard(
+            imagePath: 'AvaterEntrePreneur.jpg',
           ),
           const SizedBox(height: 20),
-          const Blog(),
         ],
       ),
     );

@@ -8,97 +8,77 @@ class FooterCard extends StatelessWidget {
   final Color leftRectangleColor;
 
   const FooterCard({
-    Key? key,
+    super.key,
     this.addSpacing = true,
     required this.imagePath,
     this.leftRectangleColor = AppColors.primaryColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600; // Correction de l'utilisation de constraints
 
-    // Définir des tailles de texte en fonction de la largeur de l'écran
-    double textSize3Xl = screenWidth > 600 ? 24.0 : 18.0; // Taille pour text3Xl
-    double textSizeXl = screenWidth > 600 ? 20.0 : 16.0; // Taille pour textXl
-    double textSizeBase = screenWidth > 600 ? 14.0 : 12.0; // Taille pour textBase
+    return Container(
+      color: Colors.white, // Couleur de fond blanche
+      margin: const EdgeInsets.symmetric(horizontal: 16), // Ajout de const pour la constance
 
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0),
-          
-          height: screenWidth > 600 ? 300 : 248,
-         
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset(
-                    imagePath,
-                    width: screenWidth > 600 ? 200 : 100,
-                    height: screenWidth > 600 ? 200 : 100,
-                    fit: BoxFit.cover,
+      child: Column(
+        children: [
+          Center(
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.asset(
+                      imagePath,
+                      width: screenWidth > 600 ? 200 : 100,
+                      height: screenWidth > 600 ? 200 : 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-            Expanded(
-  child: Container(
-    margin: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0), // Ajout de marges horizontales
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextWidget(
-          "Particuliers et Entreprises qui utilisent déjà Fraktal",
-          typeText: TextType.text3Xl,
-          style: TextStyle(
-            color: AppColors.ternaryColor,
-            fontSize: textSize3Xl,
-            fontWeight: FontWeight.w100,
+                Expanded(
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextWidget(
+                          "Particuliers et Entreprises qui utilisent déjà Fraktal",
+                          typeText: isMobile ? TextType.text4Xl : TextType.text2Xl,
+                          style: TextStyle(
+                            color: AppColors.ternaryColor,
+                          ),
+                        ),
+                        TextWidget(
+                          "50.91K + Visiteurs sur nos plateformes",
+                          typeText: isMobile ? TextType.textXl : TextType.text2Xl,
+                          style: TextStyle(color: AppColors.grayDarkColor),
+                        ),
+                        TextWidget(
+                          "LES MEILLEURS TEMOIGNAGES",
+                          typeText: isMobile ? TextType.textXl : TextType.text2Xl,
+                          style: TextStyle(color: AppColors.primaryColor),
+                        ),
+                        TextWidget(
+                          "De Vrai chefs d'Entreprises, Employés, Candidats et Apprenants. Suivent notre communauté.",
+                          typeText: isMobile ? TextType.textXl : TextType.textBase,
+                          style: TextStyle(
+                            color: AppColors.ternaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        TextWidget(
-          "50.91K + Visiteurs sur nos plateformes",
-          typeText: TextType.textXl,
-          style: TextStyle(
-            color: AppColors.grayDarkColor,
-            fontSize: textSizeXl,
-            fontWeight: FontWeight.w100,
-          ),
-        ),
-        TextWidget(
-          "LES MEILLEURS TEMOIGNAGES",
-          typeText: TextType.textXl,
-          style: TextStyle(
-            color: AppColors.primaryColor,
-            fontSize: textSizeXl,
-            fontWeight: FontWeight.w100,
-          ),
-        ),
-        TextWidget(
-          "De Vrai chefs d'Entreprises, Employés, Candidats et Apprenants. Suivent notre communauté.",
-          typeText: TextType.textBase,
-          style: TextStyle(
-            color: AppColors.ternaryColor,
-            fontSize: textSizeBase,
-            fontWeight: FontWeight.w100,
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-            ],
-          ),
-        ),
-        if (addSpacing) const SizedBox(height: 20.0),
-      ],
+          if (addSpacing) const SizedBox(height: 20.0),
+        ],
+      ),
     );
   }
 }
