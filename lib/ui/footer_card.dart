@@ -27,8 +27,9 @@ class FooterCard extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0),
+          
           height: screenWidth > 600 ? 300 : 248,
-          width: double.infinity,
+         
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12.0),

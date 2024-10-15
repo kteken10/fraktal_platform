@@ -106,20 +106,17 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
-              Container(
-                // padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text(
-                        'Nos Services',
-                        style: TextStyle(fontSize: 20, color: Colors.black),
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'Nos Services',
+                      style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               ServiceCard(),
               Footer(),
