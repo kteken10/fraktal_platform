@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(shape: BoxShape.circle),
                     child: const CircleAvatar(
                       backgroundColor: Colors.white,
-                      backgroundImage: AssetImage('assets/userlogo.png'),
+                    backgroundImage: AssetImage('assets/userlogo.png'),
                       radius: 20,
                     ),
                   ),
