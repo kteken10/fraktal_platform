@@ -9,10 +9,11 @@ class TabService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4.0),
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+     
       decoration: BoxDecoration(
         color: AppColors.primaryColor.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(4.0),
+        borderRadius: BorderRadius.circular(24.0),
       ),
       child: Center(
         child: Text(

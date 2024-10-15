@@ -12,7 +12,7 @@ class SolutionsPage extends StatelessWidget {
     
     // Liste des labels pour les tabs
     final List<String> tabLabels = [
-      'Formation',
+      'Formations',
       'Facility Management',
       'Management Client',
       'Marketing RH',
@@ -75,7 +75,7 @@ class SolutionsPage extends StatelessWidget {
           return Container(
             margin: const EdgeInsets.all(16.0), // Marge autour du rectangle
             padding: const EdgeInsets.all(8.0), // Padding interne
-            height: 60,
+            height: 80,
             width: containerWidth, // Largeur en pourcentage
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
