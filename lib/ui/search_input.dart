@@ -21,8 +21,8 @@ class SearchInput extends StatelessWidget {
         borderRadius: BorderRadius.circular(32.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1), // Couleur de l'ombre
-            spreadRadius: 2, // Étendue de l'ombre
+            color: AppColors.primaryColor.withOpacity(0.1), // Couleur de l'ombre
+            spreadRadius: 3, // Étendue de l'ombre
             blurRadius: 8, // Flou de l'ombre
             offset: Offset(0, 3), // Position de l'ombre
           ),

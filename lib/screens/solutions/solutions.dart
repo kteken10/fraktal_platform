@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart'; 
-
 import '../../constants/colors.dart';
 import '../../ui/search_input.dart';
+import '../../ui/tab_service.dart';
 
 class SolutionsPage extends StatelessWidget {
   const SolutionsPage({super.key});
@@ -9,6 +9,16 @@ class SolutionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
+    
+    // Liste des labels pour les tabs
+    final List<String> tabLabels = [
+      'Formation',
+      'Facility Management',
+      'Management Client',
+      'Marketing RH',
+      'Outsourcing',
+      'Job Board',
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -60,40 +70,18 @@ class SolutionsPage extends StatelessWidget {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          final containerWidth = constraints.maxWidth * 0.75; // 90% de la largeur de l'écran
+          final containerWidth = constraints.maxWidth * 0.75; // 75% de la largeur de l'écran
           
           return Container(
             margin: const EdgeInsets.all(16.0), // Marge autour du rectangle
-            padding: const EdgeInsets.all(16.0), // Padding interne
-          height: 60,
+            padding: const EdgeInsets.all(8.0), // Padding interne
+            height: 60,
             width: containerWidth, // Largeur en pourcentage
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 8,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(6, (index) {
+              children: List.generate(tabLabels.length, (index) {
                 return Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4.0), // Espace entre les colonnes
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300), // Bordure pour chaque colonne
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    child: Center(
-                      child: Text('Colonne ${index + 1}'),
-                    ),
-                  ),
+                  child: TabService(title: tabLabels[index]), 
                 );
               }),
             ),
