@@ -22,8 +22,8 @@ class _BottomNavState extends State<BottomNav> {
 
   final List<Widget> _screens = [
     HomePage(),
-    PresentationPage(),
     SolutionsPage(),
+    PresentationPage(),
     BlogPage(),
     ContactsPage(),
   ];
