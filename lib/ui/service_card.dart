@@ -14,11 +14,11 @@ class ServiceCard extends StatelessWidget {
           return isMobile
               ? Column(
                   children: [
-                    _buildColumn(' formationlogo.png', 'Formation', isMobile),
-                    _buildColumn(' facilitymanagementlogo.png', 'Facility Management', isMobile),
+                    _buildColumn('formationlogo.png', 'Formation', isMobile),
+                    _buildColumn('facilitymanagementlogo.png', 'Facility Management', isMobile),
                     _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
-                    _buildColumn(' formationlogo.png', 'MarKetingRH', isMobile),
-                    _buildColumn(' managementclientlogo.png', 'Management Client', isMobile),
+                    _buildColumn('formationlogo.png', 'MarKetingRH', isMobile),
+                    _buildColumn('managementclientlogo.png', 'Management Client', isMobile),
                     _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
                   ],
                 )
@@ -27,11 +27,11 @@ class ServiceCard extends StatelessWidget {
                   runSpacing: 16.0,
                   alignment: WrapAlignment.center,
                   children: [
-                    _buildColumn(' formationlogo.png', 'Formation', isMobile),
-                    _buildColumn(' facilitymanagementlogo.png', 'Facility Management', isMobile),
+                    _buildColumn('formationlogo.png', 'Formation', isMobile),
+                    _buildColumn('facilitymanagementlogo.png', 'Facility Management', isMobile),
                     _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
-                    _buildColumn(' formationlogo.png', 'MarKetingRH', isMobile),
-                    _buildColumn(' managementclientlogo.png', 'Management Client', isMobile),
+                    _buildColumn('formationlogo.png', 'MarKetingRH', isMobile),
+                    _buildColumn('managementclientlogo.png', 'Management Client', isMobile),
                     _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
                   ],
                 );
