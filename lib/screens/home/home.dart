@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
   
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ServiceCard(),
-              const Footer(),
+              Footer(),
             ],
           ),
         ],
@@ -130,27 +131,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  String getLabel(int index) {
-    const labels = [
-      'Formation',
-      'Facility Management',
-      'Job Board',
-      'MarKetingRH',
-      'Management Client',
-      'OutSourcing',
-    ];
-    return labels[index];
-  }
 
-  String getImagePath(int index) {
-    const imagePaths = [
-      'formationlogo.png',
-      'facilitymanagementlogo.png',
-      'jobboardlogo.png',
-      'marketinglogo.png',
-      'managementclientlogo.png',
-      'outsourcinglogo.png',
-    ];
-    return imagePaths[index];
-  }
+
 }
