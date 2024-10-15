@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fraktal_platform/ui/blog.dart';
-import '../utils/platform.dart';
 import 'footer_card.dart';
 
 class Footer extends StatelessWidget {

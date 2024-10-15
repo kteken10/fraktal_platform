@@ -34,37 +34,41 @@ class FooterCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.0),
                     child: Image.asset(
                       imagePath,
-                      width: screenWidth > 600 ? 200 : 100,
-                      height: screenWidth > 600 ? 200 : 100,
+                      width: isMobile ? 100 : 200,
+                      height: isMobile ? 200 : 200,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 Expanded(
                   child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextWidget(
                           "Particuliers et Entreprises qui utilisent déjà Fraktal",
-                          typeText: isMobile ? TextType.text4Xl : TextType.text2Xl,
+                          typeText: isMobile ? TextType.textBase : TextType.text5Xl,
                           style: TextStyle(
                             color: AppColors.ternaryColor,
                           ),
                         ),
+                        const SizedBox(height: 20.0),
                         TextWidget(
                           "50.91K + Visiteurs sur nos plateformes",
-                          typeText: isMobile ? TextType.textXl : TextType.text2Xl,
+                          typeText: isMobile ? TextType.textSm : TextType.text2Xl,
                           style: TextStyle(color: AppColors.grayDarkColor),
                         ),
                         TextWidget(
                           "LES MEILLEURS TEMOIGNAGES",
-                          typeText: isMobile ? TextType.textXl : TextType.text2Xl,
+                          typeText: isMobile ? TextType.textSm : TextType.text2Xl,
                           style: TextStyle(color: AppColors.primaryColor),
                         ),
+                         const SizedBox(height: 20.0),
                         TextWidget(
                           "De Vrai chefs d'Entreprises, Employés, Candidats et Apprenants. Suivent notre communauté.",
-                          typeText: isMobile ? TextType.textXl : TextType.textBase,
+                          typeText: isMobile ? TextType.textBase  : TextType.textBase,
                           style: TextStyle(
                             color: AppColors.ternaryColor,
                           ),
