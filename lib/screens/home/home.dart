@@ -11,12 +11,37 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+  double _notificationScale = 1.0;
+  double _avatarScale = 1.0;
+
+  void _onNotificationEnter(PointerEvent details) {
+    setState(() {
+      _notificationScale = 1.1;
+    });
+  }
+
+  void _onNotificationExit(PointerEvent details) {
+    setState(() {
+      _notificationScale = 1.0;
+    });
+  }
+
+  void _onAvatarEnter(PointerEvent details) {
+    setState(() {
+      _avatarScale = 1.1;
+    });
+  }
+
+  void _onAvatarExit(PointerEvent details) {
+    setState(() {
+      _avatarScale = 1.0;
+    });
+  }
 
   @override
   void dispose() {
@@ -72,12 +97,12 @@ class _HomePageState extends State<HomePage> {
                       color: AppColors.primaryColor,
                       onPressed: () {},
                     ),
-                      const SizedBox(width: 16.0),
-                       SocialIcon(
+                    const SizedBox(width: 16.0),
+                    SocialIcon(
                       icon: FontAwesomeIcons.twitter,
                       color: AppColors.primaryColor,
                       onPressed: () {},
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -85,44 +110,57 @@ class _HomePageState extends State<HomePage> {
             const Spacer(),
             Row(
               children: [
-                // Icône de notification dans un cercle
-                Container(
-                  padding: const EdgeInsets.all(2.0), // Ajuste le padding si nécessaire
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: IconButton(
-                    icon: const Icon(Icons.notifications),
-                    color: AppColors.primaryColor, // Couleur de l'icône
-                    onPressed: () {
-                      // Action à effectuer lors du clic
-                    },
+                // Icône de notification avec animation
+                MouseRegion(
+                  onEnter: _onNotificationEnter,
+                  onExit: _onNotificationExit,
+                  child: AnimatedScale(
+                    scale: _notificationScale,
+                    duration: const Duration(milliseconds: 200),
+                    child: Container(
+                      padding: const EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.notifications),
+                        color: AppColors.primaryColor,
+                        onPressed: () {
+                          // Action à effectuer lors du clic
+                        },
+                      ),
+                    ),
                   ),
                 ),
-                // Espace horizontal entre l'icône de notification et l'avatar
-                const SizedBox(width: 16.0), // Ajuste la largeur selon tes besoins
-                // Zone pour l'Avatar utilisateur
-                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(2.0),
-                    decoration: BoxDecoration(shape: BoxShape.circle),
-                    child: const CircleAvatar(
-                      backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('userlogo.png'),
-                      radius: 20,
+                const SizedBox(width: 16.0),
+                // Avatar utilisateur avec animation
+                MouseRegion(
+                  onEnter: _onAvatarEnter,
+                  onExit: _onAvatarExit,
+                  child: AnimatedScale(
+                    scale: _avatarScale,
+                    duration: const Duration(milliseconds: 200),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(2.0),
+                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.white,
+                          backgroundImage: AssetImage('userlogo.png'),
+                          radius: 20,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-           
           ],
         ),
       ),
       body: SizedBox(
-      
         child: ListView(
           children: [
             Column(
