@@ -1,15 +1,22 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
 
-class SolutionsPage extends StatelessWidget {
+class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
+
+  @override
+  _SolutionsPageState createState() => _SolutionsPageState();
+}
+
+class _SolutionsPageState extends State<SolutionsPage> {
+  int _selectedTabIndex = 0; // Index de l'onglet sélectionné, commence avec le premier onglet
 
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
-    
+
     // Liste des labels pour les tabs
     final List<String> tabLabels = [
       'Formations',
@@ -71,7 +78,7 @@ class SolutionsPage extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           final containerWidth = constraints.maxWidth * 0.75; // 75% de la largeur de l'écran
-          
+
           return Container(
             margin: const EdgeInsets.all(16.0), // Marge autour du rectangle
             padding: const EdgeInsets.all(8.0), // Padding interne
@@ -81,7 +88,15 @@ class SolutionsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(tabLabels.length, (index) {
                 return Expanded(
-                  child: TabService(title: tabLabels[index]), 
+                  child: TabService(
+                    title: tabLabels[index],
+                    isSelected: _selectedTabIndex == index, // Vérifie si l'onglet est sélectionné
+                    onTap: () {
+                      setState(() {
+                        _selectedTabIndex = index; // Mettre à jour l'index de l'onglet sélectionné
+                      });
+                    },
+                  ),
                 );
               }),
             ),
