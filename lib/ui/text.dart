@@ -96,7 +96,7 @@ class TextWidget extends Text {
       semanticsLabel: semanticsLabel,
       softWrap: softWrap,
       textDirection: textDirection,
-      textScaleFactor: textScaleFactor,
+     
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis,
     );

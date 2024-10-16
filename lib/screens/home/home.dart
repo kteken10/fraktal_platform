@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ScrollController _scrollController = ScrollController();
+ 
   double _notificationScale = 1.0;
   double _avatarScale = 1.0;
 
@@ -44,11 +44,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
