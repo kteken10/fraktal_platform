@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isSmallScreen = screenWidth <= 600; // Ajuste ce seuil selon tes besoins
+    final isSmallScreen = screenWidth <= 600;
 
     return Scaffold(
       appBar: AppBar(
@@ -109,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(shape: BoxShape.circle),
                     child: const CircleAvatar(
                       backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('assets/userlogo.png'),
+                    backgroundImage: AssetImage('userlogo.png'),
                       radius: 20,
                     ),
                   ),
@@ -120,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Container(
+      body: SizedBox(
         height: 2000, // Définissez la hauteur souhaitée ici
         child: ListView(
           children: [
