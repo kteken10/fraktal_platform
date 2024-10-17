@@ -39,6 +39,7 @@ dependencies:
   persistent_bottom_nav_bar: any
   flutter_feather_icons:  any
   cupertino_icons: ^1.0.8
+  carousel_slider: ^5.0.0
 
 
   
