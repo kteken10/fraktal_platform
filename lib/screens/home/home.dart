@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
- 
   double _notificationScale = 1.0;
   double _avatarScale = 1.0;
 
@@ -43,8 +42,6 @@ class _HomePageState extends State<HomePage> {
       _avatarScale = 1.0;
     });
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +104,6 @@ class _HomePageState extends State<HomePage> {
             const Spacer(),
             Row(
               children: [
-                // Icône de notification avec animation
                 MouseRegion(
                   onEnter: _onNotificationEnter,
                   onExit: _onNotificationExit,
@@ -131,7 +127,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(width: 16.0),
-                // Avatar utilisateur avec animation
                 MouseRegion(
                   onEnter: _onAvatarEnter,
                   onExit: _onAvatarExit,
@@ -157,35 +152,33 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: SizedBox(
-        child: ListView(
-          children: [
-            Column(
-              children: [
-                CarouselWidget(
-                  imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
-                  texts: [
-                    'Au Service du Capital Humain',
-                    'Au Service du Capital Humain',
-                  ],
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              // CarouselWidget(
+              //   imagePaths: ['home_carousel_1.jpg', 'home_carousel_2.jpg'],
+              //   texts: [
+              //     'Au Service du Capital Humain',
+              //     'Au Service du Capital Humain',
+              //   ],
+              // ),
+              Center(
+                child: Image.asset('arrow_down.gif'),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: TextWidget(
+                  typeText: TextType.textXl,
+                  'Nos Services et Solutions',
+                  style: TextStyle(color: AppColors.primaryColor),
                 ),
-                Center(
-                  child: Image.asset('arrow_down.gif'),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: TextWidget(
-                    typeText: TextType.textXl,
-                    'Nos Services et Solutions',
-                    style: TextStyle(color: AppColors.primaryColor),
-                  ),
-                ),
-                const ServiceCard(),
-                const Footer(),
-              ],
-            ),
-          ],
-        ),
+              ),
+              const ServiceCard(),
+              const Footer(),
+            ],
+          ),
+        ],
       ),
     );
   }

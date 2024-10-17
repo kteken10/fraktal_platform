@@ -64,9 +64,11 @@ class _CarouselWidgetState extends State<CarouselWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+
       alignment: Alignment.center,
       children: [
         SizedBox(
+          
           width: widget.width,
           height: widget.height,
           child: PageView.builder(
