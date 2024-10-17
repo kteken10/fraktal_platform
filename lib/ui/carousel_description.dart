@@ -39,6 +39,7 @@ class _CarouselDescriptionState extends State<CarouselDescription> {
           height: 600,
           child: FlutterCarousel(
             options: FlutterCarouselOptions(
+              viewportFraction: 1.0,
               slideIndicator: CircularSlideIndicator(
                 slideIndicatorOptions: SlideIndicatorOptions(
                   alignment: Alignment.bottomCenter,

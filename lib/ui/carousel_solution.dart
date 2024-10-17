@@ -25,12 +25,13 @@ class _CarouselSolutionState extends State<CarouselSolution> {
 
   @override
   Widget build(BuildContext context) {
-    return Center( // Centrez le carousel
-      child: Container(
+    return Container(
+      // margin: EdgeInsets.symmetric(horizontal: 16),
+       
         width: widget.width, // Utilisez la largeur passée
         color: Colors.white, // Fond blanc
         child: SizedBox(
-          height: 400, // Hauteur du carousel
+        
           child: FlutterCarousel(
             options: FlutterCarouselOptions(
               height: 400,
@@ -63,19 +64,23 @@ class _CarouselSolutionState extends State<CarouselSolution> {
               ),
             ),
             items: List.generate(widget.imagePaths.length, (index) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  widget.imagePaths[index],
-                 
-                  width: widget.width, // Utiliser la largeur du conteneur
-                  height: 400, // Hauteur du carousel
+              return Align(
+                alignment: Alignment.centerRight, // Aligner l'image à droite
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    widget.imagePaths[index],
+                    width: 400, 
+                    height: 600,
+                   
+                  
+                  ),
                 ),
               );
             }),
           ),
         ),
-      ),
+      
     );
   }
 }

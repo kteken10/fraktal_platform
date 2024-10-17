@@ -133,9 +133,10 @@ class _SolutionsPageState extends State<SolutionsPage> {
           final containerWidth = constraints.maxWidth * 0.75; // Largeur personnalisée
 
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // Alignement à gauche
             children: [
               Container(
-                padding: const EdgeInsets.all(8.0),
+           margin: EdgeInsets.symmetric(vertical: 8),
                 width: containerWidth, // Appliquer la largeur personnalisée
                 child: Row(
                   children: List.generate(tabLabels.length, (index) {
@@ -153,19 +154,17 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   }),
                 ),
               ),
-              Expanded(
-                child: Container(
+            
+               Container(
                   // Contenu de la page en dessous des onglets
                   color: AppColors.backColor,
-                  child: Center(
-                    child: CarouselSolution(
-                      captions: captions,
-                      imagePaths: imagePaths,
-                      width: containerWidth, // Passer la largeur
-                    ),
+                  child: CarouselSolution(
+                    captions: captions,
+                    imagePaths: imagePaths,
+                    width: containerWidth, // Passer la largeur
                   ),
                 ),
-              ),
+             
             ],
           );
         },
