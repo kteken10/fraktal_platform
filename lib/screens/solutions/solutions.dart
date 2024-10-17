@@ -136,7 +136,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
             crossAxisAlignment: CrossAxisAlignment.start, // Alignement à gauche
             children: [
               Container(
-           margin: EdgeInsets.symmetric(vertical: 8),
+           margin: EdgeInsets.symmetric(vertical: 32,horizontal: 8),
                 width: containerWidth, // Appliquer la largeur personnalisée
                 child: Row(
                   children: List.generate(tabLabels.length, (index) {
@@ -156,14 +156,16 @@ class _SolutionsPageState extends State<SolutionsPage> {
               ),
             
                Container(
-                  // Contenu de la page en dessous des onglets
+                  margin: EdgeInsets.symmetric(horizontal: 16),
                   color: AppColors.backColor,
                   child: CarouselSolution(
                     captions: captions,
                     imagePaths: imagePaths,
-                    width: containerWidth, // Passer la largeur
+                    width: containerWidth, 
                   ),
                 ),
+                SizedBox(height: 8)
+                
              
             ],
           );

@@ -26,7 +26,7 @@ class _CarouselSolutionState extends State<CarouselSolution> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.symmetric(horizontal: 16),
+      
        
         width: widget.width, // Utilisez la largeur passée
         color: Colors.white, // Fond blanc
