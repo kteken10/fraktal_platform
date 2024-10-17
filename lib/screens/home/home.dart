@@ -166,6 +166,7 @@ class _HomePageState extends State<HomePage> {
               //   ],
               // ),
             CarouselDescription(
+              captions: ['Au Service Du Capital Humain','Au Service Du Capital Humain'],
             imagePaths: [
               'assets/home_carousel_1.jpg',
               'assets/home_carousel_2.jpg',
