@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import 'text.dart';
 
+
 class CarouselWidget extends StatefulWidget {
   final double width;
   final double height;
@@ -78,32 +79,32 @@ class _CarouselWidgetState extends State<CarouselWidget> {
                 widget.imagePaths[index],
                 width: double.infinity,
                 height: double.infinity,
-                fit: BoxFit.cover, // Assure que l'image remplit tout l'espace
+                fit: BoxFit.cover,
               );
             },
             onPageChanged: _onPageChanged,
           ),
         ),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            double textWidth = constraints.maxWidth * 0.6; // 3/5 de la largeur
-            return Positioned(
-              left: constraints.maxWidth * 0.1, // 1/5 de la largeur pour le décalage
-              top: (widget.height / 2) - 20, // Centrage vertical
-              child: Container(
-                width: textWidth,
-                padding: const EdgeInsets.all(8.0),
-                child: TextWidget(
-                  typeText: TextType.text6Xl,
-                  style: TextStyle(
-                    color: AppColors.primaryColor,
-                  ),
-                  widget.texts[_currentPage],
-                ),
-              ),
-            );
-          },
-        ),
+        // LayoutBuilder(
+        //   builder: (context, constraints) {
+        //     double textWidth = constraints.maxWidth * 0.6; // 3/5 de la largeur
+        //     return Positioned(
+        //       left: constraints.maxWidth * 0.1, // 1/5 de la largeur pour le décalage
+        //       top: (widget.height / 2) - 20, // Centrage vertical
+        //       child: Container(
+        //         width: textWidth,
+        //         padding: const EdgeInsets.all(8.0),
+        //         child: TextWidget(
+        //           typeText: TextType.text6Xl,
+        //           style: TextStyle(
+        //             color: AppColors.primaryColor,
+        //           ),
+        //           widget.texts[_currentPage],
+        //         ),
+        //       ),
+        //     );
+        //   },
+        // ),
         Positioned(
           bottom: 20,
           child: Row(
