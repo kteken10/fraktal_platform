@@ -10,6 +10,7 @@ class CarouselDescription extends StatefulWidget {
   const CarouselDescription({super.key, required this.imagePaths, required this.captions});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CarouselDescriptionState createState() => _CarouselDescriptionState();
 }
 
