@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 
+import 'text.dart';
+
 class TabService extends StatefulWidget {
   final String title;
   final bool isSelected; // Indique si l'onglet est sélectionné
@@ -14,6 +16,7 @@ class TabService extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _TabServiceState createState() => _TabServiceState();
 }
 
@@ -48,14 +51,17 @@ class _TabServiceState extends State<TabService> {
               color: widget.isSelected ? AppColors.primaryColor.withOpacity(0.3) : Colors.white,
               borderRadius: BorderRadius.circular(24.0),
             ),
+            
             child: Center(
-              child: Text(
+              child: TextWidget(
                 widget.title,
                 style: TextStyle(
+                  
                   color: widget.isSelected ? Colors.white : Colors.black, // Couleur du texte
                 ),
               ),
             ),
+
           ),
         ),
       ),

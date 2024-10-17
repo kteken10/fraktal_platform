@@ -77,8 +77,6 @@ class _CarouselWidgetState extends State<CarouselWidget> {
             itemBuilder: (context, index) {
               return Image.asset(
                 widget.imagePaths[index],
-                width: double.infinity,
-                height: double.infinity,
                 fit: BoxFit.cover,
               );
             },
