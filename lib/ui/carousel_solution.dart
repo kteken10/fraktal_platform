@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';  
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+import 'package:fraktal_platform/constants/colors.dart';
+import 'package:fraktal_platform/ui/text.dart';
+
+class CarouselSolution extends StatefulWidget {
+  final List<String> imagePaths;
+  final List<String> captions; // Liste de textes à afficher sur chaque image
+  final double width; // Nouvelle propriété pour la largeur
+
+  const CarouselSolution({
+    super.key, 
+    required this.imagePaths, 
+    required this.captions, 
+    required this.width, // Ajout de la largeur dans le constructeur
+  });
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _CarouselSolutionState createState() => _CarouselSolutionState();
+}
+
+class _CarouselSolutionState extends State<CarouselSolution> {
+  final FlutterCarouselController _buttonCarouselController = FlutterCarouselController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center( // Centrez le carousel
+      child: Container(
+        width: widget.width, // Utilisez la largeur passée
+        color: Colors.white, // Fond blanc
+        child: SizedBox(
+          height: 400, // Hauteur du carousel
+          child: FlutterCarousel(
+            options: FlutterCarouselOptions(
+              height: 400,
+              controller: _buttonCarouselController,
+              autoPlay: true,
+              enableInfiniteScroll: true,
+              enlargeCenterPage: false, // Désactiver l'agrandissement de la page centrale
+              viewportFraction: 1.0, // Affiche une seule image à la fois
+              onPageChanged: (index, reason) {
+                setState(() {});
+              },
+              slideIndicator: CircularSlideIndicator(
+                slideIndicatorOptions: SlideIndicatorOptions(
+                  alignment: Alignment.bottomCenter,
+                  currentIndicatorColor: Colors.white,
+                  indicatorBackgroundColor: Colors.white.withOpacity(0.5),
+                  indicatorBorderColor: Colors.white,
+                  indicatorBorderWidth: 1,
+                  indicatorRadius: 6,
+                  itemSpacing: 20,
+                  padding: const EdgeInsets.all(8.0),
+                  haloDecoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                    color: AppColors.primaryColor.withOpacity(0.5),
+                  ),
+                  haloPadding: const EdgeInsets.all(4.0),
+                  enableHalo: true,
+                  enableAnimation: true,
+                ),
+              ),
+            ),
+            items: List.generate(widget.imagePaths.length, (index) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(
+                  widget.imagePaths[index],
+                 
+                  width: widget.width, // Utiliser la largeur du conteneur
+                  height: 400, // Hauteur du carousel
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+}

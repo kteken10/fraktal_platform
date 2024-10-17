@@ -7,7 +7,6 @@ import '../../ui/carousel_description.dart';
 import '../../ui/footer.dart';
 import '../../ui/service_card.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -157,20 +156,11 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              // CarouselWidget(
-              //   imagePaths: ['home_carousel_1.jpg',
-              //                'home_carousel_2.jpg'],
-              //   texts: [
-              //     'Au Service du Capital Humain',
-              //     'Au Service du Capital Humain',
-              //   ],
-              // ),
             CarouselDescription(
               captions: ['Au Service Du Capital Humain','Au Service Du Capital Humain'],
             imagePaths: [
-              'assets/home_carousel_1.jpg',
-              'assets/home_carousel_2.jpg',
-            
+              'home_carousel_1.jpg',
+              'home_carousel_2.jpg',
               // Ajoutez d'autres chemins d'images ici
             ],
           ),

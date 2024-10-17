@@ -16,7 +16,6 @@ class CarouselDescription extends StatefulWidget {
 
 class _CarouselDescriptionState extends State<CarouselDescription> {
   final FlutterCarouselController _buttonCarouselController = FlutterCarouselController();
-  int _currentPage = 0;
 
   void _nextPage() {
     _buttonCarouselController.nextPage(
@@ -66,7 +65,6 @@ class _CarouselDescriptionState extends State<CarouselDescription> {
               enlargeCenterPage: true,
               onPageChanged: (index, reason) {
                 setState(() {
-                  _currentPage = index;
                 });
               },
             ),
@@ -84,7 +82,7 @@ class _CarouselDescriptionState extends State<CarouselDescription> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    color: Colors.black.withOpacity(0.1), // Fond semi-transparent
+                    // color: Colors.black.withOpacity(0.1), // Fond semi-transparent
                     child: TextWidget(
                       typeText: TextType.text5Xl,
                       widget.captions[index], // Texte sur l'image

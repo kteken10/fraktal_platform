@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import '../../ui/carousel_solution.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
+
 class _SolutionsPageState extends State<SolutionsPage> {
-  int _selectedTabIndex = 0; 
+  int _selectedTabIndex = 0;
   double _notificationScale = 1.0;
   double _avatarScale = 1.0;
-    void _onNotificationEnter(PointerEvent details) {
+
+  void _onNotificationEnter(PointerEvent details) {
     setState(() {
       _notificationScale = 1.1;
     });
@@ -37,7 +41,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
@@ -49,6 +52,16 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Marketing RH',
       'Outsourcing',
       'Job Board',
+    ];
+
+    final List<String> imagePaths = [
+      'formationslide1.png',
+      'formationslide2.png',
+    ];
+
+    final List<String> captions = [
+      'Apprenant',
+      'Nous vous accompagnons en mode de formation',
     ];
 
     return Scaffold(
@@ -65,7 +78,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
               height: 100,
               child: SearchInput(controller: searchController),
             ),
-           Row(
+            Row(
               children: [
                 MouseRegion(
                   onEnter: _onNotificationEnter,
@@ -103,7 +116,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                         decoration: BoxDecoration(shape: BoxShape.circle),
                         child: const CircleAvatar(
                           backgroundColor: Colors.white,
-                          backgroundImage: AssetImage('userlogo.png'),
+                          backgroundImage: AssetImage('assets/userlogo.png'),
                           radius: 20,
                         ),
                       ),
@@ -117,29 +130,43 @@ class _SolutionsPageState extends State<SolutionsPage> {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          final containerWidth = constraints.maxWidth * 0.75; 
+          final containerWidth = constraints.maxWidth * 0.75; // Largeur personnalisée
 
-          return Container(
-            margin: const EdgeInsets.all(16.0),
-            padding: const EdgeInsets.all(8.0), 
-            height: 80,
-            width: containerWidth, 
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(tabLabels.length, (index) {
-                return Expanded(
-                  child: TabService(
-                    title: tabLabels[index],
-                    isSelected: _selectedTabIndex == index,
-                    onTap: () {
-                      setState(() {
-                        _selectedTabIndex = index;
-                      });
-                    },
+          return Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                width: containerWidth, // Appliquer la largeur personnalisée
+                child: Row(
+                  children: List.generate(tabLabels.length, (index) {
+                    return Expanded(
+                      child: TabService(
+                        title: tabLabels[index],
+                        isSelected: _selectedTabIndex == index,
+                        onTap: () {
+                          setState(() {
+                            _selectedTabIndex = index;
+                          });
+                        },
+                      ),
+                    );
+                  }),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  // Contenu de la page en dessous des onglets
+                  color: AppColors.backColor,
+                  child: Center(
+                    child: CarouselSolution(
+                      captions: captions,
+                      imagePaths: imagePaths,
+                      width: containerWidth, // Passer la largeur
+                    ),
                   ),
-                );
-              }),
-            ),
+                ),
+              ),
+            ],
           );
         },
       ),
