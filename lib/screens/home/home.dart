@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
+import '../../ui/carousel_description.dart';
 import '../../ui/carousel_widget.dart';
 import '../../ui/footer.dart';
 import '../../ui/service_card.dart';
@@ -157,14 +158,22 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              CarouselWidget(
-                imagePaths: ['home_carousel_1.jpg',
-                             'home_carousel_2.jpg'],
-                texts: [
-                  'Au Service du Capital Humain',
-                  'Au Service du Capital Humain',
-                ],
-              ),
+              // CarouselWidget(
+              //   imagePaths: ['home_carousel_1.jpg',
+              //                'home_carousel_2.jpg'],
+              //   texts: [
+              //     'Au Service du Capital Humain',
+              //     'Au Service du Capital Humain',
+              //   ],
+              // ),
+            CarouselDescription(
+            imagePaths: [
+              'assets/home_carousel_1.jpg',
+              'assets/home_carousel_2.jpg',
+            
+              // Ajoutez d'autres chemins d'images ici
+            ],
+          ),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),

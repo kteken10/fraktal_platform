@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import 'text.dart';
 
-
 class CarouselWidget extends StatefulWidget {
   final double width;
   final double height;
