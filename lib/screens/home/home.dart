@@ -4,7 +4,6 @@ import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_description.dart';
-import '../../ui/carousel_widget.dart';
 import '../../ui/footer.dart';
 import '../../ui/service_card.dart';
 
