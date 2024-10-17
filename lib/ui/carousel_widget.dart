@@ -7,6 +7,7 @@ class CarouselWidget extends StatefulWidget {
   final double height;
   final List<String> imagePaths;
   final List<String> texts;
+
   const CarouselWidget({
     super.key,
     this.width = double.infinity,
@@ -64,24 +65,20 @@ class _CarouselWidgetState extends State<CarouselWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-
       alignment: Alignment.center,
       children: [
         SizedBox(
-          
           width: widget.width,
           height: widget.height,
           child: PageView.builder(
             controller: _pageController,
             itemCount: widget.imagePaths.length,
             itemBuilder: (context, index) {
-              return Center(
-                child: Image.asset(
-                  widget.imagePaths[index],
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
+              return Image.asset(
+                widget.imagePaths[index],
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover, // Assure que l'image remplit tout l'espace
               );
             },
             onPageChanged: _onPageChanged,
@@ -91,19 +88,16 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           builder: (context, constraints) {
             double textWidth = constraints.maxWidth * 0.6; // 3/5 de la largeur
             return Positioned(
-              left: constraints.maxWidth *
-                  0.1, // 1/5 de la largeur pour le décalage
+              left: constraints.maxWidth * 0.1, // 1/5 de la largeur pour le décalage
               top: (widget.height / 2) - 20, // Centrage vertical
               child: Container(
                 width: textWidth,
                 padding: const EdgeInsets.all(8.0),
                 child: TextWidget(
-                  typeText:TextType.text6Xl,
-                  style:
-                      TextStyle(
-                        color: AppColors.primaryColor
-                        )
-                        ,
+                  typeText: TextType.text6Xl,
+                  style: TextStyle(
+                    color: AppColors.primaryColor,
+                  ),
                   widget.texts[_currentPage],
                 ),
               ),
@@ -147,8 +141,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           right: 16,
           top: (widget.height / 2) - 20,
           child: IconButton(
-            icon: Icon(Icons.arrow_forward_ios_sharp,
-                color: AppColors.primaryColor),
+            icon: Icon(Icons.arrow_forward_ios_sharp, color: AppColors.primaryColor),
             onPressed: () {
               if (_currentPage == widget.imagePaths.length - 1) {
                 _currentPage = 0;
