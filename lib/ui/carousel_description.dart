@@ -8,11 +8,13 @@ class CarouselDescription extends StatefulWidget {
   const CarouselDescription({super.key, required this.imagePaths});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CarouselDescriptionState createState() => _CarouselDescriptionState();
 }
 
 class _CarouselDescriptionState extends State<CarouselDescription> {
   final FlutterCarouselController _buttonCarouselController = FlutterCarouselController();
+  // ignore: unused_field
   int _currentPage = 0;
 
   void _nextPage() {
@@ -33,7 +35,7 @@ class _CarouselDescriptionState extends State<CarouselDescription> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: 600,
           child: FlutterCarousel(
            
@@ -105,17 +107,17 @@ class _CarouselDescriptionState extends State<CarouselDescription> {
         ),
         Positioned(
           left: 16,
-          top: (600 / 2) - 20,
+          top: (600 / 2) ,
           child: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+            icon: Icon(Icons.arrow_back_ios, color: AppColors.primaryColor),
             onPressed: _previousPage,
           ),
         ),
         Positioned(
           right: 16,
-          top: (600 / 2) - 20,
+          top: (600 / 2),
           child: IconButton(
-            icon: Icon(Icons.arrow_forward_ios, color: Colors.white),
+            icon: Icon(Icons.arrow_forward_ios_sharp, color: AppColors.primaryColor),
             onPressed: _nextPage,
           ),
         ),
