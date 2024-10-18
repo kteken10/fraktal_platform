@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../ui/carousel_solution.dart';
+import '../../ui/modal/auth_modal.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
+import '../../ui/user_notif_icon.dart'; 
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
@@ -17,28 +19,37 @@ class _SolutionsPageState extends State<SolutionsPage> {
   double _notificationScale = 1.0;
   double _avatarScale = 1.0;
 
-  void _onNotificationEnter(PointerEvent details) {
+  void _onNotificationEnter() {
     setState(() {
       _notificationScale = 1.1;
     });
   }
 
-  void _onNotificationExit(PointerEvent details) {
+  void _onNotificationExit() {
     setState(() {
       _notificationScale = 1.0;
     });
   }
 
-  void _onAvatarEnter(PointerEvent details) {
+  void _onAvatarEnter() {
     setState(() {
       _avatarScale = 1.1;
     });
   }
 
-  void _onAvatarExit(PointerEvent details) {
+  void _onAvatarExit() {
     setState(() {
       _avatarScale = 1.0;
     });
+  }
+
+  void _openAuthModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AuthModal(); 
+      },
+    );
   }
 
   @override
@@ -78,66 +89,28 @@ class _SolutionsPageState extends State<SolutionsPage> {
               height: 100,
               child: SearchInput(controller: searchController),
             ),
-            Row(
-              children: [
-                MouseRegion(
-                  onEnter: _onNotificationEnter,
-                  onExit: _onNotificationExit,
-                  child: AnimatedScale(
-                    scale: _notificationScale,
-                    duration: const Duration(milliseconds: 200),
-                    child: Container(
-                      padding: const EdgeInsets.all(2.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        icon: const Icon(Icons.notifications),
-                        color: AppColors.primaryColor,
-                        onPressed: () {
-                          // Action à effectuer lors du clic
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16.0),
-                MouseRegion(
-                  onEnter: _onAvatarEnter,
-                  onExit: _onAvatarExit,
-                  child: AnimatedScale(
-                    scale: _avatarScale,
-                    duration: const Duration(milliseconds: 200),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(2.0),
-                        decoration: BoxDecoration(shape: BoxShape.circle),
-                        child: const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          backgroundImage: AssetImage('assets/userlogo.png'),
-                          radius: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            UserNotifIcon(
+              notificationScale: _notificationScale,
+              avatarScale: _avatarScale,
+              onNotificationHoverEnter: _onNotificationEnter,
+              onNotificationHoverExit: _onNotificationExit,
+              onAvatarHoverEnter: _onAvatarEnter,
+              onAvatarHoverExit: _onAvatarExit,
+              onAvatarTap: _openAuthModal, // Ouvrir la modale sur le clic
             ),
           ],
         ),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          final containerWidth = constraints.maxWidth * 0.75; // Largeur personnalisée
+          final containerWidth = constraints.maxWidth * 0.75;
 
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Alignement à gauche
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-           margin: EdgeInsets.symmetric(vertical: 32,horizontal: 8),
-                width: containerWidth, // Appliquer la largeur personnalisée
+                margin: EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+                width: containerWidth,
                 child: Row(
                   children: List.generate(tabLabels.length, (index) {
                     return Expanded(
@@ -154,19 +127,16 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   }),
                 ),
               ),
-            
-               Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  color: AppColors.backColor,
-                  child: CarouselSolution(
-                    captions: captions,
-                    imagePaths: imagePaths,
-                    width: containerWidth, 
-                  ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                color: AppColors.backColor,
+                child: CarouselSolution(
+                  captions: captions,
+                  imagePaths: imagePaths,
+                  width: containerWidth,
                 ),
-                SizedBox(height: 8)
-                
-             
+              ),
+              SizedBox(height: 8),
             ],
           );
         },
