@@ -5,7 +5,9 @@ import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
 import '../../ui/carousel_description.dart';
 import '../../ui/footer.dart';
+import '../../ui/modal/auth_modal.dart';
 import '../../ui/service_card.dart';
+import '../../ui/user_notif_icon.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,28 +21,37 @@ class _HomePageState extends State<HomePage> {
   double _notificationScale = 1.0;
   double _avatarScale = 1.0;
 
-  void _onNotificationEnter(PointerEvent details) {
+  void _onNotificationEnter() {
     setState(() {
       _notificationScale = 1.1;
     });
   }
 
-  void _onNotificationExit(PointerEvent details) {
+  void _onNotificationExit() {
     setState(() {
       _notificationScale = 1.0;
     });
   }
 
-  void _onAvatarEnter(PointerEvent details) {
+  void _onAvatarEnter() {
     setState(() {
       _avatarScale = 1.1;
     });
   }
 
-  void _onAvatarExit(PointerEvent details) {
+  void _onAvatarExit() {
     setState(() {
       _avatarScale = 1.0;
     });
+  }
+
+  void _openAuthModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AuthModal(); 
+      },
+    );
   }
 
   @override
@@ -102,52 +113,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
             const Spacer(),
-            Row(
-              children: [
-                MouseRegion(
-                  onEnter: _onNotificationEnter,
-                  onExit: _onNotificationExit,
-                  child: AnimatedScale(
-                    scale: _notificationScale,
-                    duration: const Duration(milliseconds: 200),
-                    child: Container(
-                      padding: const EdgeInsets.all(2.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        icon: const Icon(Icons.notifications),
-                        color: AppColors.primaryColor,
-                        onPressed: () {
-                          // Action à effectuer lors du clic
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16.0),
-                MouseRegion(
-                  onEnter: _onAvatarEnter,
-                  onExit: _onAvatarExit,
-                  child: AnimatedScale(
-                    scale: _avatarScale,
-                    duration: const Duration(milliseconds: 200),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(2.0),
-                        decoration: BoxDecoration(shape: BoxShape.circle),
-                        child: const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          backgroundImage: AssetImage('userlogo.png'),
-                          radius: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            UserNotifIcon(
+              notificationScale: _notificationScale,
+              avatarScale: _avatarScale,
+              onNotificationHoverEnter: _onNotificationEnter,
+              onNotificationHoverExit: _onNotificationExit,
+              onAvatarHoverEnter: _onAvatarEnter,
+              onAvatarHoverExit: _onAvatarExit,
+              onAvatarTap: _openAuthModal, // Ouvrir la modale sur le clic
             ),
           ],
         ),
@@ -156,14 +129,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-            CarouselDescription(
-              captions: ['Au Service Du Capital Humain','Au Service Du Capital Humain'],
-            imagePaths: [
-              'home_carousel_1.jpg',
-              'home_carousel_2.jpg',
-              // Ajoutez d'autres chemins d'images ici
-            ],
-          ),
+              CarouselDescription(
+                captions: ['Au Service Du Capital Humain', 'Au Service Du Capital Humain'],
+                imagePaths: [
+                  'home_carousel_1.jpg',
+                  'home_carousel_2.jpg',
+                  // Ajoutez d'autres chemins d'images ici
+                ],
+              ),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
