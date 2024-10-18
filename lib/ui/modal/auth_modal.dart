@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 
 class AuthModal extends StatefulWidget {
   const AuthModal({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _AuthModalState createState() => _AuthModalState();
 }
 
@@ -28,22 +28,22 @@ class _AuthModalState extends State<AuthModal> {
     required IconData icon,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 16), // Ajuster l'espace vertical
+      margin: EdgeInsets.symmetric(vertical: 16), 
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(32.0),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: TextField(
         controller: controller,
-        style: TextStyle(color: Colors.black), // Couleur du texte
+        style: TextStyle(color: Colors.black),
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: hintText,
           hintStyle: TextStyle(color: Colors.grey),
           prefixIcon: Icon(
             icon,
-            color: Colors.grey,
-          ), // Ajout de l'icône
+            size: 20,
+            color: AppColors.primaryColor.withOpacity(0.5),
+          ),
         ),
       ),
     );
@@ -58,7 +58,7 @@ class _AuthModalState extends State<AuthModal> {
       child: Container(
         padding: const EdgeInsets.all(16.0),
         width: 400,
-        height: 500,
+        height: 600,
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -74,63 +74,91 @@ class _AuthModalState extends State<AuthModal> {
                     icon: const Icon(FontAwesomeIcons.xmark),
                     color: AppColors.primaryColor,
                     onPressed: () {
-                      Navigator.of(context).pop(); // Ferme la modale
+                      Navigator.of(context).pop(); 
                     },
                   ),
                 ],
               ),
               SizedBox(height: 16),
-              // Titre de la dropDown
               Text(
-                _modalTitle, // Affiche le titre dynamique
+                _modalTitle, 
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 16), // Espace pour l'esthétique
+              SizedBox(height: 16),
               Container(
-                alignment: Alignment.center, // Centre le contenu
+                width: 200,
+                color: Colors.white, 
+                
+               
+                padding: EdgeInsets.symmetric(vertical: 8), 
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center, // Centre les boutons horizontalement
+                
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      onPressed: () => _setModalTitle('Login'), // Change le titre à Login
-                      child: Text('Login'),
+                    GestureDetector(
+                      onTap: () => _setModalTitle('Login'),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: _modalTitle == 'Login' ? AppColors.primaryColor : Colors.transparent,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            
+                            color: _modalTitle == 'Login' ? Colors.white :AppColors.primaryColor),
+                        ),
+                      ),
                     ),
-                    SizedBox(width: 16), // Espace entre les boutons
-                    ElevatedButton(
-                      onPressed: () => _setModalTitle('Sign Up'), // Change le titre à Sign Up
-                      child: Text('Sign Up'),
+                    SizedBox(width: 8),
+                    VerticalDivider(thickness: 1, color: Colors.grey), // Trait vertical
+                    SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: () => _setModalTitle('Sign Up'),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: _modalTitle == 'Sign Up' ? AppColors.primaryColor : Colors.transparent,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(color: _modalTitle == 'Sign Up' ? Colors.white :AppColors.primaryColor),
+                          
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 16),
-              // Champs de saisie stylisés
               if (_modalTitle == 'Login') ...[
                 _buildTextField(
                   controller: _emailController,
                   hintText: 'example@gmail.com',
-                  icon: FontAwesomeIcons.envelope, // Icône pour l'email
+                  icon: FontAwesomeIcons.envelope, 
                 ),
                 _buildTextField(
                   controller: _passwordController,
-                  hintText: '',
-                  icon: FontAwesomeIcons.lock, // Icône pour le mot de passe
+                  hintText: 'Password',
+                  icon: FontAwesomeIcons.lock,
                 ),
               ] else ...[
                 _buildTextField(
                   controller: _nameController,
                   hintText: 'Nom',
-                  icon: FontAwesomeIcons.user, // Icône pour le nom
+                  icon: FontAwesomeIcons.user, 
                 ),
                 _buildTextField(
                   controller: _emailController,
                   hintText: 'Email',
-                  icon: FontAwesomeIcons.envelope, // Icône pour l'email
+                  icon: FontAwesomeIcons.envelope, 
                 ),
                 _buildTextField(
                   controller: _passwordController,
                   hintText: 'Password',
-                  icon: FontAwesomeIcons.lock, // Icône pour le mot de passe
+                  icon: FontAwesomeIcons.lock,
                 ),
               ],
             ],
