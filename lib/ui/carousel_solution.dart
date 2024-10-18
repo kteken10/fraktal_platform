@@ -73,11 +73,11 @@ class _CarouselSolutionState extends State<CarouselSolution> {
                     crossAxisAlignment: CrossAxisAlignment.start, // Aligne à gauche
                     children: [
                       TextWidget(
-                        typeText: TextType.text4Xl,
+                        typeText: TextType.text6Xl,
                         widget.captions[index],
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: AppColors.blueBold,
                         ),
                       ),
                       SizedBox(height: 4), // Espacement entre le titre et le sous-titre
