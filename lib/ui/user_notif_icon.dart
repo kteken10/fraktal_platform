@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/colors.dart'; 
+import '../../constants/colors.dart';
 
 class UserNotifIcon extends StatelessWidget {
   final double notificationScale;
@@ -32,10 +32,24 @@ class UserNotifIcon extends StatelessWidget {
             scale: notificationScale,
             duration: const Duration(milliseconds: 200),
             child: Container(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(4.0), // Ajout d'un padding
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(4, 4), // ombre inférieure droite
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(-4, -4), // ombre supérieure gauche
+                  ),
+                ],
               ),
               child: IconButton(
                 icon: const Icon(Icons.notifications),
@@ -59,8 +73,25 @@ class UserNotifIcon extends StatelessWidget {
               child: GestureDetector(
                 onTap: onAvatarTap,
                 child: Container(
-                  padding: const EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  padding: const EdgeInsets.all(4.0), // Ajout d'un padding
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(4, 4), // ombre inférieure droite
+                      ),
+                      BoxShadow(
+                        color: Colors.white,
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(-4, -4), // ombre supérieure gauche
+                      ),
+                    ],
+                  ),
                   child: const CircleAvatar(
                     backgroundColor: Colors.white,
                     backgroundImage: AssetImage('assets/userlogo.png'),
