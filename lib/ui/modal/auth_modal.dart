@@ -13,8 +13,8 @@ class AuthModal extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.all(16.0),
-        width: 300,
-        height: 400,
+        width: 400,
+        height: 500,
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,

@@ -17,11 +17,11 @@ class FooterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < 600; // Correction de l'utilisation de constraints
+    final isMobile = screenWidth < 600; 
 
     return Container(
       color: Colors.white, // Couleur de fond blanche
-      margin: const EdgeInsets.symmetric(horizontal: 16), // Ajout de const pour la constance
+      margin: const EdgeInsets.symmetric(horizontal: 16), 
 
       child: Column(
         children: [

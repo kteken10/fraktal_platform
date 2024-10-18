@@ -63,7 +63,7 @@ class UserNotifIcon extends StatelessWidget {
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   child: const CircleAvatar(
                     backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('assets/Authlogo.png'),
+                    backgroundImage: AssetImage('assets/userlogo.png'),
                     radius: 20,
                   ),
                 ),

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';  
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:fraktal_platform/constants/colors.dart';
+import 'package:material_color_utilities/material_color_utilities.dart';
 
 class CarouselSolution extends StatefulWidget {
   final List<String> imagePaths;
-  final List<String> captions; // Liste de textes à afficher sur chaque image
-  final double width; // Nouvelle propriété pour la largeur
+  final List<String> captions; 
+  final double width; 
 
   const CarouselSolution({
     super.key, 
     required this.imagePaths, 
     required this.captions, 
-    required this.width, // Ajout de la largeur dans le constructeur
+    required this.width, 
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _CarouselSolutionState createState() => _CarouselSolutionState();
 }
 
@@ -25,61 +25,69 @@ class _CarouselSolutionState extends State<CarouselSolution> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
-       
-        width: widget.width, // Utilisez la largeur passée
-        color: Colors.white, // Fond blanc
-        child: SizedBox(
-        
-          child: FlutterCarousel(
-            options: FlutterCarouselOptions(
-              height: 400,
-              controller: _buttonCarouselController,
-              autoPlay: true,
-              enableInfiniteScroll: true,
-              enlargeCenterPage: false, // Désactiver l'agrandissement de la page centrale
-              viewportFraction: 1.0, // Affiche une seule image à la fois
-              onPageChanged: (index, reason) {
-                setState(() {});
-              },
-              slideIndicator: CircularSlideIndicator(
-                slideIndicatorOptions: SlideIndicatorOptions(
-                  alignment: Alignment.bottomCenter,
-                  currentIndicatorColor: Colors.white,
-                  indicatorBackgroundColor: Colors.white.withOpacity(0.5),
-                  indicatorBorderColor: Colors.white,
-                  indicatorBorderWidth: 1,
-                  indicatorRadius: 6,
-                  itemSpacing: 20,
-                  padding: const EdgeInsets.all(8.0),
-                  haloDecoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-                    color: AppColors.primaryColor.withOpacity(0.5),
-                  ),
-                  haloPadding: const EdgeInsets.all(4.0),
-                  enableHalo: true,
-                  enableAnimation: true,
+      width: widget.width, 
+      color: Colors.white, 
+      child: SizedBox(
+        child: FlutterCarousel(
+          options: FlutterCarouselOptions(
+            height: 400,
+            controller: _buttonCarouselController,
+            autoPlay: true,
+            enableInfiniteScroll: true,
+            enlargeCenterPage: false, 
+            viewportFraction: 1.0,
+            onPageChanged: (index, reason) {
+              setState(() {});
+            },
+            slideIndicator: CircularSlideIndicator(
+              slideIndicatorOptions: SlideIndicatorOptions(
+                alignment: Alignment.bottomCenter,
+                currentIndicatorColor: Colors.white,
+                indicatorBackgroundColor: Colors.white.withOpacity(0.5),
+                indicatorBorderColor: Colors.white,
+                indicatorBorderWidth: 1,
+                indicatorRadius: 6,
+                itemSpacing: 20,
+                padding: const EdgeInsets.all(8.0),
+                haloDecoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                  color: AppColors.primaryColor.withOpacity(0.5),
                 ),
+                haloPadding: const EdgeInsets.all(4.0),
+                enableHalo: true,
+                enableAnimation: true,
               ),
             ),
-            items: List.generate(widget.imagePaths.length, (index) {
-              return Align(
-                alignment: Alignment.centerRight, // Aligner l'image à droite
-                child: ClipRRect(
+          ),
+          items: List.generate(widget.imagePaths.length, (index) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0), // Ajuste le padding selon tes besoins
+                  child: Text(
+                    widget.captions[index],
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.asset(
                     widget.imagePaths[index],
                     width: 400, 
                     height: 600,
-                   
-                  
+                    
                   ),
                 ),
-              );
-            }),
-          ),
+              ],
+            );
+          }),
         ),
-      
+      ),
     );
   }
 }
