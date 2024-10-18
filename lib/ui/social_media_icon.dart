@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants/colors.dart';
 
 class SocialMediaIcon extends StatelessWidget {
-  const SocialMediaIcon({Key? key}) : super(key: key);
+  const SocialMediaIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
