@@ -51,6 +51,83 @@ class _SolutionsPageState extends State<SolutionsPage> {
     );
   }
 
+  // Structure pour les carousels de chaque onglet
+ final List<List<CarouselItem>> carouselItemsList = [
+  [ // Formations
+    CarouselItem(
+      imagePath: 'formationslide1.png',
+      caption: '#Apprenant',
+      subtitle: 'Nous vous accompagnons en matière de Formation',
+    ),
+    CarouselItem(
+      imagePath: 'formationslide2.png',
+      caption: '#Professionnel',
+      subtitle: 'Votre recyclage ou perfectionnement des compétences est notre priorité',
+    ),
+  ],
+  [ // Facility Management
+    CarouselItem(
+      imagePath: 'facilitymanagementslide1.jpg',
+      caption: '#Gestion',
+      subtitle: 'Optimisez vos opérations de facility management pour un environnement de travail efficace.',
+    ),
+    CarouselItem(
+      imagePath: 'facilitymanagementslide2.jpg',
+      caption: '#Efficacité',
+      subtitle: 'Améliorez l’efficacité de vos services avec nos solutions personnalisées.',
+    ),
+  ],
+  [ // Management Client
+    CarouselItem(
+      imagePath: 'management_client_slide1.png',
+      caption: '#Satisfaction Client',
+      subtitle: 'Développez des relations durables avec vos clients grâce à une gestion efficace.',
+    ),
+    CarouselItem(
+      imagePath: 'management_client_slide2.png',
+      caption: '#Stratégies Gagnantes',
+      subtitle: 'Découvrez des techniques éprouvées pour fidéliser votre clientèle.',
+    ),
+  ],
+  [ // Marketing RH
+    CarouselItem(
+      imagePath: 'marketing_rh_slide1.png',
+      caption: '#Attraction des Talents',
+      subtitle: 'Attirez les meilleurs talents avec des stratégies de marketing innovantes.',
+    ),
+    CarouselItem(
+      imagePath: 'marketing_rh_slide2.png',
+      caption: '#Engagement des Employés',
+      subtitle: 'Renforcez l’engagement de vos employés pour un environnement de travail positif.',
+    ),
+  ],
+  [ // Outsourcing
+    CarouselItem(
+      imagePath: 'outsourcing_slide1.png',
+      caption: '#Concentrez-vous sur l’Essentiel',
+      subtitle: 'Libérez du temps et des ressources en déléguant vos tâches non essentielles.',
+    ),
+    CarouselItem(
+      imagePath: 'outsourcing_slide2.png',
+      caption: '#Expertise Externe',
+      subtitle: 'Accédez à des experts dans divers domaines pour optimiser vos opérations.',
+    ),
+  ],
+  [ // Job Board
+    CarouselItem(
+      imagePath: 'job_board_slide1.png',
+      caption: '#Offres d’Emploi',
+      subtitle: 'Découvrez les dernières offres d’emploi et boostez votre carrière.',
+    ),
+    CarouselItem(
+      imagePath: 'job_board_slide2.png',
+      caption: '#Connectez-vous aux Employeurs',
+      subtitle: 'Facilitez votre recherche d\'emploi en vous connectant avec les bonnes entreprises.',
+    ),
+  ],
+];
+
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
@@ -62,19 +139,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Marketing RH',
       'Outsourcing',
       'Job Board',
-    ];
-
-    final List<CarouselItem> carouselItems = [
-      CarouselItem(
-        imagePath: 'formationslide1.png',
-        caption: '#Apprenant',
-        subtitle: 'Nous vous accompagnons en matière de Formation',
-      ),
-      CarouselItem(
-        imagePath: 'formationslide2.png',
-        caption: '#Professionnel',
-        subtitle: 'Votre recyclage ou perfectionnement des compétences est notre priorité',
-      ),
     ];
 
     return Scaffold(
@@ -124,7 +188,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                             _selectedTabIndex = index;
                           });
                         },
-                      ),
+                      )
                     );
                   }),
                 ),
@@ -133,7 +197,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 color: AppColors.backColor,
                 child: CarouselSolution(
-                  items: carouselItems,
+                  items: carouselItemsList[_selectedTabIndex], // Utilise les items du carousel correspondant à l'onglet sélectionné
                   width: containerWidth,
                 ),
               ),
