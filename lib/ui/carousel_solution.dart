@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';  
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:fraktal_platform/constants/colors.dart';
+import 'package:fraktal_platform/ui/text.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
 class CarouselSolution extends StatefulWidget {
@@ -18,6 +19,7 @@ class CarouselSolution extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _CarouselSolutionState createState() => _CarouselSolutionState();
 }
 
@@ -70,10 +72,10 @@ class _CarouselSolutionState extends State<CarouselSolution> {
                   child: Column( // Utilisez Column pour empiler le titre et le sous-titre
                     crossAxisAlignment: CrossAxisAlignment.start, // Aligne à gauche
                     children: [
-                      Text(
+                      TextWidget(
+                        typeText: TextType.text4Xl,
                         widget.captions[index],
                         style: TextStyle(
-                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),

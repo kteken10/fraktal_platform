@@ -4,7 +4,7 @@ import '../../ui/carousel_solution.dart';
 import '../../ui/modal/auth_modal.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
-import '../../ui/user_notif_icon.dart'; 
+import '../../ui/user_notif_icon.dart';
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
@@ -47,7 +47,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AuthModal(); 
+        return AuthModal();
       },
     );
   }
@@ -71,8 +71,8 @@ class _SolutionsPageState extends State<SolutionsPage> {
     ];
 
     final List<String> captions = [
-      'Apprenant',
-      'Nous vous accompagnons en mode de formation',
+      '#Apprenant',
+      '#Professionnel',
     ];
 
     return Scaffold(
@@ -131,7 +131,10 @@ class _SolutionsPageState extends State<SolutionsPage> {
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 color: AppColors.backColor,
                 child: CarouselSolution(
-                  subtitles: ['Nous vous accompagnons en matière de Formation','Nous vous accompagnons en matière de Formation'],
+                  subtitles: [
+                    'Nous vous accompagnons en matière de Formation',
+                    'Votre recyclage ou perfectionnement des compétences est notre priorité'
+                  ],
                   captions: captions,
                   imagePaths: imagePaths,
                   width: containerWidth,
