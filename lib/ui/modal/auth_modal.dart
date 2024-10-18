@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 
 class AuthModal extends StatefulWidget {
   const AuthModal({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AuthModalState createState() => _AuthModalState();
 }
 
@@ -32,14 +32,6 @@ class _AuthModalState extends State<AuthModal> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(32.0),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: AppColors.primaryColor.withOpacity(0.1), // Couleur de l'ombre
-        //     spreadRadius: 3, // Étendue de l'ombre
-        //     blurRadius: 8, // Flou de l'ombre
-        //     offset: Offset(0, 3), // Position de l'ombre
-        //   ),
-        // ],
       ),
       child: TextField(
         controller: controller,
@@ -75,9 +67,9 @@ class _AuthModalState extends State<AuthModal> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child: Image.asset('logofraktal.png', height: 40),
-            ),
+                    padding: const EdgeInsets.only(right: 0.0),
+                    child: Image.asset('logofraktal.png', height: 40),
+                  ),
                   IconButton(
                     icon: const Icon(FontAwesomeIcons.xmark),
                     color: AppColors.primaryColor,
@@ -94,18 +86,22 @@ class _AuthModalState extends State<AuthModal> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 16), // Espace pour l'esthétique
-              Row(
-              
-                children: [
-                  ElevatedButton(
-                    onPressed: () => _setModalTitle('Login'), // Change le titre à Login
-                    child: Text('Login'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => _setModalTitle('Sign Up'), // Change le titre à Sign Up
-                    child: Text('Sign Up'),
-                  ),
-                ],
+              Container(
+                alignment: Alignment.center, // Centre le contenu
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Centre les boutons horizontalement
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => _setModalTitle('Login'), // Change le titre à Login
+                      child: Text('Login'),
+                    ),
+                    SizedBox(width: 16), // Espace entre les boutons
+                    ElevatedButton(
+                      onPressed: () => _setModalTitle('Sign Up'), // Change le titre à Sign Up
+                      child: Text('Sign Up'),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 16),
               // Champs de saisie stylisés
