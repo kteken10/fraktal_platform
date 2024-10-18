@@ -10,7 +10,6 @@ class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -65,14 +64,17 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Job Board',
     ];
 
-    final List<String> imagePaths = [
-      'formationslide1.png',
-      'formationslide2.png',
-    ];
-
-    final List<String> captions = [
-      '#Apprenant',
-      '#Professionnel',
+    final List<CarouselItem> carouselItems = [
+      CarouselItem(
+        imagePath: 'formationslide1.png',
+        caption: '#Apprenant',
+        subtitle: 'Nous vous accompagnons en matière de Formation',
+      ),
+      CarouselItem(
+        imagePath: 'formationslide2.png',
+        caption: '#Professionnel',
+        subtitle: 'Votre recyclage ou perfectionnement des compétences est notre priorité',
+      ),
     ];
 
     return Scaffold(
@@ -96,7 +98,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
               onNotificationHoverExit: _onNotificationExit,
               onAvatarHoverEnter: _onAvatarEnter,
               onAvatarHoverExit: _onAvatarExit,
-              onAvatarTap: _openAuthModal, // Ouvrir la modale sur le clic
+              onAvatarTap: _openAuthModal,
             ),
           ],
         ),
@@ -131,12 +133,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 color: AppColors.backColor,
                 child: CarouselSolution(
-                  subtitles: [
-                    'Nous vous accompagnons en matière de Formation',
-                    'Votre recyclage ou perfectionnement des compétences est notre priorité'
-                  ],
-                  captions: captions,
-                  imagePaths: imagePaths,
+                  items: carouselItems,
                   width: containerWidth,
                 ),
               ),

@@ -3,23 +3,29 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import 'package:fraktal_platform/ui/text.dart';
 
+class CarouselItem {
+  final String imagePath;
+  final String caption;
+  final String subtitle;
+
+  CarouselItem({
+    required this.imagePath,
+    required this.caption,
+    required this.subtitle,
+  });
+}
 
 class CarouselSolution extends StatefulWidget {
-  final List<String> imagePaths;
-  final List<String> captions; 
-  final List<String> subtitles; 
-  final double width; 
+  final List<CarouselItem> items;
+  final double width;
 
   const CarouselSolution({
-    super.key, 
-    required this.imagePaths, 
-    required this.captions, 
-    required this.subtitles, 
-    required this.width, 
+    super.key,
+    required this.items,
+    required this.width,
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _CarouselSolutionState createState() => _CarouselSolutionState();
 }
 
@@ -29,8 +35,8 @@ class _CarouselSolutionState extends State<CarouselSolution> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width, 
-      color: Colors.white, 
+      width: widget.width,
+      color: Colors.white,
       child: SizedBox(
         child: FlutterCarousel(
           options: FlutterCarouselOptions(
@@ -38,7 +44,7 @@ class _CarouselSolutionState extends State<CarouselSolution> {
             controller: _buttonCarouselController,
             autoPlay: true,
             enableInfiniteScroll: true,
-            enlargeCenterPage: false, 
+            enlargeCenterPage: false,
             viewportFraction: 1.0,
             onPageChanged: (index, reason) {
               setState(() {});
@@ -63,26 +69,26 @@ class _CarouselSolutionState extends State<CarouselSolution> {
               ),
             ),
           ),
-          items: List.generate(widget.imagePaths.length, (index) {
-            return Row( 
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+          items: widget.items.map((item) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0), 
-                  child: Column( 
-                    crossAxisAlignment: CrossAxisAlignment.start, // Aligne à gauche
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextWidget(
                         typeText: TextType.text6Xl,
-                        widget.captions[index],
+                        item.caption,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: AppColors.blueBold,
                         ),
                       ),
-                      SizedBox(height: 4), // Espacement entre le titre et le sous-titre
+                      SizedBox(height: 4),
                       Text(
-                        widget.subtitles[index], // Affiche le sous-titre
+                        item.subtitle,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
@@ -95,14 +101,14 @@ class _CarouselSolutionState extends State<CarouselSolution> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.asset(
-                    widget.imagePaths[index],
-                    width: 400, 
-                    height: 300, // Ajuster la hauteur de l'image si nécessaire
+                    item.imagePath,
+                    width: 400,
+                    height: 300,
                   ),
                 ),
               ],
             );
-          }),
+          }).toList(),
         ),
       ),
     );
