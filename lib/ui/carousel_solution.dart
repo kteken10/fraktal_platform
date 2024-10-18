@@ -6,12 +6,14 @@ import 'package:material_color_utilities/material_color_utilities.dart';
 class CarouselSolution extends StatefulWidget {
   final List<String> imagePaths;
   final List<String> captions; 
+  final List<String> subtitles; // Liste pour les sous-titres
   final double width; 
 
   const CarouselSolution({
     super.key, 
     required this.imagePaths, 
     required this.captions, 
+    required this.subtitles, // Ajout du paramètre
     required this.width, 
   });
 
@@ -60,18 +62,32 @@ class _CarouselSolutionState extends State<CarouselSolution> {
             ),
           ),
           items: List.generate(widget.imagePaths.length, (index) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            return Row( // Utiliser Row pour aligner les éléments
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, // Espace entre le texte et l'image
               children: [
                 Padding(
                   padding: const EdgeInsets.all(16.0), // Ajuste le padding selon tes besoins
-                  child: Text(
-                    widget.captions[index],
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                  child: Column( // Utilisez Column pour empiler le titre et le sous-titre
+                    crossAxisAlignment: CrossAxisAlignment.start, // Aligne à gauche
+                    children: [
+                      Text(
+                        widget.captions[index],
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 4), // Espacement entre le titre et le sous-titre
+                      Text(
+                        widget.subtitles[index], // Affiche le sous-titre
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ClipRRect(
@@ -79,8 +95,7 @@ class _CarouselSolutionState extends State<CarouselSolution> {
                   child: Image.asset(
                     widget.imagePaths[index],
                     width: 400, 
-                    height: 600,
-                    
+                    height: 300, // Ajuster la hauteur de l'image si nécessaire
                   ),
                 ),
               ],

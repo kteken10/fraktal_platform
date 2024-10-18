@@ -131,6 +131,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                 margin: EdgeInsets.symmetric(horizontal: 16),
                 color: AppColors.backColor,
                 child: CarouselSolution(
+                  subtitles: ['Nous vous accompagnons en matière de Formation','Nous vous accompagnons en matière de Formation'],
                   captions: captions,
                   imagePaths: imagePaths,
                   width: containerWidth,
