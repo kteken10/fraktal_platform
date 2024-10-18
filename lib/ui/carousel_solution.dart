@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import 'package:fraktal_platform/ui/text.dart';
-import 'package:material_color_utilities/material_color_utilities.dart';
+
 
 class CarouselSolution extends StatefulWidget {
   final List<String> imagePaths;
   final List<String> captions; 
-  final List<String> subtitles; // Liste pour les sous-titres
+  final List<String> subtitles; 
   final double width; 
 
   const CarouselSolution({
     super.key, 
     required this.imagePaths, 
     required this.captions, 
-    required this.subtitles, // Ajout du paramètre
+    required this.subtitles, 
     required this.width, 
   });
 
@@ -64,12 +64,12 @@ class _CarouselSolutionState extends State<CarouselSolution> {
             ),
           ),
           items: List.generate(widget.imagePaths.length, (index) {
-            return Row( // Utiliser Row pour aligner les éléments
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, // Espace entre le texte et l'image
+            return Row( 
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0), // Ajuste le padding selon tes besoins
-                  child: Column( // Utilisez Column pour empiler le titre et le sous-titre
+                  padding: const EdgeInsets.all(16.0), 
+                  child: Column( 
                     crossAxisAlignment: CrossAxisAlignment.start, // Aligne à gauche
                     children: [
                       TextWidget(
