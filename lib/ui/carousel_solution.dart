@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';  
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:fraktal_platform/constants/colors.dart';
-import 'package:fraktal_platform/ui/text.dart';
 
 class CarouselSolution extends StatefulWidget {
   final List<String> imagePaths;
