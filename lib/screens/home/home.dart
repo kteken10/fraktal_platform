@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  color: AppColors.backColor,
+                  // color: AppColors.backColor,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Row(

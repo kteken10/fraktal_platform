@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../constants/colors.dart';
+
 class SocialIcon extends StatefulWidget {
   final IconData icon;
   final Color color;
@@ -14,7 +16,6 @@ class SocialIcon extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _SocialIconState createState() => _SocialIconState();
 }
 
@@ -38,14 +39,28 @@ class _SocialIconState extends State<SocialIcon> {
     return MouseRegion(
       onEnter: _onEnter,
       onExit: _onExit,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200), // Durée de l'animation
-        transform: Matrix4.identity()..scale(_scale), // Appliquer l'échelle
+      child: AnimatedScale(
+        scale: _scale,
+        duration: const Duration(milliseconds: 200),
         child: Container(
           padding: const EdgeInsets.all(4.0), // Espacement intérieur
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white, // Couleur de fond
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primaryColor.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(4, 4), // Ombre inférieure droite
+              ),
+              BoxShadow(
+                color: Colors.white,
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(-4, -4), // Ombre supérieure gauche
+              ),
+            ],
           ),
           child: CircleAvatar(
             radius: 15,
