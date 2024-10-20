@@ -10,20 +10,17 @@ class MediaCart extends StatelessWidget {
   final String price; // Prix
 
   const MediaCart({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.title,
     required this.subtitle,
     required this.description,
     required this.duration,
     required this.price,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final int horlogeValue = 10; // Exemple de nombre pour l'horloge
-    final int cashValue = 3000000; // Exemple de nombre pour le cash
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       width: double.infinity, // Prend toute la largeur disponible
@@ -37,7 +34,7 @@ class MediaCart extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             width: double.infinity, // Prend toute la largeur disponible
-            height: 180, // Hauteur du premier rectangle
+            height: 160, // Hauteur du premier rectangle
             child: Center(
               child: Image.asset(
                 imagePath, // Utilise le chemin de l'image passé en paramètre
@@ -84,13 +81,6 @@ class MediaCart extends StatelessWidget {
             ),
           ),
           SizedBox(height: 4), // Espace entre la description et la durée
-          Text(
-            duration, // Utilise la durée passée en paramètre
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.grey, // Couleur du texte
-            ),
-          ),
           Spacer(), // Espace flexible pour pousser le contenu vers le haut
           // Ligne divisée en deux colonnes
           SizedBox(
@@ -104,12 +94,18 @@ class MediaCart extends StatelessWidget {
                     Row(
                       children: [
                         Image.asset(
-                          'assets/horloge-icon.png', // Chemin de l'image
+                          'horloge-icon.png', // Chemin de l'image
                           width: 20, // Largeur de l'image
                           height: 20, // Hauteur de l'image
                         ),
                         SizedBox(width: 4), // Espace entre l'image et le nombre
-                        Text('$horlogeValue', style: TextStyle(color: AppColors.ternaryColor)), // Nombre aléatoire
+                        Text(
+                          duration, // Utilise la durée passée en paramètre
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: AppColors.ternaryColor, // Couleur du texte
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -120,12 +116,18 @@ class MediaCart extends StatelessWidget {
                     Row(
                       children: [
                         Image.asset(
-                          'assets/cash.png', // Chemin de l'image
+                          'cash.png', // Chemin de l'image
                           width: 30, // Largeur de l'image
                           height: 30, // Hauteur de l'image
                         ),
-                        SizedBox(width: 4), // Espace entre l'image et le nombre
-                        Text('$cashValue', style: TextStyle(color: AppColors.ternaryColor)), // Nombre aléatoire
+                        SizedBox(width: 4), // Espace entre l'image et le prix
+                        Text(
+                          price, // Utilise le prix passé en paramètre
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: AppColors.ternaryColor, // Couleur du texte
+                          ),
+                        ),
                       ],
                     ),
                   ],

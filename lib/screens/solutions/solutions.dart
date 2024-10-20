@@ -12,7 +12,6 @@ class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -103,7 +102,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
                             Expanded(
                               child: Column(
                                 children: [
-                                  MediaCart(),
+                                  MediaCart(
+                                    imagePath: 'assets/formation_image_1.png',
+                                    title: 'Domaine 1',
+                                    subtitle: 'Formation 1',
+                                    description: 'Description de la formation 1.',
+                                    duration: 'Durée : 5 heures',
+                                    price: 'Prix : 300 €',
+                                  ),
                                 ],
                               ),
                             ),
@@ -115,7 +121,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
                             Expanded(
                               child: Column(
                                 children: [
-                                  MediaCart(),
+                                  MediaCart(
+                                    imagePath: 'assets/formation_image_2.png',
+                                    title: 'Domaine 2',
+                                    subtitle: 'Formation 2',
+                                    description: 'Description de la formation 2.',
+                                    duration: 'Durée : 3 heures',
+                                    price: 'Prix : 200 €',
+                                  ),
                                 ],
                               ),
                             ),
@@ -127,7 +140,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
                             Expanded(
                               child: Column(
                                 children: [
-                                  MediaCart(),
+                                  MediaCart(
+                                    imagePath: 'assets/formation_image_3.png',
+                                    title: 'Domaine 3',
+                                    subtitle: 'Formation 3',
+                                    description: 'Description de la formation 3.',
+                                    duration: 'Durée : 2 heures',
+                                    price: 'Prix : 150 €',
+                                  ),
                                 ],
                               ),
                             ),
@@ -139,7 +159,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
                             Expanded(
                               child: Column(
                                 children: [
-                                  MediaCart(),
+                                  MediaCart(
+                                    imagePath: 'assets/formation_image_4.png',
+                                    title: 'Domaine 4',
+                                    subtitle: 'Formation 4',
+                                    description: 'Description de la formation 4.',
+                                    duration: 'Durée : 4 heures',
+                                    price: 'Prix : 250 €',
+                                  ),
                                 ],
                               ),
                             ),
