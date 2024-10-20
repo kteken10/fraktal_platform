@@ -88,6 +88,8 @@ flutter:
     - assets/formationslide2.png
     - assets/facilitymanagementslide1.jpg
     - assets/facilitymanagementslide2.jpg
+    - assets/horloge-icon.png
+    - assets/cash.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
