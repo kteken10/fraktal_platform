@@ -90,6 +90,11 @@ flutter:
     - assets/facilitymanagementslide2.jpg
     - assets/horloge-icon.png
     - assets/cash.png
+    - assets/frontend_developer.jpg
+    - assets/machinelearing.jpg
+    - assets/Iot.jpg
+    - assets/developpeurweb.jpg
+    - assets/cybersecurite.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

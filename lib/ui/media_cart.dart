@@ -32,13 +32,19 @@ class MediaCart extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.backColorFine, // Assure-toi que cette couleur est définie
               borderRadius: BorderRadius.circular(12),
+              border: Border.all(width: 1, color: AppColors.primaryColor.withOpacity(0.1)),
             ),
             width: double.infinity, // Prend toute la largeur disponible
             height: 160, // Hauteur du premier rectangle
             child: Center(
-              child: Image.asset(
-                imagePath, // Utilise le chemin de l'image passé en paramètre
-                fit: BoxFit.cover, // Ajuste l'image pour couvrir le conteneur
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12), // Bordures arrondies
+                child: Image.asset(
+                  imagePath, // Utilise le chemin de l'image passé en paramètre
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  // Ajuste l'image pour couvrir le conteneur
+                ),
               ),
             ),
           ),
