@@ -23,6 +23,8 @@ class _AuthModalState extends State<AuthModal> {
     });
   }
 
+
+
   Widget _buildTextField({
     required TextEditingController controller,
     required String hintText,
