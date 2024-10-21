@@ -18,6 +18,8 @@ class PlatformInfo {
     return 'Unknown';
   }
 
+
+
   static Size getScreenSize(BuildContext context) {
     final FlutterView view = View.of(context);
     final size = view.physicalSize / view.devicePixelRatio;

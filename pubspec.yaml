@@ -96,6 +96,14 @@ flutter:
     - assets/developpeurweb.jpg
     - assets/cybersecurite.jpg
 
+    - assets/MarKetingRh.jpg
+    - assets/NodeJsFormation.jpg
+    - assets/ReactJsFormation.png
+    - assets/angularformation.jpg
+    - assets/CommunityManager.jpg
+    - assets/Homeimage.jpg
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

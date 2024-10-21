@@ -129,14 +129,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              CarouselDescription(
-                captions: ['Au Service Du Capital Humain', 'Au Service Du Capital Humain'],
-                imagePaths: [
-                  'home_carousel_1.jpg',
-                  'home_carousel_2.jpg',
-                  // Ajoutez d'autres chemins d'images ici
-                ],
-              ),
+            ImageDisplay(imagePath: 'Homeimage.jpg'),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),

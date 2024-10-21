@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart'; 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 
 class AuthModal extends StatefulWidget {

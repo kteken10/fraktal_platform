@@ -1,5 +1,4 @@
 // formations.dart
-import 'package:flutter/material.dart';
 
 class Formation {
   final String imagePath; // Chemin de l'image
