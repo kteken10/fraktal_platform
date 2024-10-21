@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+
 import '../../constants/colors.dart';
 import '../../data/data.dart';
 import '../../data/formations.dart';
+import '../../ui/custom_dropdown.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
 import '../../ui/user_notif_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
-import '../../ui/media_cart.dart'; // Assurez-vous d'importer votre MediaCart
+import '../../ui/media_cart.dart';
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -22,9 +23,19 @@ class _SolutionsPageState extends State<SolutionsPage> {
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
 
+  String? _selectedFormation; // Variable pour la valeur sélectionnée dans le dropdown
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
+
+    // Liste des options pour le dropdown
+    final List<String> formationOptions = [
+      'Domaine de Formation',
+      'Formations Récentes',
+      'Catalogues',
+      'Tutoriel'
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +67,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final containerWidth = constraints.maxWidth;
-            final tabServiceWidth = constraints.maxWidth * 0.85;
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,28 +97,17 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     width: containerWidth,
                   ),
                 ),
+                // Utilisation de CustomDropdown
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  width: containerWidth,
-                  height: 350,
-                  color: Colors.white,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal, // Permet le défilement horizontal
-                    child: Row(
-                      children: formations.map((formation) {
-                        return SizedBox(
-                          width: containerWidth / 5, // Largeur pour 5 formations
-                          child: MediaCart(
-                            imagePath: formation.imagePath,
-                            title: formation.title,
-                            subtitle: formation.subtitle,
-                            description: formation.description,
-                            duration: formation.duration,
-                            price: formation.price,
-                          ),
-                        );
-                      }).toList(),
-                    ),
+                  child: CustomDropdown(
+                    selectedValue: _selectedFormation,
+                    options: formationOptions,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedFormation = newValue;
+                      });
+                    },
                   ),
                 ),
                 Container(
@@ -117,11 +116,11 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   height: 350,
                   color: Colors.white,
                   child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal, // Permet le défilement horizontal
+                    scrollDirection: Axis.horizontal,
                     child: Row(
                       children: formations.map((formation) {
                         return SizedBox(
-                          width: containerWidth / 5, // Largeur pour 5 formations
+                          width: containerWidth / 5,
                           child: MediaCart(
                             imagePath: formation.imagePath,
                             title: formation.title,

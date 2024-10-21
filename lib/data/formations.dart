@@ -18,6 +18,18 @@ class Formation {
   });
 }
 
+class DomaineFormation {
+  final String imagePath; // Chemin de l'image
+  final String title; // Titre du domaine
+  final String countFormation; // Nombre de formations
+
+  DomaineFormation({
+    required this.imagePath,
+    required this.title,
+    required this.countFormation,
+  });
+}
+
 // Liste des formations
 List<Formation> formations = [
   Formation(
@@ -108,5 +120,29 @@ List<Formation> formations = [
     description: 'Apprenez à concevoir des espaces intérieurs.',
     duration: 'Durée : 8 semaines',
     price: 'Prix : 750 €',
+  ),
+];
+
+// Liste des Domaines de Formations
+List<DomaineFormation> domainesFormations = [
+  DomaineFormation(
+    imagePath: 'tech.jpg',
+    title: 'Technologie',
+    countFormation: '5 formations',
+  ),
+  DomaineFormation(
+    imagePath: 'business.jpg',
+    title: 'Affaires',
+    countFormation: '3 formations',
+  ),
+  DomaineFormation(
+    imagePath: 'creativite.jpg',
+    title: 'Créativité',
+    countFormation: '4 formations',
+  ),
+  DomaineFormation(
+    imagePath: 'marketing.jpg',
+    title: 'Marketing',
+    countFormation: '3 formations',
   ),
 ];
