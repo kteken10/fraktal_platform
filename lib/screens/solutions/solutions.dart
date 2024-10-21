@@ -13,6 +13,7 @@ class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -54,90 +55,83 @@ class _SolutionsPageState extends State<SolutionsPage> {
       body: SingleChildScrollView(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final containerWidth = constraints.maxWidth * 0.85;
+            final containerWidth = constraints.maxWidth;
+            final tabServiceWidth = constraints.maxWidth * 0.85;
 
-            return Row(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Colonne de gauche pour les TabService
-                Expanded(
-                  flex: 4, // Augmenter la valeur pour prendre plus de place
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 32, horizontal: 8),
-                        width: containerWidth,
-                        child: Row(
-                          children: List.generate(tabLabels.length, (index) {
-                            return Expanded(
-                              child: TabService(
-                                title: tabLabels[index],
-                                isSelected: _selectedTabIndex == index,
-                                onTap: () {
-                                  setState(() {
-                                    _selectedTabIndex = index;
-                                  });
-                                },
-                              ),
-                            );
-                          })),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 16),
-                        color: AppColors.backColor,
-                        child: CarouselSolution(
-                          items: carouselItemsList[_selectedTabIndex],
-                          width: containerWidth,
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+                  width: containerWidth,
+                  child: Row(
+                    children: List.generate(tabLabels.length, (index) {
+                      return Expanded(
+                        child: TabService(
+                          title: tabLabels[index],
+                          isSelected: _selectedTabIndex == index,
+                          onTap: () {
+                            setState(() {
+                              _selectedTabIndex = index;
+                            });
+                          },
                         ),
-                      ),
-                      // Rectangle sous le Carousel
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        width: containerWidth,
-                        height: 350, // Ajuste la hauteur selon tes besoins
-                        color: Colors.white, // Couleur du rectangle
-                        child: Row(
-                          children: formations.map((formation) {
-                            return Expanded(
-                              child: Column(
-                                children: [
-                                  MediaCart(
-                                    imagePath: formation.imagePath,
-                                    title: formation.title,
-                                    subtitle: formation.subtitle,
-                                    description: formation.description,
-                                    duration: formation.duration,
-                                    price: formation.price,
-                                  ),
-                                ],
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ],
+                      );
+                    })),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  color: AppColors.backColor,
+                  child: CarouselSolution(
+                    items: carouselItemsList[_selectedTabIndex],
+                    width: containerWidth,
                   ),
                 ),
-                // Colonne de droite
-                Expanded(
-                  flex: 1, // Garder la colonne de droite plus petite
-                  child: Container(
-                    margin: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey, width: 2),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Colonne de droite',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  width: containerWidth,
+                  height: 350,
+                  color: Colors.white,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal, // Permet le défilement horizontal
+                    child: Row(
+                      children: formations.map((formation) {
+                        return SizedBox(
+                          width: containerWidth / 5, // Largeur pour 5 formations
+                          child: MediaCart(
+                            imagePath: formation.imagePath,
+                            title: formation.title,
+                            subtitle: formation.subtitle,
+                            description: formation.description,
+                            duration: formation.duration,
+                            price: formation.price,
                           ),
-                        ),
-                        // Ici, tu peux ajouter d'autres widgets au fur et à mesure
-                      ],
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  width: containerWidth,
+                  height: 350,
+                  color: Colors.white,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal, // Permet le défilement horizontal
+                    child: Row(
+                      children: formations.map((formation) {
+                        return SizedBox(
+                          width: containerWidth / 5, // Largeur pour 5 formations
+                          child: MediaCart(
+                            imagePath: formation.imagePath,
+                            title: formation.title,
+                            subtitle: formation.subtitle,
+                            description: formation.description,
+                            duration: formation.duration,
+                            price: formation.price,
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),

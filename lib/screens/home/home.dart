@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-            ImageDisplay(imagePath: 'Homeimage.jpg'),
+            // ImageDisplay(imagePath: 'Homeimage.jpg'),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),
