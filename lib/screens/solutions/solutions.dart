@@ -31,8 +31,9 @@ class _SolutionsPageState extends State<SolutionsPage> {
 
     // Liste des options pour le dropdown
     final List<String> formationOptions = [
+       'Formations Récentes',
       'Domaine de Formation',
-      'Formations Récentes',
+     
       'Catalogues',
       'Tutoriel'
     ];
