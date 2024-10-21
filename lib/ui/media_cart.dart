@@ -63,7 +63,7 @@ class MediaCart extends StatelessWidget {
                   title, // Utilise le titre passé en paramètre
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white, // Texte en blanc
+                    color: AppColors.primaryColor, // Texte en blanc
                   ),
                 ),
               ),
