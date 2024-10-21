@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../constants/colors.dart';
 import '../../data/data.dart';
 import '../../data/formations.dart';
@@ -113,7 +112,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  margin: EdgeInsets.symmetric(horizontal: 16),
                   width: containerWidth,
                   height: 350,
                   color: Colors.white,

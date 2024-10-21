@@ -17,11 +17,10 @@ class CustomDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Si selectedValue est nul, utiliser le premier élément des options
     String initialValue = selectedValue ?? (options.isNotEmpty ? options.first : '');
 
     return SizedBox(
-      width: 250, // Largeur fixe pour la dropdown
+      width: 250, 
       child: DropdownButtonHideUnderline(
         child: DropdownButton2<String>(
           value: initialValue,
@@ -29,7 +28,7 @@ class CustomDropdown extends StatelessWidget {
           onChanged: onChanged,
           buttonStyleData: ButtonStyleData(
             decoration: BoxDecoration(
-              color: Colors.white, // Couleur de fond du bouton
+              color: Colors.white, 
               borderRadius: BorderRadius.circular(8), // Coins arrondis
             ),
           ),
