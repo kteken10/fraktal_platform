@@ -15,6 +15,7 @@ class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
