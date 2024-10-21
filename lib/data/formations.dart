@@ -22,7 +22,7 @@ class Formation {
 // Liste des formations
 List<Formation> formations = [
   Formation(
-    imagePath: 'assets/frontend_developer.jpg',
+    imagePath: 'frontend_developer.jpg',
     title: 'Développeur Frontend',
     subtitle: 'Formation en développement web',
     description: 'Apprenez à créer des sites web interactifs.',
@@ -30,7 +30,7 @@ List<Formation> formations = [
     price: 'Prix : 600 €',
   ),
   Formation(
-    imagePath: 'assets/machinelearing.jpg',
+    imagePath: 'machinelearing.jpg',
     title: 'Machine Learning',
     subtitle: 'Formation en IA',
     description: 'Comprendre les bases du machine learning.',
@@ -38,7 +38,7 @@ List<Formation> formations = [
     price: 'Prix : 800 €',
   ),
   Formation(
-    imagePath: 'assets/iot.jpg',
+    imagePath: 'iot.jpg',
     title: 'Internet des Objets',
     subtitle: 'Formation IoT',
     description: 'Introduction aux technologies IoT.',
@@ -46,7 +46,7 @@ List<Formation> formations = [
     price: 'Prix : 500 €',
   ),
   Formation(
-    imagePath: 'assets/developpeurweb.jpg',
+    imagePath: 'developpeurweb.jpg',
     title: 'Développeur Web',
     subtitle: 'Formation Full Stack',
     description: 'Maîtrisez le développement web complet.',
@@ -54,7 +54,7 @@ List<Formation> formations = [
     price: 'Prix : 1000 €',
   ),
   Formation(
-    imagePath: 'assets/cybersecurite.jpg',
+    imagePath: 'cybersecurite.jpg',
     title: 'Cybersécurité',
     subtitle: 'Formation en sécurité informatique',
     description: 'Apprenez à protéger les systèmes d\'information.',

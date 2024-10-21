@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../data/data.dart';
+import '../../data/formations.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
 import '../../ui/user_notif_icon.dart';
@@ -96,80 +97,22 @@ class _SolutionsPageState extends State<SolutionsPage> {
                         height: 350, // Ajuste la hauteur selon tes besoins
                         color: Colors.white, // Couleur du rectangle
                         child: Row(
-                          children: [
-                            // Quatre parties avec MediaCart et traits de séparation
-                            Expanded(
+                          children: formations.map((formation) {
+                            return Expanded(
                               child: Column(
                                 children: [
                                   MediaCart(
-                                    imagePath: 'frontend_developer.jpg',
-                                    title: 'Développement Frontend',
-                                    subtitle: 'Formation de développement frontend',
-                                    description: 'Apprenez à construire des interfaces web modernes.',
-                                    duration: 'Durée : 6 heures',
-                                    price: 'Prix : 350 €',
+                                    imagePath: formation.imagePath,
+                                    title: formation.title,
+                                    subtitle: formation.subtitle,
+                                    description: formation.description,
+                                    duration: formation.duration,
+                                    price: formation.price,
                                   ),
                                 ],
                               ),
-                            ),
-                            Container(
-                              width: 1,
-                              height: 200, // Hauteur du trait
-                              color: AppColors.backColorFine, // Couleur du trait
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  MediaCart(
-                                    imagePath: 'machinelearing.jpg',
-                                    title: 'Machine Learning',
-                                    subtitle: 'Formation en apprentissage automatique',
-                                    description: 'Introduction aux algorithmes d\'apprentissage.',
-                                    duration: 'Durée : 8 heures',
-                                    price: 'Prix : 400 €',
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 1,
-                              height: 200, // Hauteur du trait
-                              color: AppColors.backColorFine, // Couleur du trait
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  MediaCart(
-                                    imagePath: 'Iot.jpg',
-                                    title: 'Internet des Objets',
-                                    subtitle: 'Formation IoT',
-                                    description: 'Comprendre les principes de l\'IoT.',
-                                    duration: 'Durée : 5 heures',
-                                    price: 'Prix : 300 €',
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 1,
-                              height: 200, // Hauteur du trait
-                              color: AppColors.backColorFine, // Couleur du trait
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  MediaCart(
-                                    imagePath: 'developpeurweb.jpg',
-                                    title: 'Développement Web',
-                                    subtitle: 'Formation de développement web',
-                                    description: 'Maîtrisez les technologies du web.',
-                                    duration: 'Durée : 7 heures',
-                                    price: 'Prix : 320 €',
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                            );
+                          }).toList(),
                         ),
                       ),
                     ],
