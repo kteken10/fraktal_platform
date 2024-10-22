@@ -105,6 +105,16 @@ flutter:
     - assets/Homeimage.jpg
 
 
+    - assets/ManagementClientSlide1.jpg
+    - assets/ManagementClientSlide2.jpg
+    - assets/JobBoarslide1.jpg
+    - assets/JobBoardslide2.jpg
+    - assets/MarketingRHSlide1.jpg
+    - assets/MarketingRhSlide2.jpg
+    - assets/OutSourcingSlide1.jpg
+    - assets/OutSourcingSlide2.jpg
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

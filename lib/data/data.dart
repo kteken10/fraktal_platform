@@ -1,6 +1,5 @@
 import '../ui/carousel_solution.dart';
 
-
 final List<String> tabLabels = [
   'Formations',
   'Facility Management',
@@ -35,5 +34,53 @@ final List<List<CarouselItem>> carouselItemsList = [
       subtitle: 'Améliorez l’efficacité de vos services avec nos solutions personnalisées.',
     ),
   ],
-  // Ajoutez les autres listes ici...
+  [ // Management Client
+    CarouselItem(
+      imagePath: 'ManagementClientSlide1.jpg',
+      caption: '#GestionClient',
+      subtitle: 'Renforcez la relation avec vos clients grâce à nos stratégies adaptées.',
+    ),
+    CarouselItem(
+      imagePath: 'ManagementClientSlide2.jpg',
+      caption: '#Satisfaction',
+      subtitle: 'Assurez une satisfaction client maximale avec nos solutions innovantes.',
+    ),
+  ],
+  
+  [ // Marketing RH
+    CarouselItem(
+      imagePath: 'MarketingRHSlide1.jpg',
+      caption: '#MarketingRH',
+      subtitle: 'Optimisez votre stratégie de marketing pour attirer les meilleurs talents.',
+    ),
+    CarouselItem(
+      imagePath: 'MarketingRhSlide2.jpg',
+      caption: '#Attraction',
+      subtitle: 'Améliorez votre attractivité en tant qu’employeur avec nos conseils.',
+    ),
+  ],
+  [ // Outsourcing
+    CarouselItem(
+      imagePath: 'OutSourcingSlide1.jpg',
+      caption: '#Externalisation',
+      subtitle: 'Concentrez-vous sur votre cœur de métier avec nos services d’externalisation.',
+    ),
+    CarouselItem(
+      imagePath: 'OutSourcingSlide2.jpg',
+      caption: '#Efficacité',
+      subtitle: 'Augmentez l’efficacité de votre entreprise en externalisant les tâches secondaires.',
+    ),
+  ],
+  [ // Job Board
+    CarouselItem(
+      imagePath: 'JobBoarslide1.jpg',
+      caption: '#Emploi',
+      subtitle: 'Découvrez les meilleures opportunités d’emploi sur notre plateforme.',
+    ),
+    CarouselItem(
+      imagePath: 'JobBoardslide2.jpg',
+      caption: '#Carrière',
+      subtitle: 'Propulsez votre carrière avec nos offres sur mesure.',
+    ),
+  ],
 ];

@@ -1,12 +1,12 @@
 // formations.dart
 
 class Formation {
-  final String imagePath; // Chemin de l'image
-  final String title; // Titre principal
-  final String subtitle; // Sous-titre
-  final String description; // Description
-  final String duration; // Durée
-  final String price; // Prix
+  final String imagePath; 
+  final String title; 
+  final String subtitle; 
+  final String description; 
+  final String duration; 
+  final String price; 
 
   Formation({
     required this.imagePath,
@@ -19,9 +19,9 @@ class Formation {
 }
 
 class DomaineFormation {
-  final String imagePath; // Chemin de l'image
-  final String title; // Titre du domaine
-  final String countFormation; // Nombre de formations
+  final String imagePath; 
+  final String title;
+  final String countFormation;
 
   DomaineFormation({
     required this.imagePath,
@@ -30,7 +30,7 @@ class DomaineFormation {
   });
 }
 
-// Liste des formations
+
 List<Formation> formations = [
   Formation(
     imagePath: 'frontend_developer.jpg',
@@ -72,7 +72,6 @@ List<Formation> formations = [
     duration: 'Durée : 12 semaines',
     price: 'Prix : 900 €',
   ),
-  // Nouvelles formations ajoutées
   Formation(
     imagePath: 'MarKetingRh.jpg',
     title: 'Marketing RH',
@@ -123,26 +122,26 @@ List<Formation> formations = [
   ),
 ];
 
-// Liste des Domaines de Formations
+
 List<DomaineFormation> domainesFormations = [
   DomaineFormation(
     imagePath: 'tech.jpg',
     title: 'Technologie',
-    countFormation: '5 formations',
+    countFormation: '5',
   ),
   DomaineFormation(
     imagePath: 'business.jpg',
     title: 'Affaires',
-    countFormation: '3 formations',
+    countFormation: '3',
   ),
   DomaineFormation(
     imagePath: 'creativite.jpg',
     title: 'Créativité',
-    countFormation: '4 formations',
+    countFormation: '4',
   ),
   DomaineFormation(
     imagePath: 'marketing.jpg',
     title: 'Marketing',
-    countFormation: '3 formations',
+    countFormation: '3',
   ),
 ];

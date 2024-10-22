@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
               onNotificationHoverExit: _onNotificationExit,
               onAvatarHoverEnter: _onAvatarEnter,
               onAvatarHoverExit: _onAvatarExit,
-              onAvatarTap: _openAuthModal, // Ouvrir la modale sur le clic
+              onAvatarTap: _openAuthModal, 
             ),
           ],
         ),

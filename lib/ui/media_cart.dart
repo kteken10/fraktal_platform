@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fraktal_platform/constants/colors.dart'; // Assure-toi que ce chemin est correct
+import 'package:fraktal_platform/constants/colors.dart'; 
 
 class MediaCart extends StatelessWidget {
-  final String title; // Titre principal
-  final String subtitle; // Sous-titre
-  final String description; // Description
-  final String duration; // Durée
-  final String price; // Prix
-  final String imagePath; // Chemin de l'image
+  final String title; 
+  final String subtitle; 
+  final String description; 
+  final String duration; 
+  final String price; 
+  final String imagePath; 
 
   const MediaCart({
     super.key,
@@ -86,7 +86,7 @@ class MediaCart extends StatelessWidget {
               ),
             ),
             SizedBox(height: 4),
-            // Supprimer le Spacer pour laisser le contenu s'adapter
+           
             SizedBox(
               width: double.infinity,
               child: Row(

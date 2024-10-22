@@ -23,7 +23,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
 
-  String? _selectedFormation; // Variable pour la valeur sélectionnée dans le dropdown
+  String? _selectedFormation; 
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
     final List<String> formationOptions = [
        'Formations Récentes',
       'Domaine de Formation',
-     
       'Catalogues',
       'Tutoriel'
     ];
@@ -98,7 +97,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     width: containerWidth,
                   ),
                 ),
-                // Utilisation de CustomDropdown
+              
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: CustomDropdown(

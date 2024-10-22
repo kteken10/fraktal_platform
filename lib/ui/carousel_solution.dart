@@ -103,7 +103,8 @@ class _CarouselSolutionState extends State<CarouselSolution> {
                   child: Image.asset(
                     item.imagePath,
                     width: 400,
-                    height: 300,
+                    height: double.infinity,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
