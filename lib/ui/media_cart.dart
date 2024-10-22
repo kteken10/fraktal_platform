@@ -16,7 +16,7 @@ class MediaCart extends StatelessWidget {
     String title;
     String subtitle;
     String description;
-    String duration;
+    String timeRemaining; // Nouvelle variable pour le temps restant
     String price;
     String imagePath;
     String logoPath;
@@ -25,18 +25,18 @@ class MediaCart extends StatelessWidget {
       title = resource.title;
       subtitle = resource.subtitle;
       description = resource.description;
-      duration = resource.duration;
+      timeRemaining = resource.duration; // Ajuster si nécessaire
       price = resource.price;
       imagePath = resource.imagePath;
-      logoPath = ""; // Pas de logo pour une formation
+      logoPath = ""; 
     } else if (resource is JobOffer) {
       title = resource.title;
       subtitle = resource.companyName;
       description = 'Poste disponible';
-      duration = 'Début: ${resource.startDate.toLocal()}';
-      price = 'Fin: ${resource.endDate.toLocal()}';
+      timeRemaining = _getTimeRemaining(resource.endDate); // Appelle la méthode pour le temps restant
+      price = 'Fin: ${resource.endDate.toLocal()}'; // À adapter si nécessaire
       imagePath = resource.imagePath; 
-      logoPath = resource.companyLogoUrl; // Utilisation correcte du chemin
+      logoPath = resource.companyLogoUrl; 
     } else {
       throw Exception('Type de ressource non reconnu');
     }
@@ -72,43 +72,31 @@ class MediaCart extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  width: 200,
-                  height: 30,
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
+  decoration: BoxDecoration(
+    color: AppColors.primaryColor.withOpacity(0.1),
+    borderRadius: BorderRadius.circular(12),
+  ),
+  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+  width: 200,
+  child: Text(
+    title,
+    style: TextStyle(
+      fontSize: 16,
+      color: AppColors.primaryColor,
+    ),
+  ),
+),
+
                 if (resource is JobOffer) ...[
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: AppColors.primaryColor.withOpacity(0.1),
-                        width: 2,
-                      ),
+                  
+                   Image.asset(
+                      logoPath,
+                      
+                      width: 75,
+                      height: 50,
+                     
                     ),
-                    child: ClipOval(
-                      child: Image.asset(
-                        logoPath, // Utilisation correcte pour le logo
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),
-                    ),
-                  ),
+                 
                 ],
               ],
             ),
@@ -147,7 +135,7 @@ class MediaCart extends StatelessWidget {
                           ),
                           SizedBox(width: 4),
                           Text(
-                            duration,
+                            timeRemaining,
                             style: TextStyle(
                               fontSize: 12,
                               color: AppColors.ternaryColor,
@@ -186,5 +174,18 @@ class MediaCart extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getTimeRemaining(DateTime endDate) {
+    final now = DateTime.now();
+    final difference = endDate.difference(now);
+
+    if (difference.isNegative) {
+      return 'Expiré'; // L'offre est expirée
+    } else {
+      final days = difference.inDays;
+      final hours = difference.inHours % 24;
+      return '$days jours, $hours heures restantes';
+    }
   }
 }

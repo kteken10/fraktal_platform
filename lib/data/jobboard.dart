@@ -33,18 +33,26 @@ class JobOffer {
 
 // Liste des offres d'emploi
 List<JobOffer> jobOffers = [
-  JobOffer(
-    companyName: "Tech Solutions Inc.",
-    title: "Développeur Web",
-    companyLogoUrl: "assets/logos/logo1.png", // Remplacez par le chemin correct
-    startDate: DateTime(2023, 10, 1),
-    endDate: DateTime(2023, 11, 30),
-    imagePath: "assets/jobs/developpeur_web.png", 
+   JobOffer(
+    companyName: "SecureTech",
+    title: "Expert en Cybersécurité",
+    companyLogoUrl: "LogoNextel.png", // Remplacez par le chemin correct
+    startDate: DateTime(2023, 10, 15),
+    endDate: DateTime(2024, 02, 15),
+    imagePath: "assets/jobs/cybersecurite.png",
+  ),
+   JobOffer(
+    companyName: "Code Masters",
+    title: "Développeur Python",
+    companyLogoUrl: "LogoOrange.png", // Remplacez par le chemin correct
+    startDate: DateTime(2023, 10, 20),
+    endDate: DateTime(2024, 03, 20),
+    imagePath: "assets/jobs/developpeur_python.png",
   ),
   JobOffer(
     companyName: "HR Innovations",
     title: "Assistant RH",
-    companyLogoUrl: "assets/logos/LogoAirFrance.png", // Remplacez par le chemin correct
+    companyLogoUrl: "LogoAirFrance.png", // Remplacez par le chemin correct
     startDate: DateTime(2023, 10, 5),
     endDate: DateTime(2023, 12, 5),
     imagePath: "assets/jobs/assistant_rh.png",
@@ -57,26 +65,14 @@ List<JobOffer> jobOffers = [
     endDate: DateTime(2024, 01, 10),
     imagePath: "assets/jobs/marketing_digital.png",
   ),
-  JobOffer(
-    companyName: "SecureTech",
-    title: "Expert en Cybersécurité",
-    companyLogoUrl: "LogoNextel.png", // Remplacez par le chemin correct
-    startDate: DateTime(2023, 10, 15),
-    endDate: DateTime(2024, 02, 15),
-    imagePath: "assets/jobs/cybersecurite.png",
-  ),
-  JobOffer(
-    companyName: "Code Masters",
-    title: "Développeur Python",
-    companyLogoUrl: "LogoOrange.jpg", // Remplacez par le chemin correct
-    startDate: DateTime(2023, 10, 20),
-    endDate: DateTime(2024, 03, 20),
-    imagePath: "assets/jobs/developpeur_python.png",
-  ),
+
+
+ 
+ 
   JobOffer(
     companyName: "Orange Cameroun",
     title: "Ingénieur Réseau",
-    companyLogoUrl: "LogoOrange.jpg", // Remplacez par le chemin correct
+    companyLogoUrl: "LogoOrange.png", // Remplacez par le chemin correct
     startDate: DateTime(2023, 11, 1),
     endDate: DateTime(2024, 01, 31),
     imagePath: "assets/jobs/ingenieur_reseau.png",
@@ -98,6 +94,14 @@ List<JobOffer> jobOffers = [
     imagePath: "assets/jobs/analyste_donnees.png",
   ),
   JobOffer(
+    companyName: "Aifrance",
+    title: "Chef de Projet IT",
+    companyLogoUrl: "logoGoogle.png", // Remplacez par le chemin correct
+    startDate: DateTime(2023, 10, 30),
+    endDate: DateTime(2024, 03, 30),
+    imagePath: "assets/jobs/chef_projet.png",
+  ),
+  JobOffer(
     companyName: "Afriland First Bank",
     title: "Responsable Marketing Digital",
     companyLogoUrl: "LogoAfriland.jpg", // Remplacez par le chemin correct
@@ -113,13 +117,9 @@ List<JobOffer> jobOffers = [
     endDate: DateTime(2024, 02, 05),
     imagePath: "assets/jobs/technicien_support.png",
   ),
-  JobOffer(
-    companyName: "Aifrance",
-    title: "Chef de Projet IT",
-    companyLogoUrl: "logoGoogle.png", // Remplacez par le chemin correct
-    startDate: DateTime(2023, 10, 30),
-    endDate: DateTime(2024, 03, 30),
-    imagePath: "assets/jobs/chef_projet.png",
-  ),
+  
+ 
+ 
+  
 ];
 

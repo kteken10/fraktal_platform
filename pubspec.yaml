@@ -113,14 +113,24 @@ flutter:
     - assets/MarketingRhSlide2.jpg
     - assets/OutSourcingSlide1.jpg
     - assets/OutSourcingSlide2.jpg
-
-    
     - assets/LogoAfriland.jpg
     - assets/LogoAirFrance.png
     - assets/logoGoogle.png
     - assets/LogoNextel.png
-    - assets/LogoOrange.jpg
-    - assets/logoUba.jpgs
+    - assets/LogoOrange.png
+    - assets/logoUba.jpg
+
+    - assets/AnalyseDonneJobImage.jpg
+    - assets/AssistantRhJobImage.jpg
+    - assets/ExpertCyberSecuriteJobImage.jpg
+    - assets/IngenieurReseauJobImage.jpg
+    - assets/MarKetingDigitalJobImage.jpg
+    - assets/MobileDeveloperJobImage.jpg
+    - assets/PythonDeveloperJobImage.jpg
+    - assets/ChefProjetItJobImage.jpg
+    - assets/ResponsableMarketingJobImage.jpg
+  -  assets/TechnicienSupportJobImage.jpg
+
 
 
 
