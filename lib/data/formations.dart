@@ -127,21 +127,22 @@ List<DomaineFormation> domainesFormations = [
   DomaineFormation(
     imagePath: 'tech.jpg',
     title: 'Technologie',
-    countFormation: '5',
+    countFormation: '6',
   ),
   DomaineFormation(
-    imagePath: 'business.jpg',
-    title: 'Affaires',
+    imagePath: 'data_science.jpg',
+    title: 'Data Science',
+    countFormation: '2',
+  ),
+  DomaineFormation(
+    imagePath: 'uiux_design.jpg',
+    title: 'Design UI/UX',
     countFormation: '3',
   ),
   DomaineFormation(
-    imagePath: 'creativite.jpg',
-    title: 'Créativité',
-    countFormation: '4',
-  ),
-  DomaineFormation(
-    imagePath: 'marketing.jpg',
-    title: 'Marketing',
+    imagePath: 'digital_marketing.jpg',
+    title: 'Marketing Digital',
     countFormation: '3',
   ),
 ];
+
