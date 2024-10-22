@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fraktal_platform/constants/colors.dart'; 
-import '../../data/formations.dart'; // Assure-toi d'importer les bons fichiers
+import 'package:fraktal_platform/constants/colors.dart';
+import '../../data/formations.dart';
 import '../../data/jobboard.dart';
 
 class MediaCart extends StatelessWidget {
-  final dynamic resource; // Utilisation de dynamic pour accepter les deux types
+  final dynamic resource;
 
   const MediaCart({
     super.key,
@@ -19,8 +19,8 @@ class MediaCart extends StatelessWidget {
     String duration;
     String price;
     String imagePath;
+    String logoPath;
 
-    // Mapping en fonction du type de ressource
     if (resource is Formation) {
       title = resource.title;
       subtitle = resource.subtitle;
@@ -28,13 +28,15 @@ class MediaCart extends StatelessWidget {
       duration = resource.duration;
       price = resource.price;
       imagePath = resource.imagePath;
+      logoPath = ""; // Pas de logo pour une formation
     } else if (resource is JobOffer) {
       title = resource.title;
       subtitle = resource.companyName;
       description = 'Poste disponible';
       duration = 'Début: ${resource.startDate.toLocal()}';
       price = 'Fin: ${resource.endDate.toLocal()}';
-      imagePath = resource.companyLogoUrl; // Utilise le logo de l'entreprise
+      imagePath = resource.imagePath; 
+      logoPath = resource.companyLogoUrl; // Utilisation correcte du chemin
     } else {
       throw Exception('Type de ressource non reconnu');
     }
@@ -66,25 +68,49 @@ class MediaCart extends StatelessWidget {
               ),
             ),
             SizedBox(height: 4),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.primaryColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                width: 200,
-                height: 30,
-                child: Center(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.primaryColor,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  width: 200,
+                  height: 30,
+                  child: Center(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   ),
                 ),
-              ),
+                if (resource is JobOffer) ...[
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: AppColors.primaryColor.withOpacity(0.1),
+                        width: 2,
+                      ),
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        logoPath, // Utilisation correcte pour le logo
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
             ),
             SizedBox(height: 8),
             Text(

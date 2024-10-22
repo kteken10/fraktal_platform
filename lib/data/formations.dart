@@ -121,6 +121,7 @@ List<Formation> formations = [
 ];
 
 
+
 List<DomaineFormation> domainesFormations = [
   DomaineFormation(
     imagePath: 'tech.jpg',

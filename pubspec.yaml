@@ -114,6 +114,16 @@ flutter:
     - assets/OutSourcingSlide1.jpg
     - assets/OutSourcingSlide2.jpg
 
+    
+    - assets/LogoAfriland.jpg
+    - assets/LogoAirFrance.png
+    - assets/logoGoogle.png
+    - assets/LogoNextel.png
+    - assets/LogoOrange.jpg
+    - assets/logoUba.jpgs
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
