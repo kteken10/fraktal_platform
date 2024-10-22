@@ -1,5 +1,3 @@
-// formations.dart
-
 class Formation {
   final String imagePath; 
   final String title; 

@@ -32,7 +32,7 @@ class JobOffer {
   });
 }
 
-void main() {
+
   List<JobOffer> jobOffers = [
     JobOffer(
       companyName: "Tech Solutions Inc.",
@@ -71,5 +71,4 @@ void main() {
     ),
   ];
 
-  
-}
+
