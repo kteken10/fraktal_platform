@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../data/data.dart';
 import '../../data/formations.dart';
+import '../../data/jobboard.dart';
 import '../../ui/custom_dropdown.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
@@ -9,6 +10,7 @@ import '../../ui/user_notif_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
 import '../../ui/media_cart.dart';
+
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
@@ -18,20 +20,20 @@ class SolutionsPage extends StatefulWidget {
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
+
 class _SolutionsPageState extends State<SolutionsPage> {
   int _selectedTabIndex = 0;
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
 
-  String? _selectedFormation; 
+  String? _selectedFormation;
 
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
 
-    // Liste des options pour le dropdown
     final List<String> formationOptions = [
-       'Formations Récentes',
+      'Formations Récentes',
       'Domaine de Formation',
       'Catalogues',
       'Tutoriel'
@@ -87,7 +89,8 @@ class _SolutionsPageState extends State<SolutionsPage> {
                           },
                         ),
                       );
-                    })),
+                    }),
+                  ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 16),
@@ -97,7 +100,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     width: containerWidth,
                   ),
                 ),
-              
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: CustomDropdown(
@@ -118,19 +120,23 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: formations.map((formation) {
-                        return SizedBox(
-                          width: containerWidth / 5,
-                          child: MediaCart(
-                            imagePath: formation.imagePath,
-                            title: formation.title,
-                            subtitle: formation.subtitle,
-                            description: formation.description,
-                            duration: formation.duration,
-                            price: formation.price,
-                          ),
-                        );
-                      }).toList(),
+                      children: _selectedTabIndex == 0 // Exemple: 0 = Formations
+                          ? formations.map((formation) {
+                              return SizedBox(
+                                width: containerWidth / 5,
+                                child: MediaCart(
+                                  resource: formation, // Passer la ressource
+                                ),
+                              );
+                            }).toList()
+                          : jobOffers.map((jobOffer) {
+                              return SizedBox(
+                                width: containerWidth / 5,
+                                child: MediaCart(
+                                  resource: jobOffer, // Passer la ressource
+                                ),
+                              );
+                            }).toList(),
                     ),
                   ),
                 ),

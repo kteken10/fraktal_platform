@@ -1,30 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart'; 
+import '../../data/formations.dart'; // Assure-toi d'importer les bons fichiers
+import '../../data/jobboard.dart';
 
 class MediaCart extends StatelessWidget {
-  final String title; 
-  final String subtitle; 
-  final String description; 
-  final String duration; 
-  final String price; 
-  final String imagePath; 
+  final dynamic resource; // Utilisation de dynamic pour accepter les deux types
 
   const MediaCart({
     super.key,
-    required this.imagePath,
-    required this.title,
-    required this.subtitle,
-    required this.description,
-    required this.duration,
-    required this.price,
+    required this.resource,
   });
 
   @override
   Widget build(BuildContext context) {
+    String title;
+    String subtitle;
+    String description;
+    String duration;
+    String price;
+    String imagePath;
+
+    // Mapping en fonction du type de ressource
+    if (resource is Formation) {
+      title = resource.title;
+      subtitle = resource.subtitle;
+      description = resource.description;
+      duration = resource.duration;
+      price = resource.price;
+      imagePath = resource.imagePath;
+    } else if (resource is JobOffer) {
+      title = resource.title;
+      subtitle = resource.companyName;
+      description = 'Poste disponible';
+      duration = 'Début: ${resource.startDate.toLocal()}';
+      price = 'Fin: ${resource.endDate.toLocal()}';
+      imagePath = resource.companyLogoUrl; // Utilise le logo de l'entreprise
+    } else {
+      throw Exception('Type de ressource non reconnu');
+    }
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      width: double.infinity, // Prend toute la largeur disponible
-      child: SingleChildScrollView( // Ajout du ScrollView
+      width: double.infinity,
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -86,7 +104,6 @@ class MediaCart extends StatelessWidget {
               ),
             ),
             SizedBox(height: 4),
-           
             SizedBox(
               width: double.infinity,
               child: Row(
