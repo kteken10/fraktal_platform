@@ -36,7 +36,7 @@ List<JobOffer> jobOffers = [
     title: "Expert en Cybersécurité",
     companyLogoUrl: "LogoNextel.png",
     startDate: DateTime(2023, 10, 15),
-    endDate: DateTime(2024, 02, 15),
+    endDate: DateTime(2024, 11, 15),
     imagePath: "ExpertCyberSecuriteJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -44,7 +44,7 @@ List<JobOffer> jobOffers = [
     title: "Développeur Python",
     companyLogoUrl: "LogoOrange.png",
     startDate: DateTime(2023, 10, 20),
-    endDate: DateTime(2024, 03, 20),
+    endDate: DateTime(2024, 11, 20),
     imagePath: "PythonDeveloperJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -52,15 +52,15 @@ List<JobOffer> jobOffers = [
     title: "Assistant RH",
     companyLogoUrl: "LogoAirFrance.png",
     startDate: DateTime(2023, 10, 5),
-    endDate: DateTime(2023, 12, 5),
-    imagePath: "AssistantRhJobImage.jpg", // Mis à jour
+    endDate: DateTime(2023, 11, 5),
+    imagePath: "AssistantRhJobImage.jpg", // Non disponible
   ),
   JobOffer(
     companyName: "Digital Marketing Group",
     title: "Marketing Digital",
     companyLogoUrl: "logoGoogle.png",
     startDate: DateTime(2023, 10, 10),
-    endDate: DateTime(2024, 01, 10),
+    endDate: DateTime(2024, 12, 10),
     imagePath: "MarKetingDigitalJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -68,7 +68,7 @@ List<JobOffer> jobOffers = [
     title: "Ingénieur Réseau",
     companyLogoUrl: "LogoOrange.png",
     startDate: DateTime(2023, 11, 1),
-    endDate: DateTime(2024, 01, 31),
+    endDate: DateTime(2024, 12, 31),
     imagePath: "IngenieurReseauJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -76,7 +76,7 @@ List<JobOffer> jobOffers = [
     title: "Développeur d'Applications Mobiles",
     companyLogoUrl: "logoGoogle.png",
     startDate: DateTime(2023, 11, 10),
-    endDate: DateTime(2024, 02, 10),
+    endDate: DateTime(2024, 11, 10),
     imagePath: "MobileDeveloperJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -84,7 +84,7 @@ List<JobOffer> jobOffers = [
     title: "Analyste de Données",
     companyLogoUrl: "logoUba.jpg",
     startDate: DateTime(2023, 10, 15),
-    endDate: DateTime(2024, 03, 15),
+    endDate: DateTime(2024, 11, 15),
     imagePath: "AnalyseDonneJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -100,7 +100,7 @@ List<JobOffer> jobOffers = [
     title: "Responsable Marketing Digital",
     companyLogoUrl: "LogoAfriland.jpg",
     startDate: DateTime(2023, 10, 25),
-    endDate: DateTime(2024, 01, 25),
+    endDate: DateTime(2024, 12, 25),
     imagePath: "ResponsableMarketingJobImage.jpg", // Mis à jour
   ),
   JobOffer(
@@ -108,7 +108,7 @@ List<JobOffer> jobOffers = [
     title: "Technicien en Support Informatique",
     companyLogoUrl: "LogoNextel.png",
     startDate: DateTime(2023, 11, 5),
-    endDate: DateTime(2024, 02, 05),
-    imagePath: "TechnicienSupportJobImage.jpg", // Mis à jour
+    endDate: DateTime(2024, 12, 05),
+    imagePath: "TechnicienSupportJobImage.jpg", // Non disponible
   ),
 ];

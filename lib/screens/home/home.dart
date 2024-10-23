@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                 child: Image(
                   image: ResizeImage(
                     AssetImage('Homeimage.jpg'),
-                    width: screenWidth.toInt(), // Ajustez la largeur si nécessaire
+                    width: screenWidth.toInt(), 
                     height: 700,
                   ),
                   // width: screenWidth,
