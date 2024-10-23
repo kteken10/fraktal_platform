@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 
-class UserNotifIcon extends StatelessWidget {
-  final double notificationScale;
+class UserNotifIcon extends StatefulWidget {
   final double avatarScale;
   final VoidCallback onNotificationHoverEnter;
   final VoidCallback onNotificationHoverExit;
@@ -12,14 +11,21 @@ class UserNotifIcon extends StatelessWidget {
 
   const UserNotifIcon({
     super.key,
-    required this.notificationScale,
     required this.avatarScale,
     required this.onNotificationHoverEnter,
     required this.onNotificationHoverExit,
     required this.onAvatarHoverEnter,
     required this.onAvatarHoverExit,
-    required this.onAvatarTap,
+    required this.onAvatarTap, required double notificationScale,
   });
+
+  @override
+  _UserNotifIconState createState() => _UserNotifIconState();
+}
+
+class _UserNotifIconState extends State<UserNotifIcon> {
+  double shoppingCartScale = 1.0; // Échelle initiale de l'icône du panier
+  double notificationScale = 1.0; // Échelle initiale de l'icône de notification
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +33,18 @@ class UserNotifIcon extends StatelessWidget {
       children: [
         // Icône du panier
         MouseRegion(
-          onEnter: (_) => {}, 
-          onExit: (_) => {},
+          onEnter: (_) {
+            setState(() {
+              shoppingCartScale = 1.2; // Agrandir l'icône
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              shoppingCartScale = 1.0; // Rétablir l'échelle
+            });
+          },
           child: AnimatedScale(
-            scale: notificationScale, 
+            scale: shoppingCartScale,
             duration: const Duration(milliseconds: 200),
             child: Container(
               padding: const EdgeInsets.all(4.0),
@@ -53,20 +67,31 @@ class UserNotifIcon extends StatelessWidget {
                 ],
               ),
               child: IconButton(
-                icon: const Icon(Icons.shopping_cart), 
+                icon: const Icon(Icons.shopping_cart),
                 color: AppColors.primaryColor,
                 onPressed: () {
-                
+                  // Action à effectuer lors du clic sur le panier
                 },
               ),
             ),
           ),
         ),
         const SizedBox(width: 16.0),
-     
+
+        // Icône de notification
         MouseRegion(
-          onEnter: (_) => onNotificationHoverEnter(),
-          onExit: (_) => onNotificationHoverExit(),
+          onEnter: (_) {
+            setState(() {
+              notificationScale = 1.2; // Agrandir l'icône
+            });
+            widget.onNotificationHoverEnter();
+          },
+          onExit: (_) {
+            setState(() {
+              notificationScale = 1.0; // Rétablir l'échelle
+            });
+            widget.onNotificationHoverExit();
+          },
           child: AnimatedScale(
             scale: notificationScale,
             duration: const Duration(milliseconds: 200),
@@ -94,24 +119,25 @@ class UserNotifIcon extends StatelessWidget {
                 icon: const Icon(Icons.notifications),
                 color: AppColors.primaryColor,
                 onPressed: () {
-                 
+                  // Action à effectuer lors du clic sur la notification
                 },
               ),
             ),
           ),
         ),
         const SizedBox(width: 16.0),
-     
+
+        // Icône de l'avatar
         MouseRegion(
-          onEnter: (_) => onAvatarHoverEnter(),
-          onExit: (_) => onAvatarHoverExit(),
+          onEnter: (_) => widget.onAvatarHoverEnter(),
+          onExit: (_) => widget.onAvatarHoverExit(),
           child: AnimatedScale(
-            scale: avatarScale,
+            scale: widget.avatarScale,
             duration: const Duration(milliseconds: 200),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 3.0),
               child: GestureDetector(
-                onTap: onAvatarTap,
+                onTap: widget.onAvatarTap,
                 child: Container(
                   padding: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
