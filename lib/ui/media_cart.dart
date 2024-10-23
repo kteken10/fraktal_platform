@@ -41,6 +41,7 @@ class MediaCart extends StatelessWidget {
     }
 
     return Container(
+      height: 350,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       width: double.infinity,
       child: SingleChildScrollView(

@@ -15,7 +15,6 @@ class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -23,7 +22,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
   int _selectedTabIndex = 0;
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
-  String? _selectedFormation;
+  String? _selectedOption;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +35,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Tutoriel',
     ];
 
-    final List<String> JobBordOptions = [
+    final List<String> jobBoardOptions = [
       'Emplois Récents',
-      '',
+      'Type d\'Emploi',
+      'Domaine d\'Emploi',
     ];
+
+    // Sélectionnez les options selon l'onglet choisi
+    List<String> currentOptions = _selectedTabIndex == 0 ? formationOptions : jobBoardOptions;
 
     return Scaffold(
       appBar: AppBar(
@@ -98,6 +101,8 @@ class _SolutionsPageState extends State<SolutionsPage> {
                           onTap: () {
                             setState(() {
                               _selectedTabIndex = index;
+                              // Réinitialiser la sélection lors du changement d'onglet
+                              _selectedOption = null;
                             });
                           },
                         ),
@@ -116,11 +121,11 @@ class _SolutionsPageState extends State<SolutionsPage> {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   child: CustomDropdown(
-                    selectedValue: _selectedFormation,
-                    options: formationOptions,
+                    selectedValue: _selectedOption,
+                    options: currentOptions,
                     onChanged: (String? newValue) {
                       setState(() {
-                        _selectedFormation = newValue;
+                        _selectedOption = newValue;
                       });
                     },
                   ),

@@ -6,7 +6,7 @@ import 'media_cart.dart'; // Assurez-vous d'importer votre MediaCart ici
 class MediaScrollContainer extends StatefulWidget {
   final List<dynamic> items;
   final double containerWidth;
-  final bool isFormation; 
+  final bool isFormation;
 
   const MediaScrollContainer({
     super.key,
@@ -21,45 +21,27 @@ class MediaScrollContainer extends StatefulWidget {
 
 class _MediaScrollContainerState extends State<MediaScrollContainer> {
   final ScrollController _scrollController = ScrollController();
-  int _currentStartIndex = 0;
-  final int _itemsPerPage = 5;
 
   void _scrollLeft() {
-    if (_currentStartIndex > 0) {
-      setState(() {
-        _currentStartIndex -= _itemsPerPage;
-        _scrollController.animateTo(
-          _currentStartIndex * (widget.containerWidth / _itemsPerPage),
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-        );
-      });
-    }
+    _scrollController.animateTo(
+      _scrollController.offset - widget.containerWidth / 5, // Ajustez la valeur si nécessaire
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   void _scrollRight() {
-    if (_currentStartIndex + _itemsPerPage < widget.items.length) {
-      setState(() {
-        _currentStartIndex += _itemsPerPage;
-        _scrollController.animateTo(
-          _currentStartIndex * (widget.containerWidth / _itemsPerPage),
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-        );
-      });
-    }
+    _scrollController.animateTo(
+      _scrollController.offset + widget.containerWidth / 5, // Ajustez la valeur si nécessaire
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    // Limiter les éléments affichés selon l'index courant
-    final displayedItems = widget.items.sublist(
-      _currentStartIndex,
-      (_currentStartIndex + _itemsPerPage).clamp(0, widget.items.length),
-    );
-
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      margin: EdgeInsets.symmetric(horizontal: 6, vertical: 16),
       width: widget.containerWidth,
       color: Colors.white,
       child: Row(
@@ -75,9 +57,9 @@ class _MediaScrollContainerState extends State<MediaScrollContainer> {
               child: Row(
                 children: widget.items.map((item) {
                   return SizedBox(
-                    width: widget.containerWidth / _itemsPerPage,
+                    width: widget.containerWidth / 5,
                     child: MediaCart(
-                      resource: item, 
+                      resource: item,
                     ),
                   );
                 }).toList(),
