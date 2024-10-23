@@ -17,7 +17,7 @@ class MediaCart extends StatelessWidget {
     String subtitle;
     String description;
     String timeRemaining; 
-    String price;
+    String price = ''; // Initialisation de price
     String imagePath;
     String logoPath;
 
@@ -34,7 +34,6 @@ class MediaCart extends StatelessWidget {
       subtitle = resource.companyName;
       description = 'Poste disponible';
       timeRemaining = _getTimeRemaining(resource.endDate);
-      price = ''; 
       imagePath = resource.imagePath; 
       logoPath = resource.companyLogoUrl; 
     } else {
@@ -141,28 +140,30 @@ class MediaCart extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            'cash.png',
-                            width: 30,
-                            height: 30,
-                          ),
-                          SizedBox(width: 4),
-                          Text(
-                            price,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.ternaryColor,
+                  if (resource is Formation) ...[ // Afficher uniquement pour les formations
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'cash.png',
+                              width: 30,
+                              height: 30,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                            SizedBox(width: 4),
+                            Text(
+                              price,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColors.ternaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
               ),
             ),
