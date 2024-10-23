@@ -21,18 +21,21 @@ class MediaScrollContainer extends StatefulWidget {
 
 class _MediaScrollContainerState extends State<MediaScrollContainer> {
   final ScrollController _scrollController = ScrollController();
+  static const int itemsToScroll = 5; // Nombre d'éléments à défiler
 
   void _scrollLeft() {
+    final double scrollAmount = (widget.containerWidth / itemsToScroll);
     _scrollController.animateTo(
-      _scrollController.offset - widget.containerWidth / 5, // Ajustez la valeur si nécessaire
+      _scrollController.offset - scrollAmount,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
   }
 
   void _scrollRight() {
+    final double scrollAmount = (widget.containerWidth / itemsToScroll);
     _scrollController.animateTo(
-      _scrollController.offset + widget.containerWidth / 5, // Ajustez la valeur si nécessaire
+      _scrollController.offset + scrollAmount,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
@@ -57,7 +60,7 @@ class _MediaScrollContainerState extends State<MediaScrollContainer> {
               child: Row(
                 children: widget.items.map((item) {
                   return SizedBox(
-                    width: widget.containerWidth / 5,
+                    width: widget.containerWidth / itemsToScroll, // Ajustez la taille de chaque élément
                     child: MediaCart(
                       resource: item,
                     ),

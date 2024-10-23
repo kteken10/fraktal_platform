@@ -41,7 +41,7 @@ class MediaCart extends StatelessWidget {
     }
 
     return Container(
-      height: 350,
+      height: 340,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       width: double.infinity,
       child: SingleChildScrollView(
@@ -85,6 +85,8 @@ class MediaCart extends StatelessWidget {
                       fontSize: 16,
                       color: AppColors.primaryColor,
                     ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1, // Limitez le nombre de lignes
                   ),
                 ),
                 if (resource is JobOffer) ...[
@@ -104,6 +106,8 @@ class MediaCart extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1, // Limitez le nombre de lignes
             ),
             SizedBox(height: 4),
             Text(
@@ -112,6 +116,8 @@ class MediaCart extends StatelessWidget {
                 fontSize: 14,
                 color: Colors.grey,
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1, // Limitez le nombre de lignes
             ),
             SizedBox(height: 4),
             SizedBox(
