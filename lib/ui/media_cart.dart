@@ -87,17 +87,22 @@ class MediaCart extends StatelessWidget {
                 ),
               ),
               if (resource is JobOffer) ...[
-                Image.asset(
-                  logoPath,
-                  width: 75,
-                  height: 50,
+                Flexible(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Image.asset(
+                      logoPath,
+                      fit: BoxFit.contain,
+                      height: 50, // Limite la hauteur pour éviter les débordements
+                    ),
+                  ),
                 ),
               ],
             ],
           ),
           SizedBox(height: 8),
           Container(
-            height: 20, // Hauteur fixe pour le sous-titre
+            height: 20,
             child: Text(
               subtitle,
               style: TextStyle(
@@ -109,7 +114,7 @@ class MediaCart extends StatelessWidget {
           ),
           SizedBox(height: 4),
           Container(
-            height: 40, // Hauteur fixe pour la description
+            height: 40,
             child: Text(
               description,
               style: TextStyle(
