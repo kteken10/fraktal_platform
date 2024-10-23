@@ -32,7 +32,7 @@ class MediaCart extends StatelessWidget {
     } else if (resource is JobOffer) {
       title = resource.title;
       subtitle = resource.companyName;
-      description = 'Poste disponible';
+      description = resource.description;
       timeRemaining = _getTimeRemaining(resource.endDate);
       imagePath = resource.imagePath; 
       logoPath = resource.companyLogoUrl; 

@@ -3,14 +3,13 @@ import '../../constants/colors.dart';
 import '../../data/data.dart';
 import '../../data/formations.dart';
 import '../../data/jobboard.dart';
+import '../../ui/media_scroll_container.dart';
 import '../../ui/custom_dropdown.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
 import '../../ui/user_notif_shop_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
-import '../../ui/media_cart.dart';
-
 
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
@@ -20,12 +19,10 @@ class SolutionsPage extends StatefulWidget {
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
-
 class _SolutionsPageState extends State<SolutionsPage> {
   int _selectedTabIndex = 0;
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
-
   String? _selectedFormation;
 
   @override
@@ -36,47 +33,50 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Formations Récentes',
       'Domaine de Formation',
       'Catalogues',
-      'Tutoriel'
+      'Tutoriel',
     ];
 
-    final List <String> JobBordOptions =[
+    final List<String> JobBordOptions = [
       'Emplois Récents',
-      ''
+      '',
     ];
-
 
     return Scaffold(
       appBar: AppBar(
         title: Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0), // Marge pour le texte
-      child: const Text(
-        'Prestation de Service',
-        style: TextStyle(fontSize: 20, color: AppColors.primaryColor),
-      ),
-    ),
-    SizedBox(
-      width: 300.0,
-      height: 100,
-      child: SearchInput(controller: searchController),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16), 
-      child: UserNotifIcon(
-        notificationScale: _notificationScale,
-        avatarScale: _avatarScale,
-        onNotificationHoverEnter: () => SolutionsPageMethods.onNotificationEnter(setState),
-        onNotificationHoverExit: () => SolutionsPageMethods.onNotificationExit(setState),
-        onAvatarHoverEnter: () => SolutionsPageMethods.onAvatarEnter(setState),
-        onAvatarHoverExit: () => SolutionsPageMethods.onAvatarExit(setState),
-        onAvatarTap: () => SolutionsPageMethods.openAuthModal(context),
-      ),
-    ),
-  ],
-),
-
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: const Text(
+                'Prestation de Service',
+                style: TextStyle(fontSize: 20, color: AppColors.primaryColor),
+              ),
+            ),
+            SizedBox(
+              width: 300.0,
+              height: 100,
+              child: SearchInput(controller: searchController),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: UserNotifIcon(
+                notificationScale: _notificationScale,
+                avatarScale: _avatarScale,
+                onNotificationHoverEnter: () =>
+                    SolutionsPageMethods.onNotificationEnter(setState),
+                onNotificationHoverExit: () =>
+                    SolutionsPageMethods.onNotificationExit(setState),
+                onAvatarHoverEnter: () =>
+                    SolutionsPageMethods.onAvatarEnter(setState),
+                onAvatarHoverExit: () =>
+                    SolutionsPageMethods.onAvatarExit(setState),
+                onAvatarTap: () =>
+                    SolutionsPageMethods.openAuthModal(context),
+              ),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: LayoutBuilder(
@@ -125,33 +125,11 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     },
                   ),
                 ),
-                Container(
-                 margin: EdgeInsets.symmetric(horizontal: 32),
-                  width: containerWidth,
-                  // height: 350,
-                  color: Colors.white,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: _selectedTabIndex == 0 // Exemple: 0 = Formations
-                          ? formations.map((formation) {
-                              return SizedBox(
-                                width: containerWidth / 5,
-                                child: MediaCart(
-                                  resource: formation, // Passer la ressource
-                                ),
-                              );
-                            }).toList()
-                          : jobOffers.map((jobOffer) {
-                              return SizedBox(
-                                width: containerWidth / 5,
-                                child: MediaCart(
-                                  resource: jobOffer, // Passer la ressource
-                                ),
-                              );
-                            }).toList(),
-                    ),
-                  ),
+                // Utilisation du widget MediaScrollContainer
+                MediaScrollContainer(
+                  items: _selectedTabIndex == 0 ? formations : jobOffers,
+                  containerWidth: containerWidth,
+                  isFormation: _selectedTabIndex == 0,
                 ),
               ],
             );
