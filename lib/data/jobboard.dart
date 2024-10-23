@@ -101,7 +101,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoAfriland.jpg",
     startDate: DateTime(2023, 10, 25),
     endDate: DateTime(2024, 01, 25),
-    imagePath: "tsResponsableMarketingJobImage.jpg", // Mis à jour
+    imagePath: "ResponsableMarketingJobImage.jpg", // Mis à jour
   ),
   JobOffer(
     companyName: "Nextel",

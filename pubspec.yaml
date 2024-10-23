@@ -129,7 +129,7 @@ flutter:
     - assets/PythonDeveloperJobImage.jpg
     - assets/ChefProjetItJobImage.jpg
     - assets/ResponsableMarketingJobImage.jpg
-  -  assets/TechnicienSupportJobImage.jpg
+    - assets/TechnicienSupportJobImage.jpg
 
 
 

@@ -39,6 +39,12 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Tutoriel'
     ];
 
+    final List <String> JobBordOptions =[
+      'Emplois Récents',
+      ''
+    ];
+
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -113,9 +119,9 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16),
+                
                   width: containerWidth,
-                  height: 350,
+                  // height: 350,
                   color: Colors.white,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
