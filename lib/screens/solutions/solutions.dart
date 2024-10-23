@@ -6,7 +6,7 @@ import '../../data/jobboard.dart';
 import '../../ui/custom_dropdown.dart';
 import '../../ui/search_input.dart';
 import '../../ui/tab_service.dart';
-import '../../ui/user_notif_icon.dart';
+import '../../ui/user_notif_shop_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
 import '../../ui/media_cart.dart';

@@ -25,14 +25,15 @@ class UserNotifIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Icône du panier
         MouseRegion(
-          onEnter: (_) => onNotificationHoverEnter(),
-          onExit: (_) => onNotificationHoverExit(),
+          onEnter: (_) => {}, 
+          onExit: (_) => {},
           child: AnimatedScale(
-            scale: notificationScale,
+            scale: notificationScale, 
             duration: const Duration(milliseconds: 200),
             child: Container(
-              padding: const EdgeInsets.all(4.0), // Ajout d'un padding
+              padding: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
@@ -41,13 +42,51 @@ class UserNotifIcon extends StatelessWidget {
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 2,
                     blurRadius: 8,
-                    offset: Offset(4, 4), // ombre inférieure droite
+                    offset: Offset(4, 4),
                   ),
                   BoxShadow(
                     color: Colors.white,
                     spreadRadius: 2,
                     blurRadius: 8,
-                    offset: Offset(-4, -4), // ombre supérieure gauche
+                    offset: Offset(-4, -4),
+                  ),
+                ],
+              ),
+              child: IconButton(
+                icon: const Icon(Icons.shopping_cart), 
+                color: AppColors.primaryColor,
+                onPressed: () {
+                
+                },
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 16.0),
+     
+        MouseRegion(
+          onEnter: (_) => onNotificationHoverEnter(),
+          onExit: (_) => onNotificationHoverExit(),
+          child: AnimatedScale(
+            scale: notificationScale,
+            duration: const Duration(milliseconds: 200),
+            child: Container(
+              padding: const EdgeInsets.all(4.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(4, 4),
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(-4, -4),
                   ),
                 ],
               ),
@@ -55,13 +94,14 @@ class UserNotifIcon extends StatelessWidget {
                 icon: const Icon(Icons.notifications),
                 color: AppColors.primaryColor,
                 onPressed: () {
-                  // Action à effectuer lors du clic
+                 
                 },
               ),
             ),
           ),
         ),
         const SizedBox(width: 16.0),
+     
         MouseRegion(
           onEnter: (_) => onAvatarHoverEnter(),
           onExit: (_) => onAvatarHoverExit(),
@@ -73,7 +113,7 @@ class UserNotifIcon extends StatelessWidget {
               child: GestureDetector(
                 onTap: onAvatarTap,
                 child: Container(
-                  padding: const EdgeInsets.all(4.0), // Ajout d'un padding
+                  padding: const EdgeInsets.all(4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,
@@ -82,13 +122,13 @@ class UserNotifIcon extends StatelessWidget {
                         color: AppColors.primaryColor.withOpacity(0.5),
                         spreadRadius: 2,
                         blurRadius: 4,
-                        offset: Offset(4, 4), // ombre inférieure droite
+                        offset: Offset(4, 4),
                       ),
                       BoxShadow(
                         color: Colors.white,
                         spreadRadius: 2,
                         blurRadius: 4,
-                        offset: Offset(-4, -4), // ombre supérieure gauche
+                        offset: Offset(-4, -4),
                       ),
                     ],
                   ),

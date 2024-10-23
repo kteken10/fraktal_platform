@@ -6,7 +6,7 @@ import '../../ui/carousel_description.dart';
 import '../../ui/footer.dart';
 import '../../ui/modal/auth_modal.dart';
 import '../../ui/service_card.dart';
-import '../../ui/user_notif_icon.dart';
+import '../../ui/user_notif_shop_icon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: const SocialIcons(), // Utilisation du nouveau widget
+                child: const SocialIcons(), 
               ),
             ],
             const Spacer(),
