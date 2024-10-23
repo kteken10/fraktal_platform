@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -48,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AuthModal(); 
+        return AuthModal();
       },
     );
   }
@@ -64,7 +63,13 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 0.0),
-              child: Image.asset('logofraktal.png', height: 40),
+              child: Image(
+                image: 
+                  AssetImage('logofraktal.png'),
+                 
+                  height: 40,
+                
+              ),
             ),
             const Spacer(),
             if (!isSmallScreen) ...[
@@ -73,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: const SocialIcons(), 
+                child: const SocialIcons(),
               ),
             ],
             const Spacer(),
@@ -93,9 +98,28 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              ImageDisplay(imagePath: 'Homeimage.jpg'),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: 0),
+                height: 700,
+                child: Image(
+                  image: ResizeImage(
+                    AssetImage('Homeimage.jpg'),
+                    width: screenWidth.toInt(), // Ajustez la largeur si nécessaire
+                    height: 700,
+                  ),
+                  // width: screenWidth,
+                  // fit: BoxFit.cover,
+                ),
+              ),
               Center(
-                child: Image.asset('arrow_down.gif'),
+                child: Image(
+                  image: ResizeImage(
+                    AssetImage('arrow_down.gif'),
+                    width: 100, // Ajustez la largeur si nécessaire
+                    height: 100, // Ajustez la hauteur si nécessaire
+                  ),
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.all(16.0),

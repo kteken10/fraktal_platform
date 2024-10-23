@@ -14,25 +14,32 @@ class ServiceCard extends StatelessWidget {
           return isMobile
               ? Column(
                   children: [
-                    _buildColumn('formationlogo.png', 'Formation', isMobile),
-                    _buildColumn('facilitymanagementlogo.png', 'Facility Management', isMobile),
-                    _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
-                    _buildColumn('formationlogo.png', 'MarKetingRH', isMobile),
-                    _buildColumn('managementclientlogo.png', 'Management Client', isMobile),
-                    _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
+                    _buildColumn('formationlogo.png', 'Formation'),
+                    _buildColumn('facilitymanagementlogo.png', 'Facility Management'),
+                    _buildColumn('jobboardlogo.png', 'JobBoard'),
+                    _buildColumn('formationlogo.png', 'MarKetingRH'),
+                    _buildColumn('managementclientlogo.png', 'Management Client'),
+                    _buildColumn('outsourcinglogo.png', 'OutSourcing'),
                   ],
                 )
-              : Wrap(
-                  spacing: 16.0,
-                  runSpacing: 16.0,
-                  alignment: WrapAlignment.center,
+              : Column(
                   children: [
-                    _buildColumn('formationlogo.png', 'Formation', isMobile),
-                    _buildColumn('facilitymanagementlogo.png', 'Facility Management', isMobile),
-                    _buildColumn('jobboardlogo.png', 'JobBoard', isMobile),
-                    _buildColumn('formationlogo.png', 'MarKetingRH', isMobile),
-                    _buildColumn('managementclientlogo.png', 'Management Client', isMobile),
-                    _buildColumn('outsourcinglogo.png', 'OutSourcing', isMobile),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(child: _buildColumn('formationlogo.png', 'Formation')),
+                        Expanded(child: _buildColumn('facilitymanagementlogo.png', 'Facility Management')),
+                        Expanded(child: _buildColumn('jobboardlogo.png', 'JobBoard')),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(child: _buildColumn('formationlogo.png', 'MarKetingRH')),
+                        Expanded(child: _buildColumn('managementclientlogo.png', 'Management Client')),
+                        Expanded(child: _buildColumn('outsourcinglogo.png', 'OutSourcing')),
+                      ],
+                    ),
                   ],
                 );
         },
@@ -40,7 +47,7 @@ class ServiceCard extends StatelessWidget {
     );
   }
 
-  Widget _buildColumn(String imagePath, String label, bool isMobile) {
+  Widget _buildColumn(String imagePath, String label) {
     return _ServiceCard(imagePath: imagePath, label: label);
   }
 }
@@ -80,8 +87,8 @@ class __ServiceCardState extends State<_ServiceCard> {
         duration: const Duration(milliseconds: 200),
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 16),
-          margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-          width: 500,
+          margin: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 8), // Espace vertical entre les cartes
+          width: double.infinity, // Prend toute la largeur disponible
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12.0),
