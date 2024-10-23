@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fraktal_platform/ui/text.dart';
 import '../../constants/colors.dart';
 import '../../ui/avatar_icon.dart';
@@ -7,7 +6,7 @@ import '../../ui/carousel_description.dart';
 import '../../ui/footer.dart';
 import '../../ui/modal/auth_modal.dart';
 import '../../ui/service_card.dart';
-import '../../ui/user_notif_icon.dart'; 
+import '../../ui/user_notif_icon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -72,44 +71,9 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  // color: AppColors.backColor,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(width: 8.0),
-                    SocialIcon(
-                      icon: FontAwesomeIcons.instagram,
-                      color: Colors.pink,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 16.0),
-                    SocialIcon(
-                      icon: FontAwesomeIcons.play,
-                      color: Colors.red,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 16.0),
-                    SocialIcon(
-                      icon: FontAwesomeIcons.linkedinIn,
-                      color: AppColors.primaryColor,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 16.0),
-                    SocialIcon(
-                      icon: FontAwesomeIcons.facebookF,
-                      color: AppColors.primaryColor,
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 16.0),
-                    SocialIcon(
-                      icon: FontAwesomeIcons.twitter,
-                      color: AppColors.primaryColor,
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
+                child: const SocialIcons(), // Utilisation du nouveau widget
               ),
             ],
             const Spacer(),
@@ -120,7 +84,7 @@ class _HomePageState extends State<HomePage> {
               onNotificationHoverExit: _onNotificationExit,
               onAvatarHoverEnter: _onAvatarEnter,
               onAvatarHoverExit: _onAvatarExit,
-              onAvatarTap: _openAuthModal, 
+              onAvatarTap: _openAuthModal,
             ),
           ],
         ),
@@ -129,7 +93,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-            ImageDisplay(imagePath: 'Homeimage.jpg'),
+              ImageDisplay(imagePath: 'Homeimage.jpg'),
               Center(
                 child: Image.asset('arrow_down.gif'),
               ),

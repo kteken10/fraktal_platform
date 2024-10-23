@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../constants/colors.dart';
 
 class SocialIcon extends StatefulWidget {
@@ -16,7 +15,6 @@ class SocialIcon extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _SocialIconState createState() => _SocialIconState();
 }
 
@@ -25,13 +23,13 @@ class _SocialIconState extends State<SocialIcon> {
 
   void _onEnter(PointerEvent details) {
     setState(() {
-      _scale = 1.2; // Échelle pour l'animation
+      _scale = 1.2;
     });
   }
 
   void _onExit(PointerEvent details) {
     setState(() {
-      _scale = 1.0; // Rétablir l'échelle
+      _scale = 1.0;
     });
   }
 
@@ -44,22 +42,22 @@ class _SocialIconState extends State<SocialIcon> {
         scale: _scale,
         duration: const Duration(milliseconds: 200),
         child: Container(
-          padding: const EdgeInsets.all(4.0), // Espacement intérieur
+          padding: const EdgeInsets.all(4.0),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white, // Couleur de fond
+            color: Colors.white,
             boxShadow: [
               BoxShadow(
                 color: AppColors.primaryColor.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 4,
-                offset: const Offset(4, 4), // Ombre inférieure droite
+                offset: const Offset(4, 4),
               ),
               BoxShadow(
                 color: Colors.white,
                 spreadRadius: 2,
                 blurRadius: 4,
-                offset: const Offset(-4, -4), // Ombre supérieure gauche
+                offset: const Offset(-4, -4),
               ),
             ],
           ),
@@ -72,11 +70,53 @@ class _SocialIconState extends State<SocialIcon> {
                 color: widget.color,
               ),
               onPressed: widget.onPressed,
-              iconSize: 15, // Ajustez la taille de l'icône si nécessaire
+              iconSize: 15,
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class SocialIcons extends StatelessWidget {
+  const SocialIcons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SocialIcon(
+          icon: FontAwesomeIcons.instagram,
+          color: Colors.pink,
+          onPressed: () {},
+        ),
+        const SizedBox(width: 16.0),
+        SocialIcon(
+          icon: FontAwesomeIcons.play,
+          color: Colors.red,
+          onPressed: () {},
+        ),
+        const SizedBox(width: 16.0),
+        SocialIcon(
+          icon: FontAwesomeIcons.linkedinIn,
+          color: AppColors.primaryColor,
+          onPressed: () {},
+        ),
+        const SizedBox(width: 16.0),
+        SocialIcon(
+          icon: FontAwesomeIcons.facebookF,
+          color: AppColors.primaryColor,
+          onPressed: () {},
+        ),
+        const SizedBox(width: 16.0),
+        SocialIcon(
+          icon: FontAwesomeIcons.twitter,
+          color: AppColors.primaryColor,
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }
