@@ -48,28 +48,35 @@ class _SolutionsPageState extends State<SolutionsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Prestation de Service',
-              style: TextStyle(fontSize: 20, color: AppColors.primaryColor),
-            ),
-            SizedBox(
-              width: 300.0,
-              height: 100,
-              child: SearchInput(controller: searchController),
-            ),
-            UserNotifIcon(
-              notificationScale: _notificationScale,
-              avatarScale: _avatarScale,
-              onNotificationHoverEnter: () => SolutionsPageMethods.onNotificationEnter(setState),
-              onNotificationHoverExit: () => SolutionsPageMethods.onNotificationExit(setState),
-              onAvatarHoverEnter: () => SolutionsPageMethods.onAvatarEnter(setState),
-              onAvatarHoverExit: () => SolutionsPageMethods.onAvatarExit(setState),
-              onAvatarTap: () => SolutionsPageMethods.openAuthModal(context),
-            ),
-          ],
-        ),
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0), // Marge pour le texte
+      child: const Text(
+        'Prestation de Service',
+        style: TextStyle(fontSize: 20, color: AppColors.primaryColor),
+      ),
+    ),
+    SizedBox(
+      width: 300.0,
+      height: 100,
+      child: SearchInput(controller: searchController),
+    ),
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16), 
+      child: UserNotifIcon(
+        notificationScale: _notificationScale,
+        avatarScale: _avatarScale,
+        onNotificationHoverEnter: () => SolutionsPageMethods.onNotificationEnter(setState),
+        onNotificationHoverExit: () => SolutionsPageMethods.onNotificationExit(setState),
+        onAvatarHoverEnter: () => SolutionsPageMethods.onAvatarEnter(setState),
+        onAvatarHoverExit: () => SolutionsPageMethods.onAvatarExit(setState),
+        onAvatarTap: () => SolutionsPageMethods.openAuthModal(context),
+      ),
+    ),
+  ],
+),
+
       ),
       body: SingleChildScrollView(
         child: LayoutBuilder(
@@ -80,7 +87,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+                  margin: EdgeInsets.symmetric(vertical: 32, horizontal: 24),
                   width: containerWidth,
                   child: Row(
                     children: List.generate(tabLabels.length, (index) {
@@ -99,7 +106,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  margin: EdgeInsets.symmetric(horizontal: 32),
                   color: AppColors.backColor,
                   child: CarouselSolution(
                     items: carouselItemsList[_selectedTabIndex],
@@ -107,7 +114,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   child: CustomDropdown(
                     selectedValue: _selectedFormation,
                     options: formationOptions,
@@ -119,7 +126,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   ),
                 ),
                 Container(
-                
+                 margin: EdgeInsets.symmetric(horizontal: 32),
                   width: containerWidth,
                   // height: 350,
                   color: Colors.white,
