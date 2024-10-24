@@ -137,6 +137,12 @@ flutter:
     - assets/kevinCandidatProfile.jpg
     - assets/LynCandidatProfile.jpg
     - assets/MireilleCandidatProfile.jpg
+    
+    - assets/MarketingDigitalDomain.jpg
+    - assets/TechnologieDomaine.jpg
+    - assets/DataScienceDomaine.jpg
+    - assets/DesignUIDomaine.jpg
+
 
 
 

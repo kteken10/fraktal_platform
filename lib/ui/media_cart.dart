@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import '../../data/formations.dart';
 import '../../data/jobboard.dart';
-import '../../utils/time_utils.dart';
+import '../utils/resource_mapper.dart';
 
 class MediaCart extends StatelessWidget {
   final dynamic resource;
@@ -10,61 +10,12 @@ class MediaCart extends StatelessWidget {
     super.key,
     required this.resource,
   });
+
   @override
   Widget build(BuildContext context) {
-    String title;
-    String subtitle;
-    String description;
-    String timeRemaining;
-    String price = ''; 
-    String imageUrl;
-    String logoPath;
+    // Utilisez la méthode pour obtenir les attributs
+    final attributes = mapResourceToAttributes(resource);
 
-    switch (resource.runtimeType) {
-      case const (Formation):
-        title = resource.title;
-        subtitle = resource.subtitle;
-        description = resource.description;
-        timeRemaining = resource.duration; 
-        price = resource.price;
-        imageUrl = resource.imageUrl;
-        logoPath = ""; 
-        break;
-      case const (JobOffer):
-        title = resource.title;
-        subtitle = resource.companyName;
-        description = resource.description;
-        timeRemaining = getTimeRemaining(resource.endDate);
-        imageUrl = resource.imageUrl; 
-        logoPath = resource.companyLogoUrl; 
-        break;
-      case const (Candidate):
-        title = '${resource.firstName} ${resource.lastName}';
-        subtitle = resource.position;
-        description = resource.bio;
-        timeRemaining = ''; 
-        imageUrl = resource.pictureUrl; 
-        logoPath = ""; 
-        break;
-      case const (JobDomain): 
-        title = resource.name;
-        subtitle = ''; 
-        description = resource.description;
-        timeRemaining = ''; 
-        imageUrl = resource.imageUrl; 
-        logoPath = ""; 
-        break;
-      case const (DomaineFormation):
-      title = resource.title;
-      subtitle="";
-      description = resource.description;
-      timeRemaining = ''; 
-      imageUrl = resource.imageUrl; 
-      logoPath = ""; 
-      break;  
-      default:
-        throw Exception('Type de ressource non reconnu');
-    }
     return Container(
       height: 340,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -85,7 +36,7 @@ class MediaCart extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    imageUrl,
+                    attributes.imageUrl,
                     width: double.infinity,
                     fit: BoxFit.fitWidth,
                     height: double.infinity,
@@ -105,7 +56,7 @@ class MediaCart extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   width: 200,
                   child: Text(
-                    title,
+                    attributes.title,
                     style: TextStyle(
                       fontSize: 16,
                       color: AppColors.primaryColor,
@@ -116,7 +67,7 @@ class MediaCart extends StatelessWidget {
                 ),
                 if (resource is JobOffer) ...[
                   Image.asset(
-                    logoPath,
+                    attributes.logoPath,
                     width: 75,
                     height: 50,
                   ),
@@ -125,7 +76,7 @@ class MediaCart extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              subtitle,
+              attributes.subtitle,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -136,7 +87,7 @@ class MediaCart extends StatelessWidget {
             ),
             SizedBox(height: 4),
             Text(
-              description,
+              attributes.description,
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
@@ -165,7 +116,7 @@ class MediaCart extends StatelessWidget {
                             ),
                             SizedBox(width: 4),
                             Text(
-                              timeRemaining,
+                              attributes.timeRemaining,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: AppColors.ternaryColor,
@@ -189,7 +140,7 @@ class MediaCart extends StatelessWidget {
                             ),
                             SizedBox(width: 4),
                             Text(
-                              price,
+                              attributes.price,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: AppColors.ternaryColor,

@@ -120,30 +120,31 @@ List<Formation> formations = [
     price: 'Prix : 750 €',
   ),
 ];
-
 List<DomaineFormation> domainesFormations = [
   DomaineFormation(
-    imageUrl: 'tech.jpg',
+    imageUrl: 'TechnologieDomaine.jpg',
     title: 'Technologie',
     countFormation: '6',
-    description: 'Domaines liés aux nouvelles technologies.', 
+    description: 'Lié aux nouvelles technologies, ce secteur inclut le développement de logiciels, la cybersécurité et les systèmes d’information.',
   ),
   DomaineFormation(
-    imageUrl: 'data_science.jpg',
+    imageUrl: 'DataScienceDomaine.jpg',
     title: 'Data Science',
     countFormation: '2',
-    description: 'Domaines axés sur l\'analyse et la gestion des données.',
+    description: 'Axé sur l\'analyse et la gestion des données, il englobe des techniques de statistiques, de machine learning et de visualisation des données.',
   ),
   DomaineFormation(
-    imageUrl: 'uiux_design.jpg',
-    title: 'Design UI/UX',
+    imageUrl: 'DesignUIDomaine.jpg',
+    title: 'Design UI',
     countFormation: '3',
-    description: 'Domaines de design centrés sur l\'expérience utilisateur.', 
+    description: 'Centré sur l\'expérience utilisateur, ce champ se concentre sur l\'esthétique et la fonctionnalité des interfaces numériques.',
   ),
   DomaineFormation(
-    imageUrl: 'digital_marketing.jpg',
+    imageUrl: 'MarketingDigitalDomain.jpg',
     title: 'Marketing Digital',
     countFormation: '3',
-    description: 'Domaines liés aux stratégies de marketing en ligne.', 
+    description: 'Concerne les stratégies de marketing en ligne, y compris le référencement (SEO), la publicité sur les réseaux sociaux et l\'email marketing.',
   ),
 ];
+
+
