@@ -41,7 +41,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Domaine d\'Emploi',
     ];
 
-    // Sélectionnez les options selon l'onglet choisi
     List<String> currentOptions = _selectedTabIndex == 0 ? formationOptions : jobBoardOptions;
 
     return Scaffold(
@@ -101,8 +100,7 @@ class _SolutionsPageState extends State<SolutionsPage> {
                           onTap: () {
                             setState(() {
                               _selectedTabIndex = index;
-                              // Réinitialiser la sélection lors du changement d'onglet
-                              _selectedOption = null;
+                              _selectedOption = null; // Réinitialiser la sélection lors du changement d'onglet
                             });
                           },
                         ),
@@ -130,12 +128,19 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     },
                   ),
                 ),
-                // Utilisation du widget MediaScrollContainer
+                // Premier MediaScrollContainer
                 MediaScrollContainer(
                   items: _selectedTabIndex == 0 ? formations : jobOffers,
                   containerWidth: containerWidth,
                   isFormation: _selectedTabIndex == 0,
                 ),
+                // Deuxième MediaScrollContainer si JobBoard est sélectionné
+                if (_selectedTabIndex != 0) 
+                  MediaScrollContainer(
+                    items: candidates, // Assurez-vous que `candidates` est défini et accessible
+                    containerWidth: containerWidth,
+                    isFormation: false, // Changer en fonction de votre logique
+                  ),
               ],
             );
           },

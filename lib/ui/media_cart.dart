@@ -22,7 +22,7 @@ class MediaCart extends StatelessWidget {
     String logoPath;
 
     switch (resource.runtimeType) {
-      case Formation:
+      case const (Formation) :
         title = resource.title;
         subtitle = resource.subtitle;
         description = resource.description;
@@ -31,7 +31,7 @@ class MediaCart extends StatelessWidget {
         imagePath = resource.imagePath;
         logoPath = ""; 
         break;
-      case JobOffer:
+      case const (JobOffer):
         title = resource.title;
         subtitle = resource.companyName;
         description = resource.description;
@@ -39,7 +39,7 @@ class MediaCart extends StatelessWidget {
         imagePath = resource.imagePath; 
         logoPath = resource.companyLogoUrl; 
         break;
-      case Candidate:
+      case const (Candidate):
         title = '${resource.firstName} ${resource.lastName}';
         subtitle = resource.position;
         description = resource.bio;
@@ -70,12 +70,23 @@ class MediaCart extends StatelessWidget {
               child: Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    imagePath,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: double.infinity,
+                   child: Image(
+                  image: ResizeImage(
+                    AssetImage(imagePath),
+                    width: double.infinity.toInt(), 
+                    height: 350,
                   ),
+                  // width: screenWidth,
+                  // fit: BoxFit.cover,
+                ),
+
+                  // child: Image.asset(
+                  //   imagePath,
+                  //   // fit: BoxFit.cover,
+                  //   // width: double.infinity,
+                  //   fit: BoxFit.fitWidth,
+                  //   height: double.infinity,
+                  // ),
                 ),
               ),
             ),
