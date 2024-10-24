@@ -16,28 +16,39 @@ class MediaCart extends StatelessWidget {
     String title;
     String subtitle;
     String description;
-    String timeRemaining; 
+    String timeRemaining;
     String price = ''; // Initialisation de price
     String imagePath;
     String logoPath;
 
-    if (resource is Formation) {
-      title = resource.title;
-      subtitle = resource.subtitle;
-      description = resource.description;
-      timeRemaining = resource.duration; // Ajuster si nécessaire
-      price = resource.price;
-      imagePath = resource.imagePath;
-      logoPath = ""; 
-    } else if (resource is JobOffer) {
-      title = resource.title;
-      subtitle = resource.companyName;
-      description = resource.description;
-      timeRemaining = _getTimeRemaining(resource.endDate);
-      imagePath = resource.imagePath; 
-      logoPath = resource.companyLogoUrl; 
-    } else {
-      throw Exception('Type de ressource non reconnu');
+    switch (resource.runtimeType) {
+      case Formation:
+        title = resource.title;
+        subtitle = resource.subtitle;
+        description = resource.description;
+        timeRemaining = resource.duration; // Ajuster si nécessaire
+        price = resource.price;
+        imagePath = resource.imagePath;
+        logoPath = ""; 
+        break;
+      case JobOffer:
+        title = resource.title;
+        subtitle = resource.companyName;
+        description = resource.description;
+        timeRemaining = _getTimeRemaining(resource.endDate);
+        imagePath = resource.imagePath; 
+        logoPath = resource.companyLogoUrl; 
+        break;
+      case Candidate:
+        title = '${resource.firstName} ${resource.lastName}';
+        subtitle = resource.position;
+        description = resource.bio;
+        timeRemaining = ''; // Pas applicable pour les candidats
+        imagePath = resource.pictureUrl; 
+        logoPath = ""; // Pas applicable pour les candidats
+        break;
+      default:
+        throw Exception('Type de ressource non reconnu');
     }
 
     return Container(
@@ -117,7 +128,7 @@ class MediaCart extends StatelessWidget {
                 color: Colors.grey,
               ),
               overflow: TextOverflow.ellipsis,
-              maxLines: 1, // Limitez le nombre de lignes
+              maxLines: 1,
             ),
             SizedBox(height: 4),
             SizedBox(
@@ -125,29 +136,33 @@ class MediaCart extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            'horloge-icon.png',
-                            width: 20,
-                            height: 20,
-                          ),
-                          SizedBox(width: 4),
-                          Text(
-                            timeRemaining,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: AppColors.ternaryColor,
+                  if (resource is Candidate) ...[
+                    // Aucune information de temps pour les candidats
+                  ] else ...[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'horloge-icon.png',
+                              width: 20,
+                              height: 20,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  if (resource is Formation) ...[ // Afficher uniquement pour les formations
+                            SizedBox(width: 4),
+                            Text(
+                              timeRemaining,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: AppColors.ternaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                  if (resource is Formation) ...[
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -130,6 +130,14 @@ flutter:
     - assets/ChefProjetItJobImage.jpg
     - assets/ResponsableMarketingJobImage.jpg
     - assets/TechnicienSupportJobImage.jpg
+    
+    - assets/AlineCandidatProfile.jpg
+    - assets/BriceCandidatProfile.jpg
+    - assets/EliseCandidatProfile.jpg
+    - assets/JospinCandidatProfile.jpg
+    - assets/kevinCandidatProfile.jpg
+    - assets/LynCandidatProfile.jpg
+    - assets/MireilleCandidatProfile.jpg
 
 
 
