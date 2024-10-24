@@ -11,13 +11,10 @@ import '../../ui/user_notif_shop_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
 
-
-
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -25,7 +22,9 @@ class _SolutionsPageState extends State<SolutionsPage> {
   int _selectedTabIndex = 0;
   final double _notificationScale = 1.0;
   final double _avatarScale = 1.0;
-  String? _selectedOption;
+
+  String? _selectedFormationOption; // Option pour le dropdown des formations
+  String? _selectedJobBoardOption; // Option pour le dropdown des emplois
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +40,6 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Emplois Récents',
       'Type d\'Emploi',
       'Domaine d\'Emploi',
-    ];
-    final List<String> candidatsOptions = [
-      'Candidats Récents',
-      'Candidats Par Domaine',
     ];
 
     List<String> currentOptions = _selectedTabIndex == 0 ? formationOptions : jobBoardOptions;
@@ -106,7 +101,8 @@ class _SolutionsPageState extends State<SolutionsPage> {
                           onTap: () {
                             setState(() {
                               _selectedTabIndex = index;
-                              _selectedOption = null;
+                              _selectedFormationOption = null;
+                              _selectedJobBoardOption = null; // Réinitialiser la sélection du dropdown des emplois
                             });
                           },
                         ),
@@ -121,15 +117,18 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     width: containerWidth,
                   ),
                 ),
+                // Dropdown pour les formations
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   child: CustomDropdown(
-                    selectedValue: _selectedOption,
-                    options: currentOptions,
+                    selectedValue: _selectedTabIndex == 0 ? _selectedFormationOption : null,
+                    options: formationOptions,
                     onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedOption = newValue;
-                      });
+                      if (_selectedTabIndex == 0) {
+                        setState(() {
+                          _selectedFormationOption = newValue;
+                        });
+                      }
                     },
                   ),
                 ),
@@ -138,23 +137,25 @@ class _SolutionsPageState extends State<SolutionsPage> {
                   containerWidth: containerWidth,
                   isFormation: _selectedTabIndex == 0,
                 ),
-                // Affichage des domaines de formation
+                // Dropdown pour les emplois
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   child: CustomDropdown(
-                    selectedValue: _selectedOption,
-                    options: _selectedTabIndex == 0 ? formationOptions : jobBoardOptions,
+                    selectedValue: _selectedTabIndex == 1 ? _selectedJobBoardOption : null,
+                    options: jobBoardOptions,
                     onChanged: (String? newValue) {
-                      setState(() {
-                        _selectedOption = newValue;
-                      });
+                      if (_selectedTabIndex == 1) {
+                        setState(() {
+                          _selectedJobBoardOption = newValue;
+                        });
+                      }
                     },
                   ),
                 ),
                 MediaScrollContainer(
-                  items: _selectedTabIndex == 0 ? domainesFormations : candidates,
+                  items: _selectedTabIndex == 5 ? candidates : domainesFormations,
                   containerWidth: containerWidth,
-                  isFormation: false, 
+                  isFormation: _selectedTabIndex == 1,
                 ),
               ],
             );
