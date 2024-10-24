@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FrakTal PlatForm',
       scrollBehavior: MyCustomScrollBehavior(), 
-      debugShowCheckedModeBanner: true,
+      // debugShowCheckedModeBanner: true,
       theme: ThemeData(
         colorScheme: colorScheme,
       ),

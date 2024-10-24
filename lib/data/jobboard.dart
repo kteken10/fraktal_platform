@@ -6,7 +6,7 @@ class JobOffer {
   final String description; 
   final DateTime startDate; 
   final DateTime endDate;   
-  final String imagePath; 
+  final String imageUrl; 
   final String function; // Nouvelle propriété pour la fonction du poste
 
   JobOffer({
@@ -16,7 +16,7 @@ class JobOffer {
     required this.companyLogoUrl,
     required this.startDate,
     required this.endDate,
-    required this.imagePath,
+    required this.imageUrl,
     required this.function, 
   });
 }
@@ -30,7 +30,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoNextel.png",
     startDate: DateTime(2023, 10, 15),
     endDate: DateTime(2024, 11, 15),
-    imagePath: "ExpertCyberSecuriteJobImage.jpg",
+    imageUrl: "ExpertCyberSecuriteJobImage.jpg",
     function: "Sécurité", 
   ),
   JobOffer(
@@ -40,7 +40,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoOrange.png",
     startDate: DateTime(2023, 10, 20),
     endDate: DateTime(2024, 11, 20),
-    imagePath: "PythonDeveloperJobImage.jpg",
+    imageUrl: "PythonDeveloperJobImage.jpg",
     function: "Développement", 
   ),
   JobOffer(
@@ -50,7 +50,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoAirFrance.png",
     startDate: DateTime(2023, 10, 5),
     endDate: DateTime(2023, 11, 5),
-    imagePath: "AssistantRhJobImage.jpg",
+    imageUrl: "AssistantRhJobImage.jpg",
     function: "Ressources Humaines",
   ),
   JobOffer(
@@ -60,7 +60,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "logoGoogle.png",
     startDate: DateTime(2023, 10, 10),
     endDate: DateTime(2024, 12, 10),
-    imagePath: "MarKetingDigitalJobImage.jpg",
+    imageUrl: "MarKetingDigitalJobImage.jpg",
     function: "Marketing", 
   ),
   JobOffer(
@@ -70,7 +70,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoOrange.png",
     startDate: DateTime(2023, 11, 1),
     endDate: DateTime(2024, 12, 31),
-    imagePath: "IngenieurReseauJobImage.jpg",
+    imageUrl: "IngenieurReseauJobImage.jpg",
     function: "Ingénierie", 
   ),
   JobOffer(
@@ -80,7 +80,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "logoGoogle.png",
     startDate: DateTime(2023, 11, 10),
     endDate: DateTime(2024, 11, 10),
-    imagePath: "MobileDeveloperJobImage.jpg",
+    imageUrl: "MobileDeveloperJobImage.jpg",
     function: "Développement", 
   ),
   JobOffer(
@@ -90,7 +90,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "logoUba.jpg",
     startDate: DateTime(2023, 10, 15),
     endDate: DateTime(2024, 11, 15),
-    imagePath: "AnalyseDonneJobImage.jpg",
+    imageUrl: "AnalyseDonneJobImage.jpg",
     function: "Analyse", 
   ),
   JobOffer(
@@ -100,7 +100,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "logoGoogle.png",
     startDate: DateTime(2023, 10, 30),
     endDate: DateTime(2024, 03, 30),
-    imagePath: "ChefProjetItJobImage.jpg",
+    imageUrl: "ChefProjetItJobImage.jpg",
     function: "Gestion de Projet", 
   ),
   JobOffer(
@@ -110,7 +110,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoAfriland.jpg",
     startDate: DateTime(2023, 10, 25),
     endDate: DateTime(2024, 12, 25),
-    imagePath: "ResponsableMarketingJobImage.jpg",
+    imageUrl: "ResponsableMarketingJobImage.jpg",
     function: "Marketing", 
   ),
   JobOffer(
@@ -120,7 +120,7 @@ List<JobOffer> jobOffers = [
     companyLogoUrl: "LogoNextel.png",
     startDate: DateTime(2023, 11, 5),
     endDate: DateTime(2024, 12, 05),
-    imagePath: "TechnicienSupportJobImage.jpg",
+    imageUrl: "TechnicienSupportJobImage.jpg",
     function: "Support Technique",
   ),
 ];
@@ -147,51 +147,97 @@ class Candidate {
 List<Candidate> candidates = [
   Candidate(
     firstName: "Aline",
-    lastName: "Candidat",
+    lastName: "",
     position: "Développeuse Mobile",
     bio: "Passionnée par les technologies mobiles et l'innovation.",
     pictureUrl: "AlineCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Brice",
-    lastName: "Candidat",
+    lastName: "",
     position: "Analyste de Données",
     bio: "Spécialiste en analyse de données et en visualisation.",
     pictureUrl: "BriceCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Elise",
-    lastName: "Candidat",
+    lastName: "",
     position: "Responsable Marketing",
     bio: "Experte en stratégies marketing et communication.",
     pictureUrl: "EliseCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Jospin",
-    lastName: "Candidat",
+    lastName: "",
     position: "Ingénieur Réseau",
     bio: "Passionné par les infrastructures réseau.",
     pictureUrl: "JospinCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Kevin",
-    lastName: "Candidat",
+    lastName: "Tenkam",
     position: "Développeur Backend",
     bio: "Amateur de développement et de systèmes scalables.",
     pictureUrl: "kevinCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Lyn",
-    lastName: "Candidat",
+    lastName: "Astride",
     position: "Chef de Projet",
     bio: "Gestionnaire de projets avec un sens aigu des détails.",
     pictureUrl: "LynCandidatProfile.jpg",
   ),
   Candidate(
     firstName: "Mireille",
-    lastName: "Candidat",
+    lastName: "SopGang",
     position: "Consultante en Stratégie",
     bio: "Experte en conseil et en développement stratégique.",
     pictureUrl: "MireilleCandidatProfile.jpg",
   ),
 ];
+
+// Définition de la classe JobDomain
+class JobDomain {
+  final String name;
+  final String imageUrl;
+  final String description;
+
+  JobDomain({
+    required this.name,
+    required this.imageUrl,
+    required this.description,
+  });
+}
+List<JobDomain> jobDomains = [
+  JobDomain(
+    name: "Développement",
+    imageUrl: "development_domain.jpg",
+    description: "Domaines liés au développement de logiciels et d'applications.",
+  ),
+  JobDomain(
+    name: "Analyse de Données",
+    imageUrl: "data_analysis_domain.jpg",
+    description: "Domaines axés sur l'analyse et la visualisation des données.",
+  ),
+  JobDomain(
+    name: "Marketing",
+    imageUrl: "marketing_domain.jpg",
+    description: "Domaines relatifs aux stratégies marketing et à la communication.",
+  ),
+  JobDomain(
+    name: "Réseau",
+    imageUrl: "network_domain.jpg",
+    description: "Domaines touchant aux infrastructures et à la gestion des réseaux.",
+  ),
+  JobDomain(
+    name: "Gestion de Projet",
+    imageUrl: "project_management_domain.jpg",
+    description: "Domaines axés sur la gestion et la coordination de projets.",
+  ),
+  JobDomain(
+    name: "Consulting",
+    imageUrl: "consulting_domain.jpg",
+    description: "Domaines liés au conseil stratégique et au développement.",
+  ),
+];
+

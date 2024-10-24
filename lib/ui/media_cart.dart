@@ -2,55 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:fraktal_platform/constants/colors.dart';
 import '../../data/formations.dart';
 import '../../data/jobboard.dart';
+import '../../utils/time_utils.dart';
 
 class MediaCart extends StatelessWidget {
   final dynamic resource;
-
   const MediaCart({
     super.key,
     required this.resource,
   });
-
   @override
   Widget build(BuildContext context) {
     String title;
     String subtitle;
     String description;
     String timeRemaining;
-    String price = ''; // Initialisation de price
-    String imagePath;
+    String price = ''; 
+    String imageUrl;
     String logoPath;
 
     switch (resource.runtimeType) {
-      case const (Formation) :
+      case const (Formation):
         title = resource.title;
         subtitle = resource.subtitle;
         description = resource.description;
-        timeRemaining = resource.duration; // Ajuster si nécessaire
+        timeRemaining = resource.duration; 
         price = resource.price;
-        imagePath = resource.imagePath;
+        imageUrl = resource.imageUrl;
         logoPath = ""; 
         break;
       case const (JobOffer):
         title = resource.title;
         subtitle = resource.companyName;
         description = resource.description;
-        timeRemaining = _getTimeRemaining(resource.endDate);
-        imagePath = resource.imagePath; 
+        timeRemaining = getTimeRemaining(resource.endDate);
+        imageUrl = resource.imageUrl; 
         logoPath = resource.companyLogoUrl; 
         break;
       case const (Candidate):
         title = '${resource.firstName} ${resource.lastName}';
         subtitle = resource.position;
         description = resource.bio;
-        timeRemaining = ''; // Pas applicable pour les candidats
-        imagePath = resource.pictureUrl; 
-        logoPath = ""; // Pas applicable pour les candidats
+        timeRemaining = ''; 
+        imageUrl = resource.pictureUrl; 
+        logoPath = ""; 
         break;
+      case const (JobDomain): 
+        title = resource.name;
+        subtitle = ''; 
+        description = resource.description;
+        timeRemaining = ''; 
+        imageUrl = resource.imageUrl; 
+        logoPath = ""; 
+        break;
+      case const (DomaineFormation):
+      title = resource.title;
+      subtitle="";
+      description = resource.description;
+      timeRemaining = ''; 
+      imageUrl = resource.imageUrl; 
+      logoPath = ""; 
+      break;  
       default:
         throw Exception('Type de ressource non reconnu');
     }
-
     return Container(
       height: 340,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -70,23 +84,12 @@ class MediaCart extends StatelessWidget {
               child: Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                   child: Image(
-                  image: ResizeImage(
-                    AssetImage(imagePath),
-                    width: double.infinity.toInt(), 
-                    height: 350,
+                  child: Image.asset(
+                    imageUrl,
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                    height: double.infinity,
                   ),
-                  // width: screenWidth,
-                  // fit: BoxFit.cover,
-                ),
-
-                  // child: Image.asset(
-                  //   imagePath,
-                  //   // fit: BoxFit.cover,
-                  //   // width: double.infinity,
-                  //   fit: BoxFit.fitWidth,
-                  //   height: double.infinity,
-                  // ),
                 ),
               ),
             ),
@@ -108,7 +111,7 @@ class MediaCart extends StatelessWidget {
                       color: AppColors.primaryColor,
                     ),
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 1, // Limitez le nombre de lignes
+                    maxLines: 1,
                   ),
                 ),
                 if (resource is JobOffer) ...[
@@ -129,7 +132,7 @@ class MediaCart extends StatelessWidget {
                 color: Colors.black,
               ),
               overflow: TextOverflow.ellipsis,
-              maxLines: 1, // Limitez le nombre de lignes
+              maxLines: 1,
             ),
             SizedBox(height: 4),
             Text(
@@ -204,24 +207,5 @@ class MediaCart extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _getTimeRemaining(DateTime endDate) {
-    final now = DateTime.now();
-    final difference = endDate.difference(now);
-
-    if (difference.isNegative) {
-      return 'Expiré'; // L'offre est expirée
-    } else {
-      final months = (difference.inDays / 30).floor();
-      final days = difference.inDays % 30;
-      final hours = difference.inHours % 24;
-
-      if (months > 0) {
-        return '$months mois, $days jours restantes';
-      } else {
-        return '$days jours, $hours heures restantes';
-      }
-    }
   }
 }

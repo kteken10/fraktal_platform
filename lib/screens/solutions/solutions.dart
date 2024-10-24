@@ -11,10 +11,13 @@ import '../../ui/user_notif_shop_icon.dart';
 import '../../utils/method.dart';
 import '../../ui/carousel_solution.dart';
 
+
+
 class SolutionsPage extends StatefulWidget {
   const SolutionsPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SolutionsPageState createState() => _SolutionsPageState();
 }
 
@@ -34,11 +37,14 @@ class _SolutionsPageState extends State<SolutionsPage> {
       'Catalogues',
       'Tutoriel',
     ];
-
     final List<String> jobBoardOptions = [
       'Emplois Récents',
       'Type d\'Emploi',
       'Domaine d\'Emploi',
+    ];
+    final List<String> candidatsOptions = [
+      'Candidats Récents',
+      'Candidats Par Domaine',
     ];
 
     List<String> currentOptions = _selectedTabIndex == 0 ? formationOptions : jobBoardOptions;
@@ -100,13 +106,12 @@ class _SolutionsPageState extends State<SolutionsPage> {
                           onTap: () {
                             setState(() {
                               _selectedTabIndex = index;
-                              _selectedOption = null; // Réinitialiser la sélection lors du changement d'onglet
+                              _selectedOption = null;
                             });
                           },
                         ),
                       );
-                    }),
-                  ),
+                    })),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 32),
@@ -128,19 +133,29 @@ class _SolutionsPageState extends State<SolutionsPage> {
                     },
                   ),
                 ),
-                // Premier MediaScrollContainer
                 MediaScrollContainer(
                   items: _selectedTabIndex == 0 ? formations : jobOffers,
                   containerWidth: containerWidth,
                   isFormation: _selectedTabIndex == 0,
                 ),
-                // Deuxième MediaScrollContainer si JobBoard est sélectionné
-                if (_selectedTabIndex != 0) 
-                  MediaScrollContainer(
-                    items: candidates, // Assurez-vous que `candidates` est défini et accessible
-                    containerWidth: containerWidth,
-                    isFormation: false, // Changer en fonction de votre logique
+                // Affichage des domaines de formation
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  child: CustomDropdown(
+                    selectedValue: _selectedOption,
+                    options: _selectedTabIndex == 0 ? formationOptions : jobBoardOptions,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedOption = newValue;
+                      });
+                    },
                   ),
+                ),
+                MediaScrollContainer(
+                  items: _selectedTabIndex == 0 ? domainesFormations : candidates,
+                  containerWidth: containerWidth,
+                  isFormation: false, 
+                ),
               ],
             );
           },

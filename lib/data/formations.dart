@@ -1,13 +1,13 @@
 class Formation {
-  final String imagePath; 
-  final String title; 
-  final String subtitle; 
-  final String description; 
-  final String duration; 
-  final String price; 
+  final String imageUrl;
+  final String title;
+  final String subtitle;
+  final String description;
+  final String duration;
+  final String price;
 
   Formation({
-    required this.imagePath,
+    required this.imageUrl,
     required this.title,
     required this.subtitle,
     required this.description,
@@ -17,21 +17,22 @@ class Formation {
 }
 
 class DomaineFormation {
-  final String imagePath; 
+  final String imageUrl;
   final String title;
   final String countFormation;
+  final String description; // Ajouté pour plus de cohérence
 
   DomaineFormation({
-    required this.imagePath,
+    required this.imageUrl,
     required this.title,
     required this.countFormation,
+    required this.description, // Ajouté ici
   });
 }
 
-
 List<Formation> formations = [
   Formation(
-    imagePath: 'frontend_developer.jpg',
+    imageUrl: 'frontend_developer.jpg',
     title: 'Développeur Frontend',
     subtitle: 'Formation en développement web',
     description: 'Apprenez à créer des sites web interactifs.',
@@ -39,7 +40,7 @@ List<Formation> formations = [
     price: 'Prix : 600 €',
   ),
   Formation(
-    imagePath: 'machinelearing.jpg',
+    imageUrl: 'machinelearing.jpg',
     title: 'Machine Learning',
     subtitle: 'Formation en IA',
     description: 'Comprendre les bases du machine learning.',
@@ -47,7 +48,7 @@ List<Formation> formations = [
     price: 'Prix : 800 €',
   ),
   Formation(
-    imagePath: 'iot.jpg',
+    imageUrl: 'iot.jpg',
     title: 'Internet des Objets',
     subtitle: 'Formation IoT',
     description: 'Introduction aux technologies IoT.',
@@ -55,7 +56,7 @@ List<Formation> formations = [
     price: 'Prix : 500 €',
   ),
   Formation(
-    imagePath: 'developpeurweb.jpg',
+    imageUrl: 'developpeurweb.jpg',
     title: 'Développeur Web',
     subtitle: 'Formation Full Stack',
     description: 'Maîtrisez le développement web complet.',
@@ -63,7 +64,7 @@ List<Formation> formations = [
     price: 'Prix : 1000 €',
   ),
   Formation(
-    imagePath: 'cybersecurite.jpg',
+    imageUrl: 'cybersecurite.jpg',
     title: 'Cybersécurité',
     subtitle: 'Formation en sécurité informatique',
     description: 'Apprenez à protéger les systèmes d\'information.',
@@ -71,7 +72,7 @@ List<Formation> formations = [
     price: 'Prix : 900 €',
   ),
   Formation(
-    imagePath: 'MarKetingRh.jpg',
+    imageUrl: 'MarKetingRh.jpg',
     title: 'Marketing RH',
     subtitle: 'Formation en marketing des ressources humaines',
     description: 'Stratégies de marketing pour la gestion des ressources humaines.',
@@ -79,7 +80,7 @@ List<Formation> formations = [
     price: 'Prix : 500 €',
   ),
   Formation(
-    imagePath: 'NodeJsFormation.jpg',
+    imageUrl: 'NodeJsFormation.jpg',
     title: 'Formation Node.js',
     subtitle: 'Développement Backend',
     description: 'Maîtrisez le développement d\'applications avec Node.js.',
@@ -87,7 +88,7 @@ List<Formation> formations = [
     price: 'Prix : 700 €',
   ),
   Formation(
-    imagePath: 'ReactJsFormation.png',
+    imageUrl: 'ReactJsFormation.png',
     title: 'Formation React.js',
     subtitle: 'Développement Frontend',
     description: 'Apprenez à construire des interfaces utilisateur avec React.',
@@ -95,7 +96,7 @@ List<Formation> formations = [
     price: 'Prix : 650 €',
   ),
   Formation(
-    imagePath: 'angularformation.jpg',
+    imageUrl: 'angularformation.jpg',
     title: 'Formation Angular',
     subtitle: 'Développement d\'applications web',
     description: 'Découvrez le développement d\'applications avec Angular.',
@@ -103,7 +104,7 @@ List<Formation> formations = [
     price: 'Prix : 600 €',
   ),
   Formation(
-    imagePath: 'CommunityManager.jpg',
+    imageUrl: 'CommunityManager.jpg',
     title: 'Community Manager',
     subtitle: 'Formation en gestion de communauté',
     description: 'Stratégies et outils pour gérer une communauté en ligne.',
@@ -111,7 +112,7 @@ List<Formation> formations = [
     price: 'Prix : 400 €',
   ),
   Formation(
-    imagePath: 'Homeimage.jpg',
+    imageUrl: 'Homeimage.jpg',
     title: 'Design d\'Intérieur',
     subtitle: 'Formation en design d\'intérieur',
     description: 'Apprenez à concevoir des espaces intérieurs.',
@@ -120,28 +121,29 @@ List<Formation> formations = [
   ),
 ];
 
-
-
 List<DomaineFormation> domainesFormations = [
   DomaineFormation(
-    imagePath: 'tech.jpg',
+    imageUrl: 'tech.jpg',
     title: 'Technologie',
     countFormation: '6',
+    description: 'Domaines liés aux nouvelles technologies.', 
   ),
   DomaineFormation(
-    imagePath: 'data_science.jpg',
+    imageUrl: 'data_science.jpg',
     title: 'Data Science',
     countFormation: '2',
+    description: 'Domaines axés sur l\'analyse et la gestion des données.',
   ),
   DomaineFormation(
-    imagePath: 'uiux_design.jpg',
+    imageUrl: 'uiux_design.jpg',
     title: 'Design UI/UX',
     countFormation: '3',
+    description: 'Domaines de design centrés sur l\'expérience utilisateur.', 
   ),
   DomaineFormation(
-    imagePath: 'digital_marketing.jpg',
+    imageUrl: 'digital_marketing.jpg',
     title: 'Marketing Digital',
     countFormation: '3',
+    description: 'Domaines liés aux stratégies de marketing en ligne.', 
   ),
 ];
-
